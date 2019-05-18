@@ -10,7 +10,7 @@
         Transferencia
       </v-btn>
     </template>
-    <v-list>
+    <v-list id="formularioTransferencia">
     <p class="text-md-center">Nueva Transferencia</p>
       <v-layout column>
         <v-combobox
@@ -21,6 +21,7 @@
           type="button"
           class="seleccion"
           v-model="cuentaDestino"
+          id="selectorCuentaTransferencia"
         >
         </v-combobox>
         <v-text-field
@@ -28,6 +29,7 @@
           label="Monto"
           type="number"
           v-model="monto"
+          id="montoTransferencia"
         ></v-text-field>
         <v-menu
           ref="menu"
@@ -39,6 +41,7 @@
           offset-y
           full-width
           min-width="290px"
+          id="menuCalendarioTransferencia"
         >
           <template v-slot:activator="{ on }">
             <v-text-field
@@ -48,12 +51,13 @@
               readonly
               v-on="on"
               class="calendario"
+              id="fechaCalendarioTransferencia"
             ></v-text-field>
           </template>
-          <v-date-picker v-model="fecha" no-title scrollable>
+          <v-date-picker v-model="fecha" no-title scrollable id="datePickerTransferencia">
             <v-spacer></v-spacer>
-            <v-btn flat color="primary" @click="menu = false">Cancel</v-btn>
-            <v-btn flat color="primary" @click="$refs.menu.save(fecha)">OK</v-btn>
+            <v-btn flat color="primary" id="cancelarCalendarioTransferencia" @click="menu = false">Cancel</v-btn>
+            <v-btn flat color="primary" id="okCalendarioTransferencia" @click="$refs.menu.save(fecha)">OK</v-btn>
           </v-date-picker>
         </v-menu>
         <v-btn
@@ -61,7 +65,7 @@
           dark
           round
           class="input"
-          id="AgregarTransferencia"
+          id="agregarTransferencia"
           @click="transferir"
         >
           Enviar

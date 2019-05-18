@@ -8,6 +8,7 @@
           :items="categorias"
           label="Categoria"
           @change="filtrarCategoria"
+          id="categoriaReporte"
         ></v-select>
       </v-flex>
       <v-flex xs3>
@@ -29,8 +30,9 @@
             label="Desde"
             prepend-icon="event"
             readonly
+            id="fechaInicioReporte"
           ></v-text-field>
-          <v-date-picker v-model="fechaInicio" @input="filtrarFechaInicio"></v-date-picker>
+          <v-date-picker v-model="fechaInicio" @input="filtrarFechaInicio" id="dPFechaInicioReporte"></v-date-picker>
         </v-menu>
       </v-flex>
       <v-flex xs3>
@@ -52,8 +54,9 @@
             label="Hasta"
             prepend-icon="event"
             readonly
+            id="fechaFinReporte"
           ></v-text-field>
-          <v-date-picker v-model="fechaFinal" @input="filtrarFechaFin"></v-date-picker>
+          <v-date-picker v-model="fechaFinal" @input="filtrarFechaFin" id="dPFechaFinReporte"></v-date-picker>
         </v-menu>
       </v-flex>
     </v-layout>
@@ -69,6 +72,7 @@
       :hide-actions=true
       :search="filters"
       :custom-filter="customFilter"
+      id="tablaReporte"
       >
       <template slot="headers" slot-scope="props">
         <tr>

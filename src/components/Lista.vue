@@ -8,6 +8,7 @@
           :items="items"
           class="lista"
           hide-actions
+          :id="'tabla'+titulo"
         >
           <template v-slot:items="props">
             <td class="text-xs-rigth">{{ props.item.fecha | formatDate }}</td>

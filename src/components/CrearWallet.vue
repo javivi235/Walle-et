@@ -7,7 +7,7 @@
       <v-layout row>
         <v-flex xs12 sm6 offset-sm3>
           <v-text-field
-            id="nombre"
+            id="nombreCrearCuenta"
             v-model="nombre"
             size="large"
             color="green"
@@ -20,20 +20,24 @@
             dark
             large
             @click="addCuenta()
-            snackbar = true">Crear Wallet</v-btn>
+            snackbar = true"
+            id="crearCuenta"
+            >Crear Cuenta</v-btn>
         </v-flex>
-        <v-btn round color="#64C195" router to="/">Volver</v-btn>
+        <v-btn round color="#64C195" router to="/" id="volverHome">Volver</v-btn>
       </v-layout>
       <v-snackbar
         v-model="snackbar"
         :timeout="timeout"
         :top="'top'"
+        id="snackbarCrearCuenta"
       >
         {{snackbarText}}
         <v-btn
           color="#64C195"
           flat
           @click="snackbar = false"
+          id="okSnackbar"
         >
           OK
         </v-btn>

@@ -5,11 +5,12 @@
         color="#64C195"
         dark
         round
+        :id="'boton'+tipo"
       >
         +{{tipo}}
       </v-btn>
     </template>
-    <v-list>
+    <v-list :id="'formulario'+tipo">
       <p class="text-md-center">Nuevo {{tipo}}</p>
       <v-layout column>
         <v-combobox
@@ -20,12 +21,14 @@
           type="button"
           class="seleccion"
           v-model="categoria"
+          :id="'selector'+tipo"
         ></v-combobox>
         <v-text-field
           class="input"
           label="Monto"
           type="number"
           v-model="monto"
+          :id="'monto'+tipo"
         ></v-text-field>
         <v-menu
           ref="menu"
@@ -37,6 +40,7 @@
           offset-y
           full-width
           min-width="290px"
+          :id="'menuCalendario'+tipo"
         >
           <template v-slot:activator="{ on }">
             <v-text-field
@@ -46,12 +50,13 @@
               readonly
               v-on="on"
               class="calendario"
+              :id="'fechaCalendario'+tipo"
             ></v-text-field>
           </template>
-          <v-date-picker v-model="fecha" no-title scrollable>
+          <v-date-picker v-model="fecha" no-title scrollable :id="'datePicker'+tipo">
             <v-spacer></v-spacer>
-            <v-btn flat color="primary" @click="menu = false">Cancel</v-btn>
-            <v-btn flat color="primary" @click="$refs.menu.save(fecha)">OK</v-btn>
+            <v-btn flat color="primary" :id="'cancelarCalendario'+tipo" @click="menu = false">Cancel</v-btn>
+            <v-btn flat color="primary" :id="'okCalendario'+tipo" @click="$refs.menu.save(fecha)">OK</v-btn>
           </v-date-picker>
         </v-menu>
         <v-btn
@@ -60,6 +65,7 @@
           round
           class="input"
           @click="agregar"
+          :id="'agregar'+tipo"
         >
           Agregar
         </v-btn>

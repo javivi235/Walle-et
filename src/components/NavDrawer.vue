@@ -6,9 +6,11 @@
       fixed
       app
       temporary
+      id="nav"
     >
       <v-list dense>
         <v-list-tile active-class="green--text" v-for="cuenta in cuentas" :key="cuenta.nombre"
+        :id="cuenta.nombre"
          @click="actualizarHomeData(cuenta)"
          router :to="cuenta.route">
           <v-list-tile-action active-class="green--text">
@@ -23,13 +25,13 @@
       color="#64C195"
       dark
       round
-      id="botonReporte"
+      id="crearCuentaNav"
       @click="$router.push('crear')"
       >+cuenta
       </v-btn>
     </v-navigation-drawer>
     <v-toolbar dark app fixed clipped-left color="#64C195">
-      <v-toolbar-side-icon class="drawerbutton" @click="openDrawer"></v-toolbar-side-icon>
+      <v-toolbar-side-icon class="drawerbutton" @click="openDrawer" id="openDrawer"></v-toolbar-side-icon>
       <v-toolbar-title>WALL-ET</v-toolbar-title>
     </v-toolbar>
   </nav>

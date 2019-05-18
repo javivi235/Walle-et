@@ -6,8 +6,8 @@
         :cuentaOriginal="cuenta.nombre"
         :fondos="cuenta.fondos"
         @actualizarCuenta="actualizarCuenta"/>
-      <Lista :items = "ingresos" titulo="Ingresos" style="heigth: 10%"/>
-      <Lista :items = "egresos" titulo="Egresos" height="15%"/>
+      <Lista :items = "ingresos" titulo="Ingresos" style="heigth: 10%" id="listaIngresos"/>
+      <Lista :items = "egresos" titulo="Egresos" height="15%" id="listaEgresos"/>
       <Herramientas :cuenta="cuenta" height="25%"/>
     </div>
   </v-container>

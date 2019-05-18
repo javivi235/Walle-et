@@ -10,7 +10,7 @@
           +Categoria
       </v-btn>
     </template>
-    <v-list>
+    <v-list id="formularioCategoria">
       <p class="text-md-center">Nueva Categoria</p>
       <v-layout column>
         <v-combobox
@@ -21,18 +21,20 @@
           type="button"
           class="seleccion"
           v-model="tipo"
+          id="selectorCategoria"
         ></v-combobox>
         <v-text-field
           class="input"
           label="Nombre"
           v-model="nombre"
+          id="nombreCategoria"
         ></v-text-field>
         <v-btn
           color="#64C195"
           dark
           round
           class="input"
-          id="AgregarCategoria"
+          id="agregarCategoria"
           @click="agregar"
         >
           Agregar

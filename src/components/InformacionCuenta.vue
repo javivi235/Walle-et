@@ -10,6 +10,7 @@
                 <v-text-field
                   v-model="cuentaActual"
                   :readonly="!edicion"
+                  id="nombreCuenta"
                 ></v-text-field>
               </div>
               <v-btn
@@ -17,6 +18,7 @@
                 icon
                 v-if="!edicion"
                 @click="edicion = true"
+                id="editarCuenta"
               >
                 <v-icon>edit</v-icon>
               </v-btn>
@@ -25,10 +27,11 @@
                 icon
                 v-else
                 @click="editarNombre"
+                id="guardarCuenta"
               >
                 <v-icon>save</v-icon>
               </v-btn>
-              <h3 class="saldo">SALDO: {{fondos}}</h3>
+              <h3 class="saldo" id="saldoCuenta">SALDO: {{fondos}}</h3>
               <v-spacer></v-spacer>
               <v-expand-transition>
                 <div
@@ -41,6 +44,7 @@
                     transition="scale-transition"
                     :color= "alerta.color"
                     outline
+                    id="alertaSuperior"
                   >
                     {{alerta.mensaje}}
                   </v-alert>
@@ -50,6 +54,7 @@
                 class="boton"
                 icon
                 @click="borrarCuenta"
+                id="borrarCuenta"
               >
                 <v-icon>delete</v-icon>
               </v-btn>

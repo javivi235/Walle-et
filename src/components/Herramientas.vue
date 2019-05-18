@@ -41,6 +41,7 @@
                     transition="scale-transition"
                     :color= "alerta.color"
                     outline
+                    id="alertaInferior"
                   >
                     {{alerta.mensaje}}
                   </v-alert>
