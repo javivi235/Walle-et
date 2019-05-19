@@ -118,11 +118,11 @@ describe('Render crear cuenta', () => {
   })
 
   it('elementos iniciales', () => {
-      assert.exists(wrapper.find('.Header'))
-      assert.exists(wrapper.find('#nombreCrearCuenta'))
-      assert.exists(wrapper.find('#crearCuenta'))
-      assert.exists(wrapper.find('#volverHome'))
-      assert.exists(wrapper.find('#snackbarCrearCuenta'))
-      assert.exists(wrapper.find('#okSnackbar'))
+    assert.exists(wrapper.find('.Header'))
+    assert.exists(wrapper.find('#nombreCrearCuenta'))
+    assert.exists(wrapper.find('#crearCuenta'))
+    assert.exists(wrapper.find('#volverHome'))
+    assert.exists(wrapper.find('#snackbarCrearCuenta'))
+    assert.exists(wrapper.find('#okSnackbar'))
   })
 })
