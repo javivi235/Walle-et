@@ -56,7 +56,6 @@
           </template>
           <v-date-picker v-model="fecha" no-title scrollable id="datePickerTransferencia">
             <v-spacer></v-spacer>
-            <v-btn flat color="primary" id="cancelarCalendarioTransferencia" @click="menu = false">Cancel</v-btn>
             <v-btn flat color="primary" id="okCalendarioTransferencia" @click="$refs.menu.save(fecha)">OK</v-btn>
           </v-date-picker>
         </v-menu>
@@ -101,6 +100,12 @@ export default {
           throw new Error('Seleccione la cuenta objetivo')
         } else if (this.monto <= 0) {
           throw new Error('Ingrese un monto mayor a 0')
+        } else if (this.fecha === '') {
+          throw new Error('Seleccione una fecha valida')
+        } else if (this.otrasCuentas.find((cuenta) => (cuenta === this.cuentaDestino)) === undefined) {
+          throw new Error('Seleccione una cuenta destino existente')
+        } else if (Number(this.monto) > Number(this.cuenta.fondos)) {
+          throw new Error('Saldo insuficiente')
         }
         this.cuenta.fondos = Number(this.cuenta.fondos) - Number(this.monto)
         this.$store.dispatch('agregarEgreso', {

@@ -6,92 +6,371 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 Vue.use(Vuex)
 
-describe('Unit tests relacionados a agregar un nuevo ingreso', () => {
+describe('Ingresos, funcional', () => {
   let wrapper
   let store
   const assert = require('chai').assert
-  const datosTransaccion = [
-    { cuenta: 'ahorros', fecha: '06/05/2019', monto: 120, categoria: 'Salario'
-    }]
-  const cuenta = { nombre: 'ahorros', fondos: '100' }
 
   beforeEach(function () {
     store = TestUtil.getDefaultStore()
+    store.state.cuentas.push({ icon: 'account_balance', nombre: 'ahorros', fondos: 0, route: '/' })
     wrapper = shallowMount(BotonTransacciones,
       {
-        store, propsData: { tipo: 'Ingreso', cuenta: cuenta, categorias: store.state.categoriaIngresos }
+        store,
+        propsData: {
+          tipo: 'Ingreso',
+          cuenta: { icon: 'account_balance', nombre: 'ahorros', fondos: 0, route: '/' },
+          categorias: store.state.categoriaIngresos }
       })
   })
-  it('Agrega el nuevo ingreso al inicio del array ingresos de la store', () => {
-    wrapper.vm.monto = datosTransaccion[0].monto
-    wrapper.vm.fecha = datosTransaccion[0].fecha
-    wrapper.vm.categoria = datosTransaccion[0].categoria
+
+  it('Agregar Ingreso', () => {
+    const datosTransaccion = { cuenta: 'ahorros', fecha: '06/05/2019', monto: 120, categoria: 'Salario' }
+    const saldoInicial = 0
+
+    wrapper.vm.monto = datosTransaccion.monto
+    wrapper.vm.fecha = datosTransaccion.fecha
+    wrapper.vm.categoria = datosTransaccion.categoria
 
     wrapper.vm.agregar()
-    assert.equal(datosTransaccion[0].cuenta, store.state.ingresos[0].cuenta, 'no se agrega la cuenta correctamente')
-    assert.equal(datosTransaccion[0].fecha, store.state.ingresos[0].fecha, 'no se agrega la fecha correctamente')
-    assert.equal(datosTransaccion[0].monto, store.state.ingresos[0].monto, 'no se agrega el monto correctamente')
-    assert.equal(datosTransaccion[0].categoria, store.state.ingresos[0].categoria, 'no se agrega la categoria correctamente')
-    assert.equal(220, store.state.cuentas.find(cuenta => cuenta.nombre === datosTransaccion[0].cuenta).fondos, 'no se actualiza el saldo en la cuenta ' + store.state.cuentas[0].fondos)
-  })
-  it('No se pueden agregar ingresos de montos menores o iguales a 0', () => {
-    wrapper.vm.monto = -9
-    wrapper.vm.fecha = datosTransaccion[0].fecha
-    wrapper.vm.categoria = datosTransaccion[0].categoria
-    wrapper.vm.agregar()
-    assert.equal(0, store.state.ingresos.length, 'se ha agregado un ingreso negativo, , ' + store.state.ingresos.length)
-    wrapper.vm.monto = 0
-    wrapper.vm.fecha = datosTransaccion[0].fecha
-    wrapper.vm.categoria = datosTransaccion[0].categoria
-    wrapper.vm.agregar()
-    assert.equal(0, store.state.ingresos.length, 'se ha agregado un ingresode monto 0, ' + store.state.ingresos.length)
+
+    assert.exists(store.state.ingresos.find(function (ingreso) {
+      return (ingreso.cuenta === datosTransaccion.cuenta) &&
+      (ingreso.fecha === datosTransaccion.fecha) &&
+      (ingreso.categoria === datosTransaccion.categoria) &&
+      (ingreso.monto === datosTransaccion.monto)
+    }), 'No se encontro el ingreso')
+    assert.equal(store.state.cuentas.find(cuenta => cuenta.nombre === datosTransaccion.cuenta).fondos,
+      (saldoInicial + datosTransaccion.monto), 'No se actualiza el saldo de la cuenta')
   })
 })
-describe('Unit tests relacionados a agregar un nuevo egreso', () => {
+describe('Egresos, funcional', () => {
   let wrapper
   let store
   const assert = require('chai').assert
-  const datosTransaccion = [
-    { cuenta: 'ahorros', fecha: '06/05/2019', monto: 10, categoria: 'Otros'
-    }]
-  const cuenta = { nombre: 'ahorros', fondos: '100' }
 
   beforeEach(function () {
     store = TestUtil.getDefaultStore()
+    store.state.cuentas.push({ icon: 'account_balance', nombre: 'ahorros', fondos: 0, route: '/' })
     wrapper = shallowMount(BotonTransacciones,
       {
-        store, propsData: { tipo: 'Egreso', cuenta: cuenta, categorias: store.state.categoriaEgresos }
+        store,
+        propsData: {
+          tipo: 'Egreso',
+          cuenta: { icon: 'account_balance', nombre: 'ahorros', fondos: 200, route: '/' },
+          categorias: store.state.categoriaEgresos }
       })
   })
-  it('Agrega el nuevo egreso al inicio del array egresos de la store', () => {
-    wrapper.vm.monto = datosTransaccion[0].monto
-    wrapper.vm.fecha = datosTransaccion[0].fecha
-    wrapper.vm.categoria = datosTransaccion[0].categoria
+
+  it('Agregar Egreso', () => {
+    const datosTransaccion = { cuenta: 'ahorros', fecha: '06/05/2019', monto: 100, categoria: 'Expensas' }
+    const saldoInicial = 200
+
+    wrapper.vm.monto = datosTransaccion.monto
+    wrapper.vm.fecha = datosTransaccion.fecha
+    wrapper.vm.categoria = datosTransaccion.categoria
 
     wrapper.vm.agregar()
-    assert.equal(datosTransaccion[0].cuenta, store.state.egresos[0].cuenta, 'no se agrega la cuenta correctamente')
-    assert.equal(datosTransaccion[0].fecha, store.state.egresos[0].fecha, 'no se agrega la fecha correctamente')
-    assert.equal(datosTransaccion[0].monto, store.state.egresos[0].monto, 'no se agrega el monto correctamente')
-    assert.equal(datosTransaccion[0].categoria, store.state.egresos[0].categoria, 'no se agrega la categoria correctamente')
-    assert.equal(90, store.state.cuentas.find(cuenta => cuenta.nombre === datosTransaccion[0].cuenta).fondos, 'no se actualiza el saldo en la cuenta ')
+
+    assert.exists(store.state.egresos.find(function (egreso) {
+      return (egreso.cuenta === datosTransaccion.cuenta) &&
+      (egreso.fecha === datosTransaccion.fecha) &&
+      (egreso.categoria === datosTransaccion.categoria) &&
+      (egreso.monto === datosTransaccion.monto)
+    }), 'No se encontro el egreso')
+    assert.equal(store.state.cuentas.find(cuenta => cuenta.nombre === datosTransaccion.cuenta).fondos,
+      (saldoInicial - datosTransaccion.monto), 'No se actualiza el saldo de la cuenta')
   })
-  it('No se pueden agregar egresos de montos menores o iguales a 0', () => {
-    wrapper.vm.monto = -9
-    wrapper.vm.fecha = datosTransaccion[0].fecha
-    wrapper.vm.categoria = datosTransaccion[0].categoria
-    wrapper.vm.agregar()
-    assert.equal(0, store.state.egresos.length, 'se ha agregado un egreso negativo')
-    wrapper.vm.monto = 0
-    wrapper.vm.fecha = datosTransaccion[0].fecha
-    wrapper.vm.categoria = datosTransaccion[0].categoria
-    wrapper.vm.agregar()
-    assert.equal(0, store.state.egresos.length, 'se ha agregado un egreso de monto 0')
+})
+describe('Ingresos invalidos', () => {
+  let wrapper
+  let store
+  const assert = require('chai').assert
+
+  beforeEach(function () {
+    store = TestUtil.getDefaultStore()
+    store.state.cuentas.push({ icon: 'account_balance', nombre: 'ahorros', fondos: 0, route: '/' })
+    wrapper = shallowMount(BotonTransacciones,
+      {
+        store,
+        propsData: {
+          tipo: 'Ingreso',
+          cuenta: { icon: 'account_balance', nombre: 'ahorros', fondos: 0, route: '/' },
+          categorias: store.state.categoriaIngresos }
+      })
   })
-  it('No se puede hacer un egreso de monto mayor a tu saldo', () => {
-    wrapper.vm.monto = 150
-    wrapper.vm.fecha = datosTransaccion[0].fecha
-    wrapper.vm.categoria = datosTransaccion[0].categoria
+
+  it('categoria vacia', () => {
+    const datosTransaccion = { cuenta: 'ahorros', fecha: '06/05/2019', monto: 100, categoria: '' }
+    const saldoInicial = 0
+
+    wrapper.vm.monto = datosTransaccion.monto
+    wrapper.vm.fecha = datosTransaccion.fecha
+    wrapper.vm.categoria = datosTransaccion.categoria
+
     wrapper.vm.agregar()
-    assert.equal(0, store.state.egresos.length, 'se ha realizado un egreso sin tener saldo suficiiente')
+
+    assert.notExists(store.state.ingresos.find(function (ingreso) {
+      return (ingreso.cuenta === datosTransaccion.cuenta) &&
+      (ingreso.fecha === datosTransaccion.fecha) &&
+      (ingreso.categoria === datosTransaccion.categoria) &&
+      (ingreso.monto === datosTransaccion.monto)
+    }), 'Se agrego el ingreso')
+    assert.equal(store.state.cuentas.find(cuenta => cuenta.nombre === datosTransaccion.cuenta).fondos,
+      saldoInicial, 'Se cambia el saldo de la cuenta')
+  })
+  it('fecha vacia', () => {
+    const datosTransaccion = { cuenta: 'ahorros', fecha: '', monto: 100, categoria: 'Salario' }
+    const saldoInicial = 0
+
+    wrapper.vm.monto = datosTransaccion.monto
+    wrapper.vm.fecha = datosTransaccion.fecha
+    wrapper.vm.categoria = datosTransaccion.categoria
+
+    wrapper.vm.agregar()
+
+    assert.notExists(store.state.ingresos.find(function (ingreso) {
+      return (ingreso.cuenta === datosTransaccion.cuenta) &&
+      (ingreso.fecha === datosTransaccion.fecha) &&
+      (ingreso.categoria === datosTransaccion.categoria) &&
+      (ingreso.monto === datosTransaccion.monto)
+    }), 'Se agrego el ingreso')
+    assert.equal(store.state.cuentas.find(cuenta => cuenta.nombre === datosTransaccion.cuenta).fondos,
+      saldoInicial, 'Se cambia el saldo de la cuenta')
+  })
+  it('monto nulo', () => {
+    const datosTransaccion = { cuenta: 'ahorros', fecha: '06/05/2019', monto: 0, categoria: 'Salario' }
+    const saldoInicial = 0
+
+    wrapper.vm.monto = datosTransaccion.monto
+    wrapper.vm.fecha = datosTransaccion.fecha
+    wrapper.vm.categoria = datosTransaccion.categoria
+
+    wrapper.vm.agregar()
+
+    assert.notExists(store.state.ingresos.find(function (ingreso) {
+      return (ingreso.cuenta === datosTransaccion.cuenta) &&
+      (ingreso.fecha === datosTransaccion.fecha) &&
+      (ingreso.categoria === datosTransaccion.categoria) &&
+      (ingreso.monto === datosTransaccion.monto)
+    }), 'Se agrego el ingreso')
+    assert.equal(store.state.cuentas.find(cuenta => cuenta.nombre === datosTransaccion.cuenta).fondos,
+      saldoInicial, 'Se cambia el saldo de la cuenta')
+  })
+  it('monto negativo', () => {
+    const datosTransaccion = { cuenta: 'ahorros', fecha: '06/05/2019', monto: -50, categoria: 'Salario' }
+    const saldoInicial = 0
+
+    wrapper.vm.monto = datosTransaccion.monto
+    wrapper.vm.fecha = datosTransaccion.fecha
+    wrapper.vm.categoria = datosTransaccion.categoria
+
+    wrapper.vm.agregar()
+
+    assert.notExists(store.state.ingresos.find(function (ingreso) {
+      return (ingreso.cuenta === datosTransaccion.cuenta) &&
+      (ingreso.fecha === datosTransaccion.fecha) &&
+      (ingreso.categoria === datosTransaccion.categoria) &&
+      (ingreso.monto === datosTransaccion.monto)
+    }), 'Se agrego el ingreso')
+    assert.equal(store.state.cuentas.find(cuenta => cuenta.nombre === datosTransaccion.cuenta).fondos,
+      saldoInicial, 'Se cambia el saldo de la cuenta')
+  })
+  it('categoria inexistente', () => {
+    const datosTransaccion = { cuenta: 'ahorros', fecha: '06/05/2019', monto: 50, categoria: 'Tienda' }
+    const saldoInicial = 0
+
+    wrapper.vm.monto = datosTransaccion.monto
+    wrapper.vm.fecha = datosTransaccion.fecha
+    wrapper.vm.categoria = datosTransaccion.categoria
+
+    wrapper.vm.agregar()
+
+    assert.notExists(store.state.ingresos.find(function (ingreso) {
+      return (ingreso.cuenta === datosTransaccion.cuenta) &&
+      (ingreso.fecha === datosTransaccion.fecha) &&
+      (ingreso.categoria === datosTransaccion.categoria) &&
+      (ingreso.monto === datosTransaccion.monto)
+    }), 'Se agrego el ingreso')
+    assert.equal(store.state.cuentas.find(cuenta => cuenta.nombre === datosTransaccion.cuenta).fondos,
+      saldoInicial, 'Se cambia el saldo de la cuenta')
+  })
+})
+describe('Egresos invalidos', () => {
+  let wrapper
+  let store
+  const assert = require('chai').assert
+
+  beforeEach(function () {
+    store = TestUtil.getDefaultStore()
+    store.state.cuentas.push({ icon: 'account_balance', nombre: 'ahorros', fondos: 100, route: '/' })
+    wrapper = shallowMount(BotonTransacciones,
+      {
+        store,
+        propsData: {
+          tipo: 'Egreso',
+          cuenta: { icon: 'account_balance', nombre: 'ahorros', fondos: 100, route: '/' },
+          categorias: store.state.categoriaEgresos }
+      })
+  })
+
+  it('categoria vacia', () => {
+    const datosTransaccion = { cuenta: 'ahorros', fecha: '06/05/2019', monto: 50, categoria: '' }
+    const saldoInicial = 100
+
+    wrapper.vm.monto = datosTransaccion.monto
+    wrapper.vm.fecha = datosTransaccion.fecha
+    wrapper.vm.categoria = datosTransaccion.categoria
+
+    wrapper.vm.agregar()
+
+    assert.notExists(store.state.egresos.find(function (egreso) {
+      return (egreso.cuenta === datosTransaccion.cuenta) &&
+      (egreso.fecha === datosTransaccion.fecha) &&
+      (egreso.categoria === datosTransaccion.categoria) &&
+      (egreso.monto === datosTransaccion.monto)
+    }), 'Se agrego el egreso')
+    assert.equal(store.state.cuentas.find(cuenta => cuenta.nombre === datosTransaccion.cuenta).fondos,
+      saldoInicial, 'Se cambia el saldo de la cuenta')
+  })
+  it('fecha vacia', () => {
+    const datosTransaccion = { cuenta: 'ahorros', fecha: '', monto: 50, categoria: 'Expensas' }
+    const saldoInicial = 100
+
+    wrapper.vm.monto = datosTransaccion.monto
+    wrapper.vm.fecha = datosTransaccion.fecha
+    wrapper.vm.categoria = datosTransaccion.categoria
+
+    wrapper.vm.agregar()
+
+    assert.notExists(store.state.egresos.find(function (egreso) {
+      return (egreso.cuenta === datosTransaccion.cuenta) &&
+      (egreso.fecha === datosTransaccion.fecha) &&
+      (egreso.categoria === datosTransaccion.categoria) &&
+      (egreso.monto === datosTransaccion.monto)
+    }), 'Se agrego el egreso')
+    assert.equal(store.state.cuentas.find(cuenta => cuenta.nombre === datosTransaccion.cuenta).fondos,
+      saldoInicial, 'Se cambia el saldo de la cuenta')
+  })
+  it('monto nulo', () => {
+    const datosTransaccion = { cuenta: 'ahorros', fecha: '06/05/2019', monto: 0, categoria: 'Expensas' }
+    const saldoInicial = 100
+
+    wrapper.vm.monto = datosTransaccion.monto
+    wrapper.vm.fecha = datosTransaccion.fecha
+    wrapper.vm.categoria = datosTransaccion.categoria
+
+    wrapper.vm.agregar()
+
+    assert.notExists(store.state.egresos.find(function (egreso) {
+      return (egreso.cuenta === datosTransaccion.cuenta) &&
+      (egreso.fecha === datosTransaccion.fecha) &&
+      (egreso.categoria === datosTransaccion.categoria) &&
+      (egreso.monto === datosTransaccion.monto)
+    }), 'Se agrego el egreso')
+    assert.equal(store.state.cuentas.find(cuenta => cuenta.nombre === datosTransaccion.cuenta).fondos,
+      saldoInicial, 'Se cambia el saldo de la cuenta')
+  })
+  it('monto negativo', () => {
+    const datosTransaccion = { cuenta: 'ahorros', fecha: '06/05/2019', monto: -50, categoria: 'Expensas' }
+    const saldoInicial = 100
+
+    wrapper.vm.monto = datosTransaccion.monto
+    wrapper.vm.fecha = datosTransaccion.fecha
+    wrapper.vm.categoria = datosTransaccion.categoria
+
+    wrapper.vm.agregar()
+
+    assert.notExists(store.state.egresos.find(function (egreso) {
+      return (egreso.cuenta === datosTransaccion.cuenta) &&
+      (egreso.fecha === datosTransaccion.fecha) &&
+      (egreso.categoria === datosTransaccion.categoria) &&
+      (egreso.monto === datosTransaccion.monto)
+    }), 'Se agrego el egreso')
+    assert.equal(store.state.cuentas.find(cuenta => cuenta.nombre === datosTransaccion.cuenta).fondos,
+      saldoInicial, 'Se cambia el saldo de la cuenta')
+  })
+  it('monto mayor al saldo', () => {
+    const datosTransaccion = { cuenta: 'ahorros', fecha: '06/05/2019', monto: 200, categoria: 'Expensas' }
+    const saldoInicial = 100
+
+    wrapper.vm.monto = datosTransaccion.monto
+    wrapper.vm.fecha = datosTransaccion.fecha
+    wrapper.vm.categoria = datosTransaccion.categoria
+
+    wrapper.vm.agregar()
+
+    assert.notExists(store.state.egresos.find(function (egreso) {
+      return (egreso.cuenta === datosTransaccion.cuenta) &&
+      (egreso.fecha === datosTransaccion.fecha) &&
+      (egreso.categoria === datosTransaccion.categoria) &&
+      (egreso.monto === datosTransaccion.monto)
+    }), 'Se agrego el egreso')
+    assert.equal(store.state.cuentas.find(cuenta => cuenta.nombre === datosTransaccion.cuenta).fondos,
+      saldoInicial, 'Se cambia el saldo de la cuenta')
+  })
+  it('categoria inexistente', () => {
+    const datosTransaccion = { cuenta: 'ahorros', fecha: '06/05/2019', monto: 50, categoria: 'Tienda' }
+    const saldoInicial = 100
+
+    wrapper.vm.monto = datosTransaccion.monto
+    wrapper.vm.fecha = datosTransaccion.fecha
+    wrapper.vm.categoria = datosTransaccion.categoria
+
+    wrapper.vm.agregar()
+
+    assert.notExists(store.state.egresos.find(function (egreso) {
+      return (egreso.cuenta === datosTransaccion.cuenta) &&
+      (egreso.fecha === datosTransaccion.fecha) &&
+      (egreso.categoria === datosTransaccion.categoria) &&
+      (egreso.monto === datosTransaccion.monto)
+    }), 'Se agrego el egreso')
+    assert.equal(store.state.cuentas.find(cuenta => cuenta.nombre === datosTransaccion.cuenta).fondos,
+      saldoInicial, 'Se cambia el saldo de la cuenta')
+  })
+})
+describe('Render test, transacciones', () => {
+  let wrapper
+  let store
+  const assert = require('chai').assert
+
+  beforeEach(function () {
+    store = TestUtil.getDefaultStore()
+    store.state.cuentas.push({ icon: 'account_balance', nombre: 'ahorros', fondos: 0, route: '/' })
+  })
+
+  it('test ingreso', () => {
+    wrapper = shallowMount(BotonTransacciones,
+      {
+        store,
+        propsData: {
+          tipo: 'Ingreso',
+          cuenta: { icon: 'account_balance', nombre: 'ahorros', fondos: 0, route: '/' },
+          categorias: store.state.categoriaIngresos }
+      })
+
+    assert.exists(wrapper.find('#selectorIngreso'))
+    assert.exists(wrapper.find('#montoIngreso'))
+    assert.exists(wrapper.find('#menuCalendarioIngreso'))
+    assert.exists(wrapper.find('#fechaCalendarioIngreso'))
+    assert.exists(wrapper.find('#okCalendarioIngreso'))
+    assert.exists(wrapper.find('#agregarIngreso'))
+  })
+  it('test egreso', () => {
+    wrapper = shallowMount(BotonTransacciones,
+      {
+        store,
+        propsData: {
+          tipo: 'Egreso',
+          cuenta: { icon: 'account_balance', nombre: 'ahorros', fondos: 0, route: '/' },
+          categorias: store.state.categoriaIngresos }
+      })
+
+    assert.exists(wrapper.find('#selectorEgreso'))
+    assert.exists(wrapper.find('#montoEgreso'))
+    assert.exists(wrapper.find('#menuCalendarioEgreso'))
+    assert.exists(wrapper.find('#fechaCalendarioEgreso'))
+    assert.exists(wrapper.find('#okCalendarioEgreso'))
+    assert.exists(wrapper.find('#agregarEgreso'))
   })
 })

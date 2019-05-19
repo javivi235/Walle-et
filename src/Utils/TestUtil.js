@@ -6,12 +6,11 @@ export default {
   getDefaultStore() {
     return new Vuex.Store({
       state: {
-        cuentas: [{ nombre: 'ahorros', fondos: 100 }, { nombre: 'comida', fondos: 200 },
-          { nombre: 'Fiesta', fondos: 200 }],
+        cuentas: [{ icon: 'account_balance', nombre: 'Global', fondos: 0, route: '/' }],
         categoriaIngresos: ['Salario', 'Transferencia', 'Otros'],
         categoriaEgresos: ['Expensas', 'Transferencia', 'Otros'],
         ingresos: [],
-        egresos: [],
+        egresos: []
       },
       mutations: {
         agregarIngreso(context, nuevoIngreso) {

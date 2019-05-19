@@ -55,7 +55,6 @@
           </template>
           <v-date-picker v-model="fecha" no-title scrollable :id="'datePicker'+tipo">
             <v-spacer></v-spacer>
-            <v-btn flat color="primary" :id="'cancelarCalendario'+tipo" @click="menu = false">Cancel</v-btn>
             <v-btn flat color="primary" :id="'okCalendario'+tipo" @click="$refs.menu.save(fecha)">OK</v-btn>
           </v-date-picker>
         </v-menu>
@@ -95,6 +94,10 @@ export default {
           throw new Error('Seleccione una categoria')
         } else if (this.monto <= 0) {
           throw new Error('Ingrese un monto mayor a 0')
+        } else if (this.fecha === '') {
+          throw new Error('Seleccione una fecha')
+        } else if (this.categorias.find((categoria) => (categoria === this.categoria)) === undefined) {
+          throw new Error('Seleccione una categoria valida')
         }
         switch (this.tipo) {
           case 'Ingreso':
