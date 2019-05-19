@@ -65,3 +65,6 @@ describe('render lista', () => {
     assert.exists(wrapper.find('#tabla' + wrapper.vm.titulo))
   })
 })
+describe('modificar elementos', () => {
+
+})

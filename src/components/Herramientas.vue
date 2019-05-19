@@ -7,11 +7,13 @@
             <v-layout>
               <BotonTransacciones
                 tipo="Ingreso"
+                id="herramientaIngreso"
                 :cuenta="cuenta"
                 :categorias="categoriaIngresos"
                 @setAlerta = "setAlerta"/>
               <BotonTransacciones
                 tipo="Egreso"
+                id="herramientaEgreso"
                 :cuenta="cuenta"
                 :categorias="categoriaEgresos"
                 @setAlerta = "setAlerta"/>
