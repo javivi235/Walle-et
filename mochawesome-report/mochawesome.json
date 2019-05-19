@@ -1,15 +1,15 @@
 {
   "stats": {
-    "suites": 19,
-    "tests": 50,
-    "passes": 49,
+    "suites": 22,
+    "tests": 55,
+    "passes": 54,
     "pending": 0,
     "failures": 1,
-    "start": "2019-05-19T21:37:51.547Z",
-    "end": "2019-05-19T21:37:52.717Z",
-    "duration": 1170,
-    "testsRegistered": 50,
-    "passPercent": 98,
+    "start": "2019-05-19T22:11:40.543Z",
+    "end": "2019-05-19T22:11:41.808Z",
+    "duration": 1265,
+    "testsRegistered": 55,
+    "passPercent": 98.2,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
@@ -19,7 +19,7 @@
     "pendingPercentClass": "danger"
   },
   "suites": {
-    "uuid": "2a1a55ed-9202-46ae-bfcd-be10d44bc25a",
+    "uuid": "18faf72c-3001-4cec-81cd-053227878604",
     "title": "",
     "fullFile": "",
     "file": "",
@@ -28,7 +28,7 @@
     "tests": [],
     "suites": [
       {
-        "uuid": "e17aa875-dcd9-4978-8cd0-0ccb700c950c",
+        "uuid": "4d1977c6-bf10-42fa-a025-bd1de9104407",
         "title": "categorias, test funcional",
         "fullFile": "/Users/abrahan/Desktop/JS/Walle-et/dist/main.js",
         "file": "/dist/main.js",
@@ -44,7 +44,7 @@
             "code": "store = _src_Utils_TestUtil_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"].getDefaultStore()\nwrapper = Object(_vue_test_utils__WEBPACK_IMPORTED_MODULE_0__[\"shallowMount\"])(_components_BotonCategorias_vue__WEBPACK_IMPORTED_MODULE_2__[\"default\"],\n  {\n    store,\n    propsData: {\n      categoriaIngresos: store.state.categoriaIngresos,\n      categoriaEgresos: store.state.categoriaEgresos\n    }\n  })",
             "err": {},
             "isRoot": false,
-            "uuid": "2fdd6f93-9eb9-4109-b25e-3b2c44a0b7a2",
+            "uuid": "d4905ca3-bc5b-4b18-88f7-9bd3694ef128",
             "isHook": true,
             "skipped": false
           }
@@ -55,7 +55,7 @@
             "title": "Crear categoria Ingreso, funcional",
             "fullTitle": "categorias, test funcional Crear categoria Ingreso, funcional",
             "timedOut": false,
-            "duration": 9,
+            "duration": 10,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -64,7 +64,7 @@
             "code": "const categoriaNueva = ['Ventas']\nwrapper.vm.tipo = 'Ingreso'\nwrapper.vm.nombre = categoriaNueva\nwrapper.vm.agregar()\nassert.exists(store.state.categoriaIngresos.find(categoria => categoria === categoriaNueva),\n  'No se encontro la nueva cateogira')",
             "err": {},
             "isRoot": false,
-            "uuid": "4fd18c33-b544-4498-899e-c98567336c06",
+            "uuid": "81cd77e1-b5ca-474d-824e-a2544332beea",
             "isHook": false,
             "skipped": false
           },
@@ -72,7 +72,7 @@
             "title": "Crear categoria Egreso, funcional",
             "fullTitle": "categorias, test funcional Crear categoria Egreso, funcional",
             "timedOut": false,
-            "duration": 8,
+            "duration": 7,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -81,15 +81,15 @@
             "code": "const categoriaNueva = ['Compras']\nwrapper.vm.tipo = 'Egreso'\nwrapper.vm.nombre = categoriaNueva\nwrapper.vm.agregar()\nassert.exists(store.state.categoriaEgresos.find(categoria => categoria === categoriaNueva),\n  'No se encontro la nueva cateogira')",
             "err": {},
             "isRoot": false,
-            "uuid": "4726740b-ad29-4088-ad60-4018f205a4d3",
+            "uuid": "aaf9efdf-dc35-4c48-a172-4f461976a736",
             "isHook": false,
             "skipped": false
           }
         ],
         "suites": [],
         "passes": [
-          "4fd18c33-b544-4498-899e-c98567336c06",
-          "4726740b-ad29-4088-ad60-4018f205a4d3"
+          "81cd77e1-b5ca-474d-824e-a2544332beea",
+          "aaf9efdf-dc35-4c48-a172-4f461976a736"
         ],
         "failures": [],
         "pending": [],
@@ -100,7 +100,7 @@
         "_timeout": 2000
       },
       {
-        "uuid": "39e3e88a-d7e2-42e9-a7b0-ac23c6747bd4",
+        "uuid": "2d71540d-9e78-48ad-9945-0ec5a1be829b",
         "title": "categorias render test",
         "fullFile": "/Users/abrahan/Desktop/JS/Walle-et/dist/main.js",
         "file": "/dist/main.js",
@@ -109,14 +109,14 @@
             "title": "\"before each\" hook",
             "fullTitle": "categorias render test \"before each\" hook",
             "timedOut": false,
-            "duration": 9,
+            "duration": 7,
             "pass": false,
             "fail": false,
             "pending": false,
             "code": "store = _src_Utils_TestUtil_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"].getDefaultStore()\nwrapper = Object(_vue_test_utils__WEBPACK_IMPORTED_MODULE_0__[\"shallowMount\"])(_components_BotonCategorias_vue__WEBPACK_IMPORTED_MODULE_2__[\"default\"],\n  {\n    store,\n    propsData: {\n      categoriaIngresos: store.state.categoriaIngresos,\n      categoriaEgresos: store.state.categoriaEgresos\n    }\n  })",
             "err": {},
             "isRoot": false,
-            "uuid": "2bf41aab-8fd8-47de-a44a-aae0dc921eb2",
+            "uuid": "b95c4910-8e38-4f7f-9a31-074ab711623c",
             "isHook": true,
             "skipped": false
           }
@@ -136,14 +136,14 @@
             "code": "assert.exists(wrapper.find('#selectorCategoria'), 'no existe el selector de categoria')\nassert.exists(wrapper.find('#nombreCategoria'), 'no existe el input para el nombre categoria')\nassert.exists(wrapper.find('#agregarCategoria'), 'no existe el boton para agregar categoria')",
             "err": {},
             "isRoot": false,
-            "uuid": "077c0a8a-d8e0-4be2-8a70-20eac0c2c22b",
+            "uuid": "6a88eccd-ae67-4b9e-aa63-46bdc1a7a9fc",
             "isHook": false,
             "skipped": false
           }
         ],
         "suites": [],
         "passes": [
-          "077c0a8a-d8e0-4be2-8a70-20eac0c2c22b"
+          "6a88eccd-ae67-4b9e-aa63-46bdc1a7a9fc"
         ],
         "failures": [],
         "pending": [],
@@ -154,7 +154,7 @@
         "_timeout": 2000
       },
       {
-        "uuid": "e2d57c55-5a32-4925-a2d4-c7da00e1bb04",
+        "uuid": "64450afc-3eb7-40fe-a509-2c1b21f03401",
         "title": "categorias, test event",
         "fullFile": "/Users/abrahan/Desktop/JS/Walle-et/dist/main.js",
         "file": "/dist/main.js",
@@ -170,7 +170,7 @@
             "code": "store = _src_Utils_TestUtil_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"].getDefaultStore()\nwrapper = Object(_vue_test_utils__WEBPACK_IMPORTED_MODULE_0__[\"shallowMount\"])(_components_BotonCategorias_vue__WEBPACK_IMPORTED_MODULE_2__[\"default\"],\n  {\n    store,\n    propsData: {\n      categoriaIngresos: store.state.categoriaIngresos,\n      categoriaEgresos: store.state.categoriaEgresos\n    }\n  })",
             "err": {},
             "isRoot": false,
-            "uuid": "c72aebfc-6709-4264-aef7-63b38f8d03cc",
+            "uuid": "f5e90ee6-5527-4522-9e2c-2900de94d28d",
             "isHook": true,
             "skipped": false
           }
@@ -181,7 +181,7 @@
             "title": "Crear cateogria de ingreso, events",
             "fullTitle": "categorias, test event Crear cateogria de ingreso, events",
             "timedOut": false,
-            "duration": 7,
+            "duration": 6,
             "state": "failed",
             "pass": false,
             "fail": true,
@@ -192,7 +192,7 @@
               "estack": "AssertionError: No se encontro la nueva cateogira: expected undefined to exist\n    at Context.it (dist/webpack:/tests/unit/BotonCategoriasUnitTest.spec.js:97:1)"
             },
             "isRoot": false,
-            "uuid": "30688ba3-b201-431d-b40f-1c8804c11ec6",
+            "uuid": "eae186ad-bb95-403a-8b81-63c558cd3f80",
             "isHook": false,
             "skipped": false
           }
@@ -200,17 +200,17 @@
         "suites": [],
         "passes": [],
         "failures": [
-          "30688ba3-b201-431d-b40f-1c8804c11ec6"
+          "eae186ad-bb95-403a-8b81-63c558cd3f80"
         ],
         "pending": [],
         "skipped": [],
-        "duration": 7,
+        "duration": 6,
         "root": false,
         "rootEmpty": false,
         "_timeout": 2000
       },
       {
-        "uuid": "072b0719-cfc9-4e5f-9af3-bccbe9869b77",
+        "uuid": "f431ac0c-6716-44ae-89a6-e0b11769826c",
         "title": "Datos iniciales categorias",
         "fullFile": "/Users/abrahan/Desktop/JS/Walle-et/dist/main.js",
         "file": "/dist/main.js",
@@ -226,7 +226,7 @@
             "code": "store = _src_Utils_TestUtil_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"].getDefaultStore()",
             "err": {},
             "isRoot": false,
-            "uuid": "35964fad-6bb9-47d7-b096-efba29cf1a5a",
+            "uuid": "a8c61c78-6c14-47b3-a38f-98a064e324b5",
             "isHook": true,
             "skipped": false
           }
@@ -237,7 +237,7 @@
             "title": "Deberia tener 3 categorias de ingreso iniciales",
             "fullTitle": "Datos iniciales categorias Deberia tener 3 categorias de ingreso iniciales",
             "timedOut": false,
-            "duration": 1,
+            "duration": 0,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -246,7 +246,7 @@
             "code": "assert.equal(3, store.state.categoriaIngresos.length,\n  'numero de categorias de ingresos: ' + store.state.categoriaIngresos.length)\nassert.exists(store.state.categoriaIngresos.find(categoria => categoria === 'Salario'),\n  'No esiste la categoria Salarios')\nassert.exists(store.state.categoriaIngresos.find(categoria => categoria === 'Transferencia'),\n  'No esiste la categoria Transferencia')\nassert.exists(store.state.categoriaIngresos.find(categoria => categoria === 'Otros'),\n  'No esiste la categoria Otros')",
             "err": {},
             "isRoot": false,
-            "uuid": "ba440100-f0ae-4057-9fe7-02166f62a9a9",
+            "uuid": "746d3ec8-4a44-4026-a1ea-632b6d129045",
             "isHook": false,
             "skipped": false
           },
@@ -263,26 +263,26 @@
             "code": "assert.equal(3, store.state.categoriaEgresos.length,\n  'numero de categorias de egresos: ' + store.state.categoriaEgresos.length)\nassert.exists(store.state.categoriaEgresos.find(categoria => categoria === 'Expensas'),\n  'No esiste la categoria Expensas')\nassert.exists(store.state.categoriaEgresos.find(categoria => categoria === 'Transferencia'),\n  'No esiste la categoria Transferencia')\nassert.exists(store.state.categoriaEgresos.find(categoria => categoria === 'Otros'),\n  'No esiste la categoria Otros')",
             "err": {},
             "isRoot": false,
-            "uuid": "b2a5f7dc-ad19-49f2-85bb-beaec265fb83",
+            "uuid": "88d2617b-0bb6-43e4-81a3-baa67f47aa2f",
             "isHook": false,
             "skipped": false
           }
         ],
         "suites": [],
         "passes": [
-          "ba440100-f0ae-4057-9fe7-02166f62a9a9",
-          "b2a5f7dc-ad19-49f2-85bb-beaec265fb83"
+          "746d3ec8-4a44-4026-a1ea-632b6d129045",
+          "88d2617b-0bb6-43e4-81a3-baa67f47aa2f"
         ],
         "failures": [],
         "pending": [],
         "skipped": [],
-        "duration": 1,
+        "duration": 0,
         "root": false,
         "rootEmpty": false,
         "_timeout": 2000
       },
       {
-        "uuid": "2dcf2b34-6c8d-45ee-993f-58c18f5ba9b5",
+        "uuid": "51cd61ba-3703-4fd8-bfcf-028a8443f1af",
         "title": "Categorias invalidas",
         "fullFile": "/Users/abrahan/Desktop/JS/Walle-et/dist/main.js",
         "file": "/dist/main.js",
@@ -298,7 +298,7 @@
             "code": "store = _src_Utils_TestUtil_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"].getDefaultStore()\nwrapper = Object(_vue_test_utils__WEBPACK_IMPORTED_MODULE_0__[\"shallowMount\"])(_components_BotonCategorias_vue__WEBPACK_IMPORTED_MODULE_2__[\"default\"],\n  {\n    store,\n    propsData: {\n      categoriaIngresos: store.state.categoriaIngresos,\n      categoriaEgresos: store.state.categoriaEgresos\n    }\n  })",
             "err": {},
             "isRoot": false,
-            "uuid": "008c8b17-6d35-45d4-adc5-76c98987e559",
+            "uuid": "61d38a97-3d4c-472b-8763-740803b98204",
             "isHook": true,
             "skipped": false
           }
@@ -309,7 +309,7 @@
             "title": "no se puede crear categorias de ingreso con nombre vacio",
             "fullTitle": "Categorias invalidas no se puede crear categorias de ingreso con nombre vacio",
             "timedOut": false,
-            "duration": 3,
+            "duration": 11,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -318,7 +318,7 @@
             "code": "wrapper.vm.tipo = 'Ingreso'\nwrapper.vm.nombre = ''\nwrapper.vm.agregar()\nassert.notExists(store.state.categoriaIngresos.find(categoria => categoria === ''))",
             "err": {},
             "isRoot": false,
-            "uuid": "9a8a82ec-2be3-42e6-a34d-3115cf497f72",
+            "uuid": "0323e901-f6fd-4363-93ac-d2e7cc914749",
             "isHook": false,
             "skipped": false
           },
@@ -326,7 +326,7 @@
             "title": "no se puede crear categorias de egreso con nombre vacio",
             "fullTitle": "Categorias invalidas no se puede crear categorias de egreso con nombre vacio",
             "timedOut": false,
-            "duration": 4,
+            "duration": 3,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -335,7 +335,7 @@
             "code": "wrapper.vm.tipo = 'Egreso'\nwrapper.vm.nombre = ''\nwrapper.vm.agregar()\nassert.notExists(store.state.categoriaEgresos.find(categoria => categoria === ''))",
             "err": {},
             "isRoot": false,
-            "uuid": "8591f665-3bb6-4217-b485-0238d5d87b5b",
+            "uuid": "e995206a-7d7d-45d9-abfc-1bfd90e678a2",
             "isHook": false,
             "skipped": false
           },
@@ -343,7 +343,7 @@
             "title": "No se pueden agregar categorias de ingreso ya existentes",
             "fullTitle": "Categorias invalidas No se pueden agregar categorias de ingreso ya existentes",
             "timedOut": false,
-            "duration": 6,
+            "duration": 7,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -352,7 +352,7 @@
             "code": "const categoriaExistente = 'Salario'\nconst cantidadInicial = store.state.categoriaEgresos.length\nwrapper.vm.tipo = 'Ingreso'\nwrapper.vm.nombre = categoriaExistente\nwrapper.vm.agregar()\nassert.equal(store.state.categoriaIngresos.length, cantidadInicial)",
             "err": {},
             "isRoot": false,
-            "uuid": "483e56df-3eba-4f30-816f-49a116045bf8",
+            "uuid": "7d85c7bd-47d1-4d78-b6c9-8e839d1c0912",
             "isHook": false,
             "skipped": false
           },
@@ -360,7 +360,7 @@
             "title": "No se pueden agregar categorias de egreso ya existentes",
             "fullTitle": "Categorias invalidas No se pueden agregar categorias de egreso ya existentes",
             "timedOut": false,
-            "duration": 12,
+            "duration": 10,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -369,7 +369,7 @@
             "code": "const categoriaExistente = 'Expensas'\nconst cantidadInicial = store.state.categoriaEgresos.length\nwrapper.vm.tipo = 'Egreso'\nwrapper.vm.nombre = categoriaExistente\nwrapper.vm.agregar()\nassert.equal(store.state.categoriaEgresos.length, cantidadInicial)",
             "err": {},
             "isRoot": false,
-            "uuid": "12d5f9e9-5557-4248-9e94-9958cf91ec38",
+            "uuid": "b2d6e9cb-dd1b-4294-a8f8-1b6d1a6e9646",
             "isHook": false,
             "skipped": false
           },
@@ -377,7 +377,7 @@
             "title": "no se puede crear categorias sin tipo",
             "fullTitle": "Categorias invalidas no se puede crear categorias sin tipo",
             "timedOut": false,
-            "duration": 3,
+            "duration": 6,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -386,29 +386,29 @@
             "code": "const nombreCategoria = 'Supermercado'\nwrapper.vm.tipo = ''\nwrapper.vm.nombre = nombreCategoria\nwrapper.vm.agregar()\nassert.notExists(store.state.categoriaIngresos.find(categoria => categoria === nombreCategoria))\nassert.notExists(store.state.categoriaEgresos.find(categoria => categoria === nombreCategoria))",
             "err": {},
             "isRoot": false,
-            "uuid": "49850b12-d07d-478d-be85-c09ca6c33214",
+            "uuid": "70ef8241-146c-438f-a360-85ce3d6fef23",
             "isHook": false,
             "skipped": false
           }
         ],
         "suites": [],
         "passes": [
-          "9a8a82ec-2be3-42e6-a34d-3115cf497f72",
-          "8591f665-3bb6-4217-b485-0238d5d87b5b",
-          "483e56df-3eba-4f30-816f-49a116045bf8",
-          "12d5f9e9-5557-4248-9e94-9958cf91ec38",
-          "49850b12-d07d-478d-be85-c09ca6c33214"
+          "0323e901-f6fd-4363-93ac-d2e7cc914749",
+          "e995206a-7d7d-45d9-abfc-1bfd90e678a2",
+          "7d85c7bd-47d1-4d78-b6c9-8e839d1c0912",
+          "b2d6e9cb-dd1b-4294-a8f8-1b6d1a6e9646",
+          "70ef8241-146c-438f-a360-85ce3d6fef23"
         ],
         "failures": [],
         "pending": [],
         "skipped": [],
-        "duration": 28,
+        "duration": 37,
         "root": false,
         "rootEmpty": false,
         "_timeout": 2000
       },
       {
-        "uuid": "0fb03c67-7d7a-472b-8f3b-16d1decad31e",
+        "uuid": "39779e5d-6b26-440b-a40b-df153eec3883",
         "title": "Ingresos, funcional",
         "fullFile": "/Users/abrahan/Desktop/JS/Walle-et/dist/main.js",
         "file": "/dist/main.js",
@@ -424,7 +424,7 @@
             "code": "store = _Utils_TestUtil_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"].getDefaultStore()\nstore.state.cuentas.push({ icon: 'account_balance', nombre: 'ahorros', fondos: 0, route: '/' })\nwrapper = Object(_vue_test_utils__WEBPACK_IMPORTED_MODULE_0__[\"shallowMount\"])(_components_BotonTransacciones__WEBPACK_IMPORTED_MODULE_2__[\"default\"],\n  {\n    store,\n    propsData: {\n      tipo: 'Ingreso',\n      cuenta: { icon: 'account_balance', nombre: 'ahorros', fondos: 0, route: '/' },\n      categorias: store.state.categoriaIngresos }\n  })",
             "err": {},
             "isRoot": false,
-            "uuid": "6d8116a8-1aea-4fae-ac7f-fdc02d218a2c",
+            "uuid": "da4fa1e7-55c6-4571-bf71-6150a04f2651",
             "isHook": true,
             "skipped": false
           }
@@ -435,7 +435,7 @@
             "title": "Agregar Ingreso",
             "fullTitle": "Ingresos, funcional Agregar Ingreso",
             "timedOut": false,
-            "duration": 22,
+            "duration": 25,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -444,25 +444,25 @@
             "code": "const datosTransaccion = { cuenta: 'ahorros', fecha: '06/05/2019', monto: 120, categoria: 'Salario' }\nconst saldoInicial = 0\nwrapper.vm.monto = datosTransaccion.monto\nwrapper.vm.fecha = datosTransaccion.fecha\nwrapper.vm.categoria = datosTransaccion.categoria\nwrapper.vm.agregar()\nassert.exists(store.state.ingresos.find(function (ingreso) {\n  return (ingreso.cuenta === datosTransaccion.cuenta) &&\n  (ingreso.fecha === datosTransaccion.fecha) &&\n  (ingreso.categoria === datosTransaccion.categoria) &&\n  (ingreso.monto === datosTransaccion.monto)\n}), 'No se encontro el ingreso')\nassert.equal(store.state.cuentas.find(cuenta => cuenta.nombre === datosTransaccion.cuenta).fondos,\n  (saldoInicial + datosTransaccion.monto), 'No se actualiza el saldo de la cuenta')",
             "err": {},
             "isRoot": false,
-            "uuid": "0bee8032-96ee-40f5-a203-3d373afa5fc1",
+            "uuid": "acc6598c-f723-49d0-99a5-b69d01f251b0",
             "isHook": false,
             "skipped": false
           }
         ],
         "suites": [],
         "passes": [
-          "0bee8032-96ee-40f5-a203-3d373afa5fc1"
+          "acc6598c-f723-49d0-99a5-b69d01f251b0"
         ],
         "failures": [],
         "pending": [],
         "skipped": [],
-        "duration": 22,
+        "duration": 25,
         "root": false,
         "rootEmpty": false,
         "_timeout": 2000
       },
       {
-        "uuid": "3c983670-14c3-4208-80a8-7d0af2fdaf65",
+        "uuid": "b0176f56-87b3-4bf6-9797-35f53d8352b3",
         "title": "Egresos, funcional",
         "fullFile": "/Users/abrahan/Desktop/JS/Walle-et/dist/main.js",
         "file": "/dist/main.js",
@@ -478,7 +478,7 @@
             "code": "store = _Utils_TestUtil_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"].getDefaultStore()\nstore.state.cuentas.push({ icon: 'account_balance', nombre: 'ahorros', fondos: 0, route: '/' })\nwrapper = Object(_vue_test_utils__WEBPACK_IMPORTED_MODULE_0__[\"shallowMount\"])(_components_BotonTransacciones__WEBPACK_IMPORTED_MODULE_2__[\"default\"],\n  {\n    store,\n    propsData: {\n      tipo: 'Egreso',\n      cuenta: { icon: 'account_balance', nombre: 'ahorros', fondos: 200, route: '/' },\n      categorias: store.state.categoriaEgresos }\n  })",
             "err": {},
             "isRoot": false,
-            "uuid": "54a29fb2-077a-447d-8227-57e6f65cf2e0",
+            "uuid": "fb3c4aaf-2ba7-49b8-ae3b-15b84f798aaa",
             "isHook": true,
             "skipped": false
           }
@@ -489,7 +489,7 @@
             "title": "Agregar Egreso",
             "fullTitle": "Egresos, funcional Agregar Egreso",
             "timedOut": false,
-            "duration": 13,
+            "duration": 14,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -498,25 +498,25 @@
             "code": "const datosTransaccion = { cuenta: 'ahorros', fecha: '06/05/2019', monto: 100, categoria: 'Expensas' }\nconst saldoInicial = 200\nwrapper.vm.monto = datosTransaccion.monto\nwrapper.vm.fecha = datosTransaccion.fecha\nwrapper.vm.categoria = datosTransaccion.categoria\nwrapper.vm.agregar()\nassert.exists(store.state.egresos.find(function (egreso) {\n  return (egreso.cuenta === datosTransaccion.cuenta) &&\n  (egreso.fecha === datosTransaccion.fecha) &&\n  (egreso.categoria === datosTransaccion.categoria) &&\n  (egreso.monto === datosTransaccion.monto)\n}), 'No se encontro el egreso')\nassert.equal(store.state.cuentas.find(cuenta => cuenta.nombre === datosTransaccion.cuenta).fondos,\n  (saldoInicial - datosTransaccion.monto), 'No se actualiza el saldo de la cuenta')",
             "err": {},
             "isRoot": false,
-            "uuid": "2e1725b7-4ce9-434d-9e91-a244d23b48d4",
+            "uuid": "399a6191-69e3-4eae-b0b1-0314388c970b",
             "isHook": false,
             "skipped": false
           }
         ],
         "suites": [],
         "passes": [
-          "2e1725b7-4ce9-434d-9e91-a244d23b48d4"
+          "399a6191-69e3-4eae-b0b1-0314388c970b"
         ],
         "failures": [],
         "pending": [],
         "skipped": [],
-        "duration": 13,
+        "duration": 14,
         "root": false,
         "rootEmpty": false,
         "_timeout": 2000
       },
       {
-        "uuid": "8e2a57fb-f68b-476c-a644-9f3d87e3ef0e",
+        "uuid": "65248bb8-7c88-46a5-be1e-6a59df05e596",
         "title": "Ingresos invalidos",
         "fullFile": "/Users/abrahan/Desktop/JS/Walle-et/dist/main.js",
         "file": "/dist/main.js",
@@ -525,14 +525,14 @@
             "title": "\"before each\" hook",
             "fullTitle": "Ingresos invalidos \"before each\" hook",
             "timedOut": false,
-            "duration": 9,
+            "duration": 14,
             "pass": false,
             "fail": false,
             "pending": false,
             "code": "store = _Utils_TestUtil_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"].getDefaultStore()\nstore.state.cuentas.push({ icon: 'account_balance', nombre: 'ahorros', fondos: 0, route: '/' })\nwrapper = Object(_vue_test_utils__WEBPACK_IMPORTED_MODULE_0__[\"shallowMount\"])(_components_BotonTransacciones__WEBPACK_IMPORTED_MODULE_2__[\"default\"],\n  {\n    store,\n    propsData: {\n      tipo: 'Ingreso',\n      cuenta: { icon: 'account_balance', nombre: 'ahorros', fondos: 0, route: '/' },\n      categorias: store.state.categoriaIngresos }\n  })",
             "err": {},
             "isRoot": false,
-            "uuid": "aa624369-2fe9-4c18-b0e2-4995c6824cc9",
+            "uuid": "f1def079-f043-4f74-9c7d-0ed87d9c6efa",
             "isHook": true,
             "skipped": false
           }
@@ -543,7 +543,7 @@
             "title": "categoria vacia",
             "fullTitle": "Ingresos invalidos categoria vacia",
             "timedOut": false,
-            "duration": 15,
+            "duration": 12,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -552,7 +552,7 @@
             "code": "const datosTransaccion = { cuenta: 'ahorros', fecha: '06/05/2019', monto: 100, categoria: '' }\nconst saldoInicial = 0\nwrapper.vm.monto = datosTransaccion.monto\nwrapper.vm.fecha = datosTransaccion.fecha\nwrapper.vm.categoria = datosTransaccion.categoria\nwrapper.vm.agregar()\nassert.notExists(store.state.ingresos.find(function (ingreso) {\n  return (ingreso.cuenta === datosTransaccion.cuenta) &&\n  (ingreso.fecha === datosTransaccion.fecha) &&\n  (ingreso.categoria === datosTransaccion.categoria) &&\n  (ingreso.monto === datosTransaccion.monto)\n}), 'Se agrego el ingreso')\nassert.equal(store.state.cuentas.find(cuenta => cuenta.nombre === datosTransaccion.cuenta).fondos,\n  saldoInicial, 'Se cambia el saldo de la cuenta')",
             "err": {},
             "isRoot": false,
-            "uuid": "7f05c803-5b27-4010-a37a-d09302842ff0",
+            "uuid": "b4a1ae21-6898-45ec-8f63-eda6084c8e40",
             "isHook": false,
             "skipped": false
           },
@@ -560,7 +560,7 @@
             "title": "fecha vacia",
             "fullTitle": "Ingresos invalidos fecha vacia",
             "timedOut": false,
-            "duration": 16,
+            "duration": 12,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -569,7 +569,7 @@
             "code": "const datosTransaccion = { cuenta: 'ahorros', fecha: '', monto: 100, categoria: 'Salario' }\nconst saldoInicial = 0\nwrapper.vm.monto = datosTransaccion.monto\nwrapper.vm.fecha = datosTransaccion.fecha\nwrapper.vm.categoria = datosTransaccion.categoria\nwrapper.vm.agregar()\nassert.notExists(store.state.ingresos.find(function (ingreso) {\n  return (ingreso.cuenta === datosTransaccion.cuenta) &&\n  (ingreso.fecha === datosTransaccion.fecha) &&\n  (ingreso.categoria === datosTransaccion.categoria) &&\n  (ingreso.monto === datosTransaccion.monto)\n}), 'Se agrego el ingreso')\nassert.equal(store.state.cuentas.find(cuenta => cuenta.nombre === datosTransaccion.cuenta).fondos,\n  saldoInicial, 'Se cambia el saldo de la cuenta')",
             "err": {},
             "isRoot": false,
-            "uuid": "313cee42-9c89-4e68-a9fc-a935e873db79",
+            "uuid": "6860a0c9-e3a1-43f1-a05f-f8e10303ee1c",
             "isHook": false,
             "skipped": false
           },
@@ -577,7 +577,7 @@
             "title": "monto nulo",
             "fullTitle": "Ingresos invalidos monto nulo",
             "timedOut": false,
-            "duration": 9,
+            "duration": 13,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -586,7 +586,7 @@
             "code": "const datosTransaccion = { cuenta: 'ahorros', fecha: '06/05/2019', monto: 0, categoria: 'Salario' }\nconst saldoInicial = 0\nwrapper.vm.monto = datosTransaccion.monto\nwrapper.vm.fecha = datosTransaccion.fecha\nwrapper.vm.categoria = datosTransaccion.categoria\nwrapper.vm.agregar()\nassert.notExists(store.state.ingresos.find(function (ingreso) {\n  return (ingreso.cuenta === datosTransaccion.cuenta) &&\n  (ingreso.fecha === datosTransaccion.fecha) &&\n  (ingreso.categoria === datosTransaccion.categoria) &&\n  (ingreso.monto === datosTransaccion.monto)\n}), 'Se agrego el ingreso')\nassert.equal(store.state.cuentas.find(cuenta => cuenta.nombre === datosTransaccion.cuenta).fondos,\n  saldoInicial, 'Se cambia el saldo de la cuenta')",
             "err": {},
             "isRoot": false,
-            "uuid": "edca892b-f7f7-420d-8ffe-b2da22983ebc",
+            "uuid": "3f620183-6e10-445c-97a2-67c1b0acaa03",
             "isHook": false,
             "skipped": false
           },
@@ -603,7 +603,7 @@
             "code": "const datosTransaccion = { cuenta: 'ahorros', fecha: '06/05/2019', monto: -50, categoria: 'Salario' }\nconst saldoInicial = 0\nwrapper.vm.monto = datosTransaccion.monto\nwrapper.vm.fecha = datosTransaccion.fecha\nwrapper.vm.categoria = datosTransaccion.categoria\nwrapper.vm.agregar()\nassert.notExists(store.state.ingresos.find(function (ingreso) {\n  return (ingreso.cuenta === datosTransaccion.cuenta) &&\n  (ingreso.fecha === datosTransaccion.fecha) &&\n  (ingreso.categoria === datosTransaccion.categoria) &&\n  (ingreso.monto === datosTransaccion.monto)\n}), 'Se agrego el ingreso')\nassert.equal(store.state.cuentas.find(cuenta => cuenta.nombre === datosTransaccion.cuenta).fondos,\n  saldoInicial, 'Se cambia el saldo de la cuenta')",
             "err": {},
             "isRoot": false,
-            "uuid": "d0869919-1a50-4753-9e2c-ab3c030e4b49",
+            "uuid": "efe8c6dc-454a-4a4a-8fbb-77a2b94c473a",
             "isHook": false,
             "skipped": false
           },
@@ -611,7 +611,7 @@
             "title": "categoria inexistente",
             "fullTitle": "Ingresos invalidos categoria inexistente",
             "timedOut": false,
-            "duration": 19,
+            "duration": 14,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -620,29 +620,29 @@
             "code": "const datosTransaccion = { cuenta: 'ahorros', fecha: '06/05/2019', monto: 50, categoria: 'Tienda' }\nconst saldoInicial = 0\nwrapper.vm.monto = datosTransaccion.monto\nwrapper.vm.fecha = datosTransaccion.fecha\nwrapper.vm.categoria = datosTransaccion.categoria\nwrapper.vm.agregar()\nassert.notExists(store.state.ingresos.find(function (ingreso) {\n  return (ingreso.cuenta === datosTransaccion.cuenta) &&\n  (ingreso.fecha === datosTransaccion.fecha) &&\n  (ingreso.categoria === datosTransaccion.categoria) &&\n  (ingreso.monto === datosTransaccion.monto)\n}), 'Se agrego el ingreso')\nassert.equal(store.state.cuentas.find(cuenta => cuenta.nombre === datosTransaccion.cuenta).fondos,\n  saldoInicial, 'Se cambia el saldo de la cuenta')",
             "err": {},
             "isRoot": false,
-            "uuid": "d6fef5c7-0881-4286-9d8c-1ced90b5fa9e",
+            "uuid": "aec7712a-7e3a-4bef-a5cd-a2d4a9e92e5b",
             "isHook": false,
             "skipped": false
           }
         ],
         "suites": [],
         "passes": [
-          "7f05c803-5b27-4010-a37a-d09302842ff0",
-          "313cee42-9c89-4e68-a9fc-a935e873db79",
-          "edca892b-f7f7-420d-8ffe-b2da22983ebc",
-          "d0869919-1a50-4753-9e2c-ab3c030e4b49",
-          "d6fef5c7-0881-4286-9d8c-1ced90b5fa9e"
+          "b4a1ae21-6898-45ec-8f63-eda6084c8e40",
+          "6860a0c9-e3a1-43f1-a05f-f8e10303ee1c",
+          "3f620183-6e10-445c-97a2-67c1b0acaa03",
+          "efe8c6dc-454a-4a4a-8fbb-77a2b94c473a",
+          "aec7712a-7e3a-4bef-a5cd-a2d4a9e92e5b"
         ],
         "failures": [],
         "pending": [],
         "skipped": [],
-        "duration": 69,
+        "duration": 61,
         "root": false,
         "rootEmpty": false,
         "_timeout": 2000
       },
       {
-        "uuid": "b1180a25-ca57-4f3a-83de-483e25b65da4",
+        "uuid": "7a765d39-30a3-41a6-a0e5-383c9848945f",
         "title": "Egresos invalidos",
         "fullFile": "/Users/abrahan/Desktop/JS/Walle-et/dist/main.js",
         "file": "/dist/main.js",
@@ -651,14 +651,14 @@
             "title": "\"before each\" hook",
             "fullTitle": "Egresos invalidos \"before each\" hook",
             "timedOut": false,
-            "duration": 9,
+            "duration": 11,
             "pass": false,
             "fail": false,
             "pending": false,
             "code": "store = _Utils_TestUtil_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"].getDefaultStore()\nstore.state.cuentas.push({ icon: 'account_balance', nombre: 'ahorros', fondos: 100, route: '/' })\nwrapper = Object(_vue_test_utils__WEBPACK_IMPORTED_MODULE_0__[\"shallowMount\"])(_components_BotonTransacciones__WEBPACK_IMPORTED_MODULE_2__[\"default\"],\n  {\n    store,\n    propsData: {\n      tipo: 'Egreso',\n      cuenta: { icon: 'account_balance', nombre: 'ahorros', fondos: 100, route: '/' },\n      categorias: store.state.categoriaEgresos }\n  })",
             "err": {},
             "isRoot": false,
-            "uuid": "a4ed023e-5d19-4443-9385-99b7fad79491",
+            "uuid": "7db1d22d-3297-420d-ab85-302256042c8d",
             "isHook": true,
             "skipped": false
           }
@@ -669,7 +669,7 @@
             "title": "categoria vacia",
             "fullTitle": "Egresos invalidos categoria vacia",
             "timedOut": false,
-            "duration": 11,
+            "duration": 13,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -678,7 +678,7 @@
             "code": "const datosTransaccion = { cuenta: 'ahorros', fecha: '06/05/2019', monto: 50, categoria: '' }\nconst saldoInicial = 100\nwrapper.vm.monto = datosTransaccion.monto\nwrapper.vm.fecha = datosTransaccion.fecha\nwrapper.vm.categoria = datosTransaccion.categoria\nwrapper.vm.agregar()\nassert.notExists(store.state.egresos.find(function (egreso) {\n  return (egreso.cuenta === datosTransaccion.cuenta) &&\n  (egreso.fecha === datosTransaccion.fecha) &&\n  (egreso.categoria === datosTransaccion.categoria) &&\n  (egreso.monto === datosTransaccion.monto)\n}), 'Se agrego el egreso')\nassert.equal(store.state.cuentas.find(cuenta => cuenta.nombre === datosTransaccion.cuenta).fondos,\n  saldoInicial, 'Se cambia el saldo de la cuenta')",
             "err": {},
             "isRoot": false,
-            "uuid": "e57ca323-f936-4331-967c-13e3fe8e6369",
+            "uuid": "654c1119-42f7-452c-a608-0f16600f8990",
             "isHook": false,
             "skipped": false
           },
@@ -695,7 +695,7 @@
             "code": "const datosTransaccion = { cuenta: 'ahorros', fecha: '', monto: 50, categoria: 'Expensas' }\nconst saldoInicial = 100\nwrapper.vm.monto = datosTransaccion.monto\nwrapper.vm.fecha = datosTransaccion.fecha\nwrapper.vm.categoria = datosTransaccion.categoria\nwrapper.vm.agregar()\nassert.notExists(store.state.egresos.find(function (egreso) {\n  return (egreso.cuenta === datosTransaccion.cuenta) &&\n  (egreso.fecha === datosTransaccion.fecha) &&\n  (egreso.categoria === datosTransaccion.categoria) &&\n  (egreso.monto === datosTransaccion.monto)\n}), 'Se agrego el egreso')\nassert.equal(store.state.cuentas.find(cuenta => cuenta.nombre === datosTransaccion.cuenta).fondos,\n  saldoInicial, 'Se cambia el saldo de la cuenta')",
             "err": {},
             "isRoot": false,
-            "uuid": "0c52fb15-da81-48ee-8fd2-adcbf578145f",
+            "uuid": "06448bd8-56cd-41ab-b1c3-0d0a1fdd16f2",
             "isHook": false,
             "skipped": false
           },
@@ -703,7 +703,7 @@
             "title": "monto nulo",
             "fullTitle": "Egresos invalidos monto nulo",
             "timedOut": false,
-            "duration": 13,
+            "duration": 7,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -712,7 +712,7 @@
             "code": "const datosTransaccion = { cuenta: 'ahorros', fecha: '06/05/2019', monto: 0, categoria: 'Expensas' }\nconst saldoInicial = 100\nwrapper.vm.monto = datosTransaccion.monto\nwrapper.vm.fecha = datosTransaccion.fecha\nwrapper.vm.categoria = datosTransaccion.categoria\nwrapper.vm.agregar()\nassert.notExists(store.state.egresos.find(function (egreso) {\n  return (egreso.cuenta === datosTransaccion.cuenta) &&\n  (egreso.fecha === datosTransaccion.fecha) &&\n  (egreso.categoria === datosTransaccion.categoria) &&\n  (egreso.monto === datosTransaccion.monto)\n}), 'Se agrego el egreso')\nassert.equal(store.state.cuentas.find(cuenta => cuenta.nombre === datosTransaccion.cuenta).fondos,\n  saldoInicial, 'Se cambia el saldo de la cuenta')",
             "err": {},
             "isRoot": false,
-            "uuid": "3800a0ea-89dd-4fc6-9344-8a64e0f88fdc",
+            "uuid": "d4a84bfb-2fa7-4f54-8332-9f2dd4d0536f",
             "isHook": false,
             "skipped": false
           },
@@ -720,7 +720,7 @@
             "title": "monto negativo",
             "fullTitle": "Egresos invalidos monto negativo",
             "timedOut": false,
-            "duration": 12,
+            "duration": 11,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -729,7 +729,7 @@
             "code": "const datosTransaccion = { cuenta: 'ahorros', fecha: '06/05/2019', monto: -50, categoria: 'Expensas' }\nconst saldoInicial = 100\nwrapper.vm.monto = datosTransaccion.monto\nwrapper.vm.fecha = datosTransaccion.fecha\nwrapper.vm.categoria = datosTransaccion.categoria\nwrapper.vm.agregar()\nassert.notExists(store.state.egresos.find(function (egreso) {\n  return (egreso.cuenta === datosTransaccion.cuenta) &&\n  (egreso.fecha === datosTransaccion.fecha) &&\n  (egreso.categoria === datosTransaccion.categoria) &&\n  (egreso.monto === datosTransaccion.monto)\n}), 'Se agrego el egreso')\nassert.equal(store.state.cuentas.find(cuenta => cuenta.nombre === datosTransaccion.cuenta).fondos,\n  saldoInicial, 'Se cambia el saldo de la cuenta')",
             "err": {},
             "isRoot": false,
-            "uuid": "d0df7f57-b2d1-4a1d-b144-9227943269a3",
+            "uuid": "ba7be91a-0fd1-439d-bbae-5fb85f81bbfe",
             "isHook": false,
             "skipped": false
           },
@@ -737,7 +737,7 @@
             "title": "monto mayor al saldo",
             "fullTitle": "Egresos invalidos monto mayor al saldo",
             "timedOut": false,
-            "duration": 13,
+            "duration": 12,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -746,7 +746,7 @@
             "code": "const datosTransaccion = { cuenta: 'ahorros', fecha: '06/05/2019', monto: 200, categoria: 'Expensas' }\nconst saldoInicial = 100\nwrapper.vm.monto = datosTransaccion.monto\nwrapper.vm.fecha = datosTransaccion.fecha\nwrapper.vm.categoria = datosTransaccion.categoria\nwrapper.vm.agregar()\nassert.notExists(store.state.egresos.find(function (egreso) {\n  return (egreso.cuenta === datosTransaccion.cuenta) &&\n  (egreso.fecha === datosTransaccion.fecha) &&\n  (egreso.categoria === datosTransaccion.categoria) &&\n  (egreso.monto === datosTransaccion.monto)\n}), 'Se agrego el egreso')\nassert.equal(store.state.cuentas.find(cuenta => cuenta.nombre === datosTransaccion.cuenta).fondos,\n  saldoInicial, 'Se cambia el saldo de la cuenta')",
             "err": {},
             "isRoot": false,
-            "uuid": "5d9863b5-8ebd-4585-881e-8c9ff59a1746",
+            "uuid": "e9ceb058-40ff-4d2d-96e6-e279c5a0276f",
             "isHook": false,
             "skipped": false
           },
@@ -754,7 +754,7 @@
             "title": "categoria inexistente",
             "fullTitle": "Egresos invalidos categoria inexistente",
             "timedOut": false,
-            "duration": 17,
+            "duration": 13,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -763,30 +763,30 @@
             "code": "const datosTransaccion = { cuenta: 'ahorros', fecha: '06/05/2019', monto: 50, categoria: 'Tienda' }\nconst saldoInicial = 100\nwrapper.vm.monto = datosTransaccion.monto\nwrapper.vm.fecha = datosTransaccion.fecha\nwrapper.vm.categoria = datosTransaccion.categoria\nwrapper.vm.agregar()\nassert.notExists(store.state.egresos.find(function (egreso) {\n  return (egreso.cuenta === datosTransaccion.cuenta) &&\n  (egreso.fecha === datosTransaccion.fecha) &&\n  (egreso.categoria === datosTransaccion.categoria) &&\n  (egreso.monto === datosTransaccion.monto)\n}), 'Se agrego el egreso')\nassert.equal(store.state.cuentas.find(cuenta => cuenta.nombre === datosTransaccion.cuenta).fondos,\n  saldoInicial, 'Se cambia el saldo de la cuenta')",
             "err": {},
             "isRoot": false,
-            "uuid": "22e75738-452a-4d32-8318-120475248d6b",
+            "uuid": "f16e2bee-2055-4471-8d7c-8589de518f9f",
             "isHook": false,
             "skipped": false
           }
         ],
         "suites": [],
         "passes": [
-          "e57ca323-f936-4331-967c-13e3fe8e6369",
-          "0c52fb15-da81-48ee-8fd2-adcbf578145f",
-          "3800a0ea-89dd-4fc6-9344-8a64e0f88fdc",
-          "d0df7f57-b2d1-4a1d-b144-9227943269a3",
-          "5d9863b5-8ebd-4585-881e-8c9ff59a1746",
-          "22e75738-452a-4d32-8318-120475248d6b"
+          "654c1119-42f7-452c-a608-0f16600f8990",
+          "06448bd8-56cd-41ab-b1c3-0d0a1fdd16f2",
+          "d4a84bfb-2fa7-4f54-8332-9f2dd4d0536f",
+          "ba7be91a-0fd1-439d-bbae-5fb85f81bbfe",
+          "e9ceb058-40ff-4d2d-96e6-e279c5a0276f",
+          "f16e2bee-2055-4471-8d7c-8589de518f9f"
         ],
         "failures": [],
         "pending": [],
         "skipped": [],
-        "duration": 78,
+        "duration": 68,
         "root": false,
         "rootEmpty": false,
         "_timeout": 2000
       },
       {
-        "uuid": "2fdc8cf6-9b96-4e9d-a361-944cd7c5c9d0",
+        "uuid": "f48abac2-a0a5-41aa-986d-edaac79149a1",
         "title": "Render test, transacciones",
         "fullFile": "/Users/abrahan/Desktop/JS/Walle-et/dist/main.js",
         "file": "/dist/main.js",
@@ -795,14 +795,14 @@
             "title": "\"before each\" hook",
             "fullTitle": "Render test, transacciones \"before each\" hook",
             "timedOut": false,
-            "duration": 1,
+            "duration": 0,
             "pass": false,
             "fail": false,
             "pending": false,
             "code": "store = _Utils_TestUtil_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"].getDefaultStore()\nstore.state.cuentas.push({ icon: 'account_balance', nombre: 'ahorros', fondos: 0, route: '/' })",
             "err": {},
             "isRoot": false,
-            "uuid": "46c8f912-8450-4e36-abe2-aa1ae2935e29",
+            "uuid": "c3ac8e34-2b44-4be8-bfed-dcb5a1d2893e",
             "isHook": true,
             "skipped": false
           }
@@ -813,7 +813,7 @@
             "title": "test ingreso",
             "fullTitle": "Render test, transacciones test ingreso",
             "timedOut": false,
-            "duration": 12,
+            "duration": 15,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -822,7 +822,7 @@
             "code": "wrapper = Object(_vue_test_utils__WEBPACK_IMPORTED_MODULE_0__[\"shallowMount\"])(_components_BotonTransacciones__WEBPACK_IMPORTED_MODULE_2__[\"default\"],\n  {\n    store,\n    propsData: {\n      tipo: 'Ingreso',\n      cuenta: { icon: 'account_balance', nombre: 'ahorros', fondos: 0, route: '/' },\n      categorias: store.state.categoriaIngresos }\n  })\nassert.exists(wrapper.find('#selectorIngreso'))\nassert.exists(wrapper.find('#montoIngreso'))\nassert.exists(wrapper.find('#menuCalendarioIngreso'))\nassert.exists(wrapper.find('#fechaCalendarioIngreso'))\nassert.exists(wrapper.find('#okCalendarioIngreso'))\nassert.exists(wrapper.find('#agregarIngreso'))",
             "err": {},
             "isRoot": false,
-            "uuid": "294a1a79-7f9b-48be-bd58-01d8ba5a2847",
+            "uuid": "7e10541c-d1f9-4491-8ba0-cb1081a51d91",
             "isHook": false,
             "skipped": false
           },
@@ -830,7 +830,7 @@
             "title": "test egreso",
             "fullTitle": "Render test, transacciones test egreso",
             "timedOut": false,
-            "duration": 9,
+            "duration": 10,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -839,26 +839,26 @@
             "code": "wrapper = Object(_vue_test_utils__WEBPACK_IMPORTED_MODULE_0__[\"shallowMount\"])(_components_BotonTransacciones__WEBPACK_IMPORTED_MODULE_2__[\"default\"],\n  {\n    store,\n    propsData: {\n      tipo: 'Egreso',\n      cuenta: { icon: 'account_balance', nombre: 'ahorros', fondos: 0, route: '/' },\n      categorias: store.state.categoriaIngresos }\n  })\nassert.exists(wrapper.find('#selectorEgreso'))\nassert.exists(wrapper.find('#montoEgreso'))\nassert.exists(wrapper.find('#menuCalendarioEgreso'))\nassert.exists(wrapper.find('#fechaCalendarioEgreso'))\nassert.exists(wrapper.find('#okCalendarioEgreso'))\nassert.exists(wrapper.find('#agregarEgreso'))",
             "err": {},
             "isRoot": false,
-            "uuid": "d836d244-26a7-46ac-91f6-5feb5147dae1",
+            "uuid": "b8b9ff3b-61c9-4bf7-9317-db9ede4a98bf",
             "isHook": false,
             "skipped": false
           }
         ],
         "suites": [],
         "passes": [
-          "294a1a79-7f9b-48be-bd58-01d8ba5a2847",
-          "d836d244-26a7-46ac-91f6-5feb5147dae1"
+          "7e10541c-d1f9-4491-8ba0-cb1081a51d91",
+          "b8b9ff3b-61c9-4bf7-9317-db9ede4a98bf"
         ],
         "failures": [],
         "pending": [],
         "skipped": [],
-        "duration": 21,
+        "duration": 25,
         "root": false,
         "rootEmpty": false,
         "_timeout": 2000
       },
       {
-        "uuid": "8834492d-9b3b-427d-881f-3e69a38da0b0",
+        "uuid": "f143186d-2602-4a9b-91ee-a9394ebd246d",
         "title": "Transferencia, funcional",
         "fullFile": "/Users/abrahan/Desktop/JS/Walle-et/dist/main.js",
         "file": "/dist/main.js",
@@ -867,14 +867,14 @@
             "title": "\"before each\" hook",
             "fullTitle": "Transferencia, funcional \"before each\" hook",
             "timedOut": false,
-            "duration": 8,
+            "duration": 11,
             "pass": false,
             "fail": false,
             "pending": false,
             "code": "store = _Utils_TestUtil_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"].getDefaultStore()\nstore.state.cuentas.push({ icon: 'account_balance', nombre: 'ahorros', fondos: 100, route: '/' })\nstore.state.cuentas.push({ icon: 'account_balance', nombre: 'comida', fondos: 0, route: '/' })\nwrapper = Object(_vue_test_utils__WEBPACK_IMPORTED_MODULE_0__[\"shallowMount\"])(_components_BotonTransferencia__WEBPACK_IMPORTED_MODULE_2__[\"default\"],\n  {\n    store, propsData: { cuenta: { icon: 'account_balance', nombre: 'ahorros', fondos: 100, route: '/' } }\n  })",
             "err": {},
             "isRoot": false,
-            "uuid": "dc6aeea4-77a0-4f39-87e6-c9994c21ed88",
+            "uuid": "9c6e3c62-b94a-4504-9b85-4b6e29191617",
             "isHook": true,
             "skipped": false
           }
@@ -885,7 +885,7 @@
             "title": "Agregar Transferencia",
             "fullTitle": "Transferencia, funcional Agregar Transferencia",
             "timedOut": false,
-            "duration": 14,
+            "duration": 18,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -894,25 +894,25 @@
             "code": "const datosTransferencia = {\n  cuentaDestino: 'comida',\n  fecha: '2019-05-06',\n  monto: 50,\n  categoria: 'Transferencia',\n  cuentaOrigen: 'ahorros',\n  saldoOrigenInicial: 100,\n  saldoDestinoInicial: 0\n}\nwrapper.vm.monto = datosTransferencia.monto\nwrapper.vm.fecha = datosTransferencia.fecha\nwrapper.vm.cuentaDestino = datosTransferencia.cuentaDestino\nwrapper.vm.transferir()\nassert.exists(store.state.ingresos.find(function (ingreso) {\n  return (ingreso.cuenta === datosTransferencia.cuentaDestino) &&\n  (ingreso.fecha === datosTransferencia.fecha) &&\n  (ingreso.categoria === datosTransferencia.categoria) &&\n  (ingreso.monto === datosTransferencia.monto)\n}), 'No se encontro el ingreso en la cuenta destino' + store.state.egresos.length)\nassert.equal(store.state.cuentas.find(cuenta => cuenta.nombre === datosTransferencia.cuentaDestino).fondos,\n  (datosTransferencia.saldoDestinoInicial + datosTransferencia.monto),\n  'No se actualiza el saldo de la cuenta Destino')\nassert.exists(store.state.egresos.find(function (egreso) {\n  return (egreso.cuenta === datosTransferencia.cuentaOrigen) &&\n  (egreso.fecha === datosTransferencia.fecha) &&\n  (egreso.categoria === datosTransferencia.categoria) &&\n  (egreso.monto === datosTransferencia.monto)\n}), 'No se encontro el egreso en la cuenta origen')\nassert.equal(store.state.cuentas.find(cuenta => cuenta.nombre === datosTransferencia.cuentaOrigen).fondos,\n  (datosTransferencia.saldoOrigenInicial - datosTransferencia.monto),\n  'No se actualiza el saldo de la cuenta origen')",
             "err": {},
             "isRoot": false,
-            "uuid": "1434c5eb-a5a6-41c8-b883-2a17dbfc96c2",
+            "uuid": "bf7031ae-f9d1-4833-9566-8b2d2fa092f6",
             "isHook": false,
             "skipped": false
           }
         ],
         "suites": [],
         "passes": [
-          "1434c5eb-a5a6-41c8-b883-2a17dbfc96c2"
+          "bf7031ae-f9d1-4833-9566-8b2d2fa092f6"
         ],
         "failures": [],
         "pending": [],
         "skipped": [],
-        "duration": 14,
+        "duration": 18,
         "root": false,
         "rootEmpty": false,
         "_timeout": 2000
       },
       {
-        "uuid": "ecd9303c-597d-489b-b440-70d62e755e5c",
+        "uuid": "a08af9db-7f73-4768-b107-e76e37cb2f05",
         "title": "Transferencias invalidas",
         "fullFile": "/Users/abrahan/Desktop/JS/Walle-et/dist/main.js",
         "file": "/dist/main.js",
@@ -921,14 +921,14 @@
             "title": "\"before each\" hook",
             "fullTitle": "Transferencias invalidas \"before each\" hook",
             "timedOut": false,
-            "duration": 8,
+            "duration": 9,
             "pass": false,
             "fail": false,
             "pending": false,
             "code": "store = _Utils_TestUtil_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"].getDefaultStore()\nstore.state.cuentas.push({ icon: 'account_balance', nombre: 'ahorros', fondos: 100, route: '/' })\nstore.state.cuentas.push({ icon: 'account_balance', nombre: 'comida', fondos: 0, route: '/' })\nwrapper = Object(_vue_test_utils__WEBPACK_IMPORTED_MODULE_0__[\"shallowMount\"])(_components_BotonTransferencia__WEBPACK_IMPORTED_MODULE_2__[\"default\"],\n  {\n    store, propsData: { cuenta: { icon: 'account_balance', nombre: 'ahorros', fondos: 100, route: '/' } }\n  })",
             "err": {},
             "isRoot": false,
-            "uuid": "02eb1e07-54de-4401-b845-14a1e1a9e036",
+            "uuid": "2cea6caf-dc30-4fe0-87d3-c318d7e3597c",
             "isHook": true,
             "skipped": false
           }
@@ -939,7 +939,7 @@
             "title": "Fecha vacia",
             "fullTitle": "Transferencias invalidas Fecha vacia",
             "timedOut": false,
-            "duration": 13,
+            "duration": 9,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -948,7 +948,7 @@
             "code": "const datosTransferencia = {\n  cuentaDestino: 'comida',\n  fecha: '',\n  monto: 50,\n  categoria: 'Transferencia',\n  cuentaOrigen: 'ahorros',\n  saldoOrigenInicial: 100,\n  saldoDestinoInicial: 0\n}\nwrapper.vm.monto = datosTransferencia.monto\nwrapper.vm.fecha = datosTransferencia.fecha\nwrapper.vm.cuentaDestino = datosTransferencia.cuentaDestino\nwrapper.vm.transferir()\nassert.notExists(store.state.ingresos.find(function (ingreso) {\n  return (ingreso.cuenta === datosTransferencia.cuentaDestino) &&\n  (ingreso.fecha === datosTransferencia.fecha) &&\n  (ingreso.categoria === datosTransferencia.categoria) &&\n  (ingreso.monto === datosTransferencia.monto)\n}), 'Se encontro el ingreso en la cuenta destino')\nassert.equal(store.state.cuentas.find(cuenta => cuenta.nombre === datosTransferencia.cuentaDestino).fondos,\n  (datosTransferencia.saldoDestinoInicial),\n  'Se actualiza el saldo de la cuenta Destino')\nassert.notExists(store.state.egresos.find(function (egreso) {\n  return (egreso.cuenta === datosTransferencia.cuentaOrigen) &&\n  (egreso.fecha === datosTransferencia.fecha) &&\n  (egreso.categoria === datosTransferencia.categoria) &&\n  (egreso.monto === datosTransferencia.monto)\n}), 'Se encontro el egreso en la cuenta origen')\nassert.equal(store.state.cuentas.find(cuenta => cuenta.nombre === datosTransferencia.cuentaOrigen).fondos,\n  (datosTransferencia.saldoOrigenInicial),\n  'Se actualiza el saldo de la cuenta origen')",
             "err": {},
             "isRoot": false,
-            "uuid": "65b5944a-699e-484e-a65e-2b1b07d15a67",
+            "uuid": "a61416a2-691d-4604-89f4-760acc6e0686",
             "isHook": false,
             "skipped": false
           },
@@ -956,7 +956,7 @@
             "title": "Cuenta destino vacia",
             "fullTitle": "Transferencias invalidas Cuenta destino vacia",
             "timedOut": false,
-            "duration": 7,
+            "duration": 6,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -965,7 +965,7 @@
             "code": "const datosTransferencia = {\n  cuentaDestino: '',\n  fecha: '2019-05-06',\n  monto: 50,\n  categoria: 'Transferencia',\n  cuentaOrigen: 'ahorros',\n  saldoOrigenInicial: 100,\n  saldoDestinoInicial: 0\n}\nwrapper.vm.monto = datosTransferencia.monto\nwrapper.vm.fecha = datosTransferencia.fecha\nwrapper.vm.cuentaDestino = datosTransferencia.cuentaDestino\nwrapper.vm.transferir()\nassert.notExists(store.state.ingresos.find(function (ingreso) {\n  return (ingreso.cuenta === datosTransferencia.cuentaDestino) &&\n  (ingreso.fecha === datosTransferencia.fecha) &&\n  (ingreso.categoria === datosTransferencia.categoria) &&\n  (ingreso.monto === datosTransferencia.monto)\n}), 'Se encontro el ingreso en la cuenta destino')\nassert.notExists(store.state.egresos.find(function (egreso) {\n  return (egreso.cuenta === datosTransferencia.cuentaOrigen) &&\n  (egreso.fecha === datosTransferencia.fecha) &&\n  (egreso.categoria === datosTransferencia.categoria) &&\n  (egreso.monto === datosTransferencia.monto)\n}), 'Se encontro el egreso en la cuenta origen')\nassert.equal(store.state.cuentas.find(cuenta => cuenta.nombre === datosTransferencia.cuentaOrigen).fondos,\n  (datosTransferencia.saldoOrigenInicial),\n  'Se actualiza el saldo de la cuenta origen')",
             "err": {},
             "isRoot": false,
-            "uuid": "69e9f07e-6b4d-42df-936d-980949afdcce",
+            "uuid": "daaa2b5b-687e-4a24-a8c8-b423170ddc5d",
             "isHook": false,
             "skipped": false
           },
@@ -973,7 +973,7 @@
             "title": "monto nulo",
             "fullTitle": "Transferencias invalidas monto nulo",
             "timedOut": false,
-            "duration": 7,
+            "duration": 14,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -982,7 +982,7 @@
             "code": "const datosTransferencia = {\n  cuentaDestino: 'comida',\n  fecha: '2019-05-06',\n  monto: 0,\n  categoria: 'Transferencia',\n  cuentaOrigen: 'ahorros',\n  saldoOrigenInicial: 100,\n  saldoDestinoInicial: 0\n}\nwrapper.vm.monto = datosTransferencia.monto\nwrapper.vm.fecha = datosTransferencia.fecha\nwrapper.vm.cuentaDestino = datosTransferencia.cuentaDestino\nwrapper.vm.transferir()\nassert.notExists(store.state.ingresos.find(function (ingreso) {\n  return (ingreso.cuenta === datosTransferencia.cuentaDestino) &&\n  (ingreso.fecha === datosTransferencia.fecha) &&\n  (ingreso.categoria === datosTransferencia.categoria) &&\n  (ingreso.monto === datosTransferencia.monto)\n}), 'Se encontro el ingreso en la cuenta destino')\nassert.equal(store.state.cuentas.find(cuenta => cuenta.nombre === datosTransferencia.cuentaDestino).fondos,\n  (datosTransferencia.saldoDestinoInicial),\n  'Se actualiza el saldo de la cuenta Destino')\nassert.notExists(store.state.egresos.find(function (egreso) {\n  return (egreso.cuenta === datosTransferencia.cuentaOrigen) &&\n  (egreso.fecha === datosTransferencia.fecha) &&\n  (egreso.categoria === datosTransferencia.categoria) &&\n  (egreso.monto === datosTransferencia.monto)\n}), 'Se encontro el egreso en la cuenta origen')\nassert.equal(store.state.cuentas.find(cuenta => cuenta.nombre === datosTransferencia.cuentaOrigen).fondos,\n  (datosTransferencia.saldoOrigenInicial),\n  'Se actualiza el saldo de la cuenta origen')",
             "err": {},
             "isRoot": false,
-            "uuid": "e637ba6e-e9f5-4be8-963d-aa3e1c3c6500",
+            "uuid": "ecebbae6-ef08-403e-a042-865210513e0d",
             "isHook": false,
             "skipped": false
           },
@@ -990,7 +990,7 @@
             "title": "monto negativo",
             "fullTitle": "Transferencias invalidas monto negativo",
             "timedOut": false,
-            "duration": 14,
+            "duration": 11,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -999,7 +999,7 @@
             "code": "const datosTransferencia = {\n  cuentaDestino: 'comida',\n  fecha: '2019-05-06',\n  monto: -30,\n  categoria: 'Transferencia',\n  cuentaOrigen: 'ahorros',\n  saldoOrigenInicial: 100,\n  saldoDestinoInicial: 0\n}\nwrapper.vm.monto = datosTransferencia.monto\nwrapper.vm.fecha = datosTransferencia.fecha\nwrapper.vm.cuentaDestino = datosTransferencia.cuentaDestino\nwrapper.vm.transferir()\nassert.notExists(store.state.ingresos.find(function (ingreso) {\n  return (ingreso.cuenta === datosTransferencia.cuentaDestino) &&\n  (ingreso.fecha === datosTransferencia.fecha) &&\n  (ingreso.categoria === datosTransferencia.categoria) &&\n  (ingreso.monto === datosTransferencia.monto)\n}), 'Se encontro el ingreso en la cuenta destino')\nassert.equal(store.state.cuentas.find(cuenta => cuenta.nombre === datosTransferencia.cuentaDestino).fondos,\n  (datosTransferencia.saldoDestinoInicial),\n  'Se actualiza el saldo de la cuenta Destino')\nassert.notExists(store.state.egresos.find(function (egreso) {\n  return (egreso.cuenta === datosTransferencia.cuentaOrigen) &&\n  (egreso.fecha === datosTransferencia.fecha) &&\n  (egreso.categoria === datosTransferencia.categoria) &&\n  (egreso.monto === datosTransferencia.monto)\n}), 'Se encontro el egreso en la cuenta origen')\nassert.equal(store.state.cuentas.find(cuenta => cuenta.nombre === datosTransferencia.cuentaOrigen).fondos,\n  (datosTransferencia.saldoOrigenInicial),\n  'Se actualiza el saldo de la cuenta origen')",
             "err": {},
             "isRoot": false,
-            "uuid": "36fda489-70a5-4bd8-a931-2865ba3f1ee3",
+            "uuid": "3a4ed626-0c5e-49be-9077-fbb5d6248b97",
             "isHook": false,
             "skipped": false
           },
@@ -1007,7 +1007,7 @@
             "title": "saldo insuficiente",
             "fullTitle": "Transferencias invalidas saldo insuficiente",
             "timedOut": false,
-            "duration": 13,
+            "duration": 11,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -1016,7 +1016,7 @@
             "code": "const datosTransferencia = {\n  cuentaDestino: 'comida',\n  fecha: '2019-05-06',\n  monto: 200,\n  categoria: 'Transferencia',\n  cuentaOrigen: 'ahorros',\n  saldoOrigenInicial: 100,\n  saldoDestinoInicial: 0\n}\nwrapper.vm.monto = datosTransferencia.monto\nwrapper.vm.fecha = datosTransferencia.fecha\nwrapper.vm.cuentaDestino = datosTransferencia.cuentaDestino\nwrapper.vm.transferir()\nassert.notExists(store.state.ingresos.find(function (ingreso) {\n  return (ingreso.cuenta === datosTransferencia.cuentaDestino) &&\n  (ingreso.fecha === datosTransferencia.fecha) &&\n  (ingreso.categoria === datosTransferencia.categoria) &&\n  (ingreso.monto === datosTransferencia.monto)\n}), 'Se encontro el ingreso en la cuenta destino')\nassert.equal(store.state.cuentas.find(cuenta => cuenta.nombre === datosTransferencia.cuentaDestino).fondos,\n  (datosTransferencia.saldoDestinoInicial),\n  'Se actualiza el saldo de la cuenta Destino')\nassert.notExists(store.state.egresos.find(function (egreso) {\n  return (egreso.cuenta === datosTransferencia.cuentaOrigen) &&\n  (egreso.fecha === datosTransferencia.fecha) &&\n  (egreso.categoria === datosTransferencia.categoria) &&\n  (egreso.monto === datosTransferencia.monto)\n}), 'Se encontro el egreso en la cuenta origen')\nassert.equal(store.state.cuentas.find(cuenta => cuenta.nombre === datosTransferencia.cuentaOrigen).fondos,\n  (datosTransferencia.saldoOrigenInicial),\n  'Se actualiza el saldo de la cuenta origen')",
             "err": {},
             "isRoot": false,
-            "uuid": "595bf269-a463-4bb0-94a5-022ed91c08ce",
+            "uuid": "82efd9c7-edc5-4a65-837e-411aba5ff8fb",
             "isHook": false,
             "skipped": false
           },
@@ -1024,7 +1024,7 @@
             "title": "Destino inexistente",
             "fullTitle": "Transferencias invalidas Destino inexistente",
             "timedOut": false,
-            "duration": 15,
+            "duration": 13,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -1033,30 +1033,30 @@
             "code": "const datosTransferencia = {\n  cuentaDestino: 'banco',\n  fecha: '2019-05-06',\n  monto: 50,\n  categoria: 'Transferencia',\n  cuentaOrigen: 'ahorros',\n  saldoOrigenInicial: 100,\n  saldoDestinoInicial: 0\n}\nwrapper.vm.monto = datosTransferencia.monto\nwrapper.vm.fecha = datosTransferencia.fecha\nwrapper.vm.cuentaDestino = datosTransferencia.cuentaDestino\nwrapper.vm.transferir()\nassert.notExists(store.state.ingresos.find(function (ingreso) {\n  return (ingreso.cuenta === datosTransferencia.cuentaDestino) &&\n  (ingreso.fecha === datosTransferencia.fecha) &&\n  (ingreso.categoria === datosTransferencia.categoria) &&\n  (ingreso.monto === datosTransferencia.monto)\n}), 'Se encontro el ingreso en la cuenta destino')\nassert.notExists(store.state.egresos.find(function (egreso) {\n  return (egreso.cuenta === datosTransferencia.cuentaOrigen) &&\n  (egreso.fecha === datosTransferencia.fecha) &&\n  (egreso.categoria === datosTransferencia.categoria) &&\n  (egreso.monto === datosTransferencia.monto)\n}), 'Se encontro el egreso en la cuenta origen')\nassert.equal(store.state.cuentas.find(cuenta => cuenta.nombre === datosTransferencia.cuentaOrigen).fondos,\n  (datosTransferencia.saldoOrigenInicial),\n  'Se actualiza el saldo de la cuenta origen')",
             "err": {},
             "isRoot": false,
-            "uuid": "4b50c418-9e1b-40fa-b8f7-3bb2ba7633b2",
+            "uuid": "21029fa9-7078-4b01-a0b0-1e98691a5873",
             "isHook": false,
             "skipped": false
           }
         ],
         "suites": [],
         "passes": [
-          "65b5944a-699e-484e-a65e-2b1b07d15a67",
-          "69e9f07e-6b4d-42df-936d-980949afdcce",
-          "e637ba6e-e9f5-4be8-963d-aa3e1c3c6500",
-          "36fda489-70a5-4bd8-a931-2865ba3f1ee3",
-          "595bf269-a463-4bb0-94a5-022ed91c08ce",
-          "4b50c418-9e1b-40fa-b8f7-3bb2ba7633b2"
+          "a61416a2-691d-4604-89f4-760acc6e0686",
+          "daaa2b5b-687e-4a24-a8c8-b423170ddc5d",
+          "ecebbae6-ef08-403e-a042-865210513e0d",
+          "3a4ed626-0c5e-49be-9077-fbb5d6248b97",
+          "82efd9c7-edc5-4a65-837e-411aba5ff8fb",
+          "21029fa9-7078-4b01-a0b0-1e98691a5873"
         ],
         "failures": [],
         "pending": [],
         "skipped": [],
-        "duration": 69,
+        "duration": 64,
         "root": false,
         "rootEmpty": false,
         "_timeout": 2000
       },
       {
-        "uuid": "a9f83283-2e70-4cbf-b366-152f467e4d02",
+        "uuid": "1971ec22-a1f0-4579-b82f-eb28dee75b85",
         "title": "render tranferencia",
         "fullFile": "/Users/abrahan/Desktop/JS/Walle-et/dist/main.js",
         "file": "/dist/main.js",
@@ -1065,14 +1065,14 @@
             "title": "\"before each\" hook",
             "fullTitle": "render tranferencia \"before each\" hook",
             "timedOut": false,
-            "duration": 15,
+            "duration": 7,
             "pass": false,
             "fail": false,
             "pending": false,
             "code": "store = _Utils_TestUtil_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"].getDefaultStore()\nstore.state.cuentas.push({ icon: 'account_balance', nombre: 'ahorros', fondos: 100, route: '/' })\nstore.state.cuentas.push({ icon: 'account_balance', nombre: 'comida', fondos: 0, route: '/' })\nwrapper = Object(_vue_test_utils__WEBPACK_IMPORTED_MODULE_0__[\"shallowMount\"])(_components_BotonTransferencia__WEBPACK_IMPORTED_MODULE_2__[\"default\"],\n  {\n    store, propsData: { cuenta: { icon: 'account_balance', nombre: 'ahorros', fondos: 100, route: '/' } }\n  })",
             "err": {},
             "isRoot": false,
-            "uuid": "590e66e1-796b-44df-a13a-b1e9654036f5",
+            "uuid": "151e06fa-e895-4179-8504-ec65e87d4528",
             "isHook": true,
             "skipped": false
           }
@@ -1083,7 +1083,7 @@
             "title": "Elementos del formulario renderizan",
             "fullTitle": "render tranferencia Elementos del formulario renderizan",
             "timedOut": false,
-            "duration": 3,
+            "duration": 2,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -1092,25 +1092,223 @@
             "code": "assert.exists(wrapper.find('#selectorCuentaTransferencua'))\nassert.exists(wrapper.find('#montoTransferencia'))\nassert.exists(wrapper.find('#menuCalendarioTransferencia'))\nassert.exists(wrapper.find('#fechaCalendarioTransferencia'))\nassert.exists(wrapper.find('#okCalendarioTransferencia'))\nassert.exists(wrapper.find('#agregarTransferencia'))",
             "err": {},
             "isRoot": false,
-            "uuid": "c4f62db5-7626-4656-8fd3-cdb7cf242469",
+            "uuid": "40697334-ad82-43a3-8f38-c7e34672c462",
             "isHook": false,
             "skipped": false
           }
         ],
         "suites": [],
         "passes": [
-          "c4f62db5-7626-4656-8fd3-cdb7cf242469"
+          "40697334-ad82-43a3-8f38-c7e34672c462"
         ],
         "failures": [],
         "pending": [],
         "skipped": [],
-        "duration": 3,
+        "duration": 2,
         "root": false,
         "rootEmpty": false,
         "_timeout": 2000
       },
       {
-        "uuid": "78a31410-6b2e-4177-be75-81c2c6da224e",
+        "uuid": "8c761a96-f06a-4e11-8ecf-a355f16a2b25",
+        "title": "Cuenta",
+        "fullFile": "/Users/abrahan/Desktop/JS/Walle-et/dist/main.js",
+        "file": "/dist/main.js",
+        "beforeHooks": [
+          {
+            "title": "\"before each\" hook",
+            "fullTitle": "Cuenta \"before each\" hook",
+            "timedOut": false,
+            "duration": 14,
+            "pass": false,
+            "fail": false,
+            "pending": false,
+            "code": "store = _src_Utils_TestUtil_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"].getDefaultStore()\nrouter = new vue_router__WEBPACK_IMPORTED_MODULE_3__[\"default\"]()\nwrapper = Object(_vue_test_utils__WEBPACK_IMPORTED_MODULE_0__[\"shallowMount\"])(_components_CrearWallet_vue__WEBPACK_IMPORTED_MODULE_2__[\"default\"],\n  {\n    store,\n    router\n  })\nwrapper.setData({\n  nombre: '',\n  nombreExiste: false,\n  snackbar: false,\n  timeout: 2500,\n  snackbarText: ''\n})",
+            "err": {},
+            "isRoot": false,
+            "uuid": "e4831df6-e2c2-4a05-b011-16690c81bf06",
+            "isHook": true,
+            "skipped": false
+          }
+        ],
+        "afterHooks": [],
+        "tests": [
+          {
+            "title": "Crear Cuenta, funcional",
+            "fullTitle": "Cuenta Crear Cuenta, funcional",
+            "timedOut": false,
+            "duration": 5,
+            "state": "passed",
+            "speed": "fast",
+            "pass": true,
+            "fail": false,
+            "pending": false,
+            "code": "wrapper.vm.nombre = 'nuevaWallet'\nwrapper.vm.addCuenta()\nassert.exists(store.state.cuentas.find(cuenta => cuenta.nombre === 'nuevaWallet'),\n  'no se crea la cuenta')",
+            "err": {},
+            "isRoot": false,
+            "uuid": "3752debf-5e41-43a0-acb0-9740f476a069",
+            "isHook": false,
+            "skipped": false
+          }
+        ],
+        "suites": [],
+        "passes": [
+          "3752debf-5e41-43a0-acb0-9740f476a069"
+        ],
+        "failures": [],
+        "pending": [],
+        "skipped": [],
+        "duration": 5,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 2000
+      },
+      {
+        "uuid": "378459a4-9c79-4368-91c3-a5c6ddfecea1",
+        "title": "Cuentas invalidas",
+        "fullFile": "/Users/abrahan/Desktop/JS/Walle-et/dist/main.js",
+        "file": "/dist/main.js",
+        "beforeHooks": [
+          {
+            "title": "\"before each\" hook",
+            "fullTitle": "Cuentas invalidas \"before each\" hook",
+            "timedOut": false,
+            "duration": 4,
+            "pass": false,
+            "fail": false,
+            "pending": false,
+            "code": "store = _src_Utils_TestUtil_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"].getDefaultStore()\nrouter = new vue_router__WEBPACK_IMPORTED_MODULE_3__[\"default\"]()\nwrapper = Object(_vue_test_utils__WEBPACK_IMPORTED_MODULE_0__[\"shallowMount\"])(_components_CrearWallet_vue__WEBPACK_IMPORTED_MODULE_2__[\"default\"],\n  {\n    store,\n    router\n  })\nwrapper.setData({\n  nombre: '',\n  nombreExiste: false,\n  snackbar: false,\n  timeout: 2500,\n  snackbarText: ''\n})",
+            "err": {},
+            "isRoot": false,
+            "uuid": "2f4daa5d-efab-439d-87a2-66986a89cc41",
+            "isHook": true,
+            "skipped": false
+          }
+        ],
+        "afterHooks": [],
+        "tests": [
+          {
+            "title": "cuenta de nombre vacio",
+            "fullTitle": "Cuentas invalidas cuenta de nombre vacio",
+            "timedOut": false,
+            "duration": 1,
+            "state": "passed",
+            "speed": "fast",
+            "pass": true,
+            "fail": false,
+            "pending": false,
+            "code": "wrapper.vm.nombre = ''\nwrapper.vm.addCuenta()\nassert.notExists(store.state.cuentas.find(cuenta => cuenta.nombre === ''),\n  'cuenta sin nombre creada')",
+            "err": {},
+            "isRoot": false,
+            "uuid": "2c3eea7d-cc62-4430-aaf5-1bd65fffae1c",
+            "isHook": false,
+            "skipped": false
+          },
+          {
+            "title": "cuenta de nombre Global",
+            "fullTitle": "Cuentas invalidas cuenta de nombre Global",
+            "timedOut": false,
+            "duration": 2,
+            "state": "passed",
+            "speed": "fast",
+            "pass": true,
+            "fail": false,
+            "pending": false,
+            "code": "const nombreGlobal = 'Global'\nwrapper.vm.nombre = nombreGlobal\nwrapper.vm.addCuenta()\nassert.equal(1, store.state.cuentas.filter(cuenta => cuenta.nombre === nombreGlobal).length,\n  'cuenta con nombre global creada')",
+            "err": {},
+            "isRoot": false,
+            "uuid": "23bf5210-435e-4181-8810-fb0affaf4d52",
+            "isHook": false,
+            "skipped": false
+          },
+          {
+            "title": "cuenta de nombre ya existente",
+            "fullTitle": "Cuentas invalidas cuenta de nombre ya existente",
+            "timedOut": false,
+            "duration": 2,
+            "state": "passed",
+            "speed": "fast",
+            "pass": true,
+            "fail": false,
+            "pending": false,
+            "code": "const nombre = 'ahorros'\nstore.state.cuentas.push({ icon: 'account_balance', nombre: nombre, fondos: 0, route: '/' })\nwrapper.vm.nombre = nombre\nwrapper.vm.addCuenta()\nassert.equal(1, store.state.cuentas.filter(cuenta => cuenta.nombre === nombre).length,\n  'cuenta con nombre existente creada')",
+            "err": {},
+            "isRoot": false,
+            "uuid": "f87c59af-964c-474b-ba03-8c4af4052c75",
+            "isHook": false,
+            "skipped": false
+          }
+        ],
+        "suites": [],
+        "passes": [
+          "2c3eea7d-cc62-4430-aaf5-1bd65fffae1c",
+          "23bf5210-435e-4181-8810-fb0affaf4d52",
+          "f87c59af-964c-474b-ba03-8c4af4052c75"
+        ],
+        "failures": [],
+        "pending": [],
+        "skipped": [],
+        "duration": 5,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 2000
+      },
+      {
+        "uuid": "b91ad5ec-673d-43d9-b932-b67345f49d5b",
+        "title": "Render crear cuenta",
+        "fullFile": "/Users/abrahan/Desktop/JS/Walle-et/dist/main.js",
+        "file": "/dist/main.js",
+        "beforeHooks": [
+          {
+            "title": "\"before each\" hook",
+            "fullTitle": "Render crear cuenta \"before each\" hook",
+            "timedOut": false,
+            "duration": 4,
+            "pass": false,
+            "fail": false,
+            "pending": false,
+            "code": "store = _src_Utils_TestUtil_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"].getDefaultStore()\nrouter = new vue_router__WEBPACK_IMPORTED_MODULE_3__[\"default\"]()\nwrapper = Object(_vue_test_utils__WEBPACK_IMPORTED_MODULE_0__[\"shallowMount\"])(_components_CrearWallet_vue__WEBPACK_IMPORTED_MODULE_2__[\"default\"],\n  {\n    store,\n    router\n  })\nwrapper.setData({\n  nombre: '',\n  nombreExiste: false,\n  snackbar: false,\n  timeout: 2500,\n  snackbarText: ''\n})",
+            "err": {},
+            "isRoot": false,
+            "uuid": "832d4ae1-567d-4110-b913-a46fc2678897",
+            "isHook": true,
+            "skipped": false
+          }
+        ],
+        "afterHooks": [],
+        "tests": [
+          {
+            "title": "elementos iniciales",
+            "fullTitle": "Render crear cuenta elementos iniciales",
+            "timedOut": false,
+            "duration": 4,
+            "state": "passed",
+            "speed": "fast",
+            "pass": true,
+            "fail": false,
+            "pending": false,
+            "code": "assert.exists(wrapper.find('.Header'))\nassert.exists(wrapper.find('#nombreCrearCuenta'))\nassert.exists(wrapper.find('#crearCuenta'))\nassert.exists(wrapper.find('#volverHome'))\nassert.exists(wrapper.find('#snackbarCrearCuenta'))\nassert.exists(wrapper.find('#okSnackbar'))",
+            "err": {},
+            "isRoot": false,
+            "uuid": "1094cb24-e1c9-4d3d-ba5b-1ef09d9cd774",
+            "isHook": false,
+            "skipped": false
+          }
+        ],
+        "suites": [],
+        "passes": [
+          "1094cb24-e1c9-4d3d-ba5b-1ef09d9cd774"
+        ],
+        "failures": [],
+        "pending": [],
+        "skipped": [],
+        "duration": 4,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 2000
+      },
+      {
+        "uuid": "72b3b1dd-216f-44a1-8ea4-50bf312082af",
         "title": "Modificar datos cuenta",
         "fullFile": "/Users/abrahan/Desktop/JS/Walle-et/dist/main.js",
         "file": "/dist/main.js",
@@ -1126,7 +1324,7 @@
             "code": "store = _src_Utils_TestUtil_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"].getDefaultStore()\nstore.state.cuentas.push(store.state.cuentas.push({\n  icon: 'account_balance', nombre: 'ahorros', fondos: 0, route: '/'\n}))\nwrapper = Object(_vue_test_utils__WEBPACK_IMPORTED_MODULE_0__[\"shallowMount\"])(_components_InformacionCuenta_vue__WEBPACK_IMPORTED_MODULE_2__[\"default\"],\n  {\n    store,\n    propsData: {\n      cuentaActual: 'ahorros',\n      cuentaOriginal: 'ahorros',\n      fondos: 0\n    }\n  })",
             "err": {},
             "isRoot": false,
-            "uuid": "f0f54c07-b91b-4d02-b7f9-28f981c42df0",
+            "uuid": "90402505-e5d2-4666-bfd2-33e794b15835",
             "isHook": true,
             "skipped": false
           }
@@ -1137,7 +1335,7 @@
             "title": "editar nombre de cuenta",
             "fullTitle": "Modificar datos cuenta editar nombre de cuenta",
             "timedOut": false,
-            "duration": 4,
+            "duration": 5,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -1146,7 +1344,7 @@
             "code": "const nuevoNombre = 'Emergencias'\nwrapper.vm.cuentaActual = nuevoNombre\nwrapper.vm.editarNombre()\nassert.exists(store.state.cuentas.find(cuenta => cuenta.nombre === nuevoNombre),\n  'El nombre no cambia')",
             "err": {},
             "isRoot": false,
-            "uuid": "a1cc8135-3551-420f-ac3e-a8ad13aab2a1",
+            "uuid": "d89cb2ef-9040-45d7-b555-860388c13fbf",
             "isHook": false,
             "skipped": false
           },
@@ -1154,7 +1352,7 @@
             "title": "borrar cuenta",
             "fullTitle": "Modificar datos cuenta borrar cuenta",
             "timedOut": false,
-            "duration": 2,
+            "duration": 3,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -1163,26 +1361,26 @@
             "code": "const cuentaOriginal = wrapper.vm.cuentaOriginal\nwrapper.vm.borrarCuenta()\nassert.notExists(store.state.cuentas.find(cuenta => cuenta.nombre === cuentaOriginal),\n  'Aun existe la cuenta')",
             "err": {},
             "isRoot": false,
-            "uuid": "fb41ae73-f3ce-4f57-b16b-2d1d6ae14fb6",
+            "uuid": "9f9ad84c-3146-403f-ab41-cdf57259388b",
             "isHook": false,
             "skipped": false
           }
         ],
         "suites": [],
         "passes": [
-          "a1cc8135-3551-420f-ac3e-a8ad13aab2a1",
-          "fb41ae73-f3ce-4f57-b16b-2d1d6ae14fb6"
+          "d89cb2ef-9040-45d7-b555-860388c13fbf",
+          "9f9ad84c-3146-403f-ab41-cdf57259388b"
         ],
         "failures": [],
         "pending": [],
         "skipped": [],
-        "duration": 6,
+        "duration": 8,
         "root": false,
         "rootEmpty": false,
         "_timeout": 2000
       },
       {
-        "uuid": "90258c21-662c-432e-964d-2f83342a0386",
+        "uuid": "4fefe1c2-c960-4d3d-a5ce-2005950ff495",
         "title": "Nombres de cuenta invalidos",
         "fullFile": "/Users/abrahan/Desktop/JS/Walle-et/dist/main.js",
         "file": "/dist/main.js",
@@ -1198,7 +1396,7 @@
             "code": "store = _src_Utils_TestUtil_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"].getDefaultStore()\nstore.state.cuentas.push(store.state.cuentas.push({\n  icon: 'account_balance', nombre: 'ahorros', fondos: 0, route: '/'\n}))\nwrapper = Object(_vue_test_utils__WEBPACK_IMPORTED_MODULE_0__[\"shallowMount\"])(_components_InformacionCuenta_vue__WEBPACK_IMPORTED_MODULE_2__[\"default\"],\n  {\n    store,\n    propsData: {\n      cuentaActual: 'ahorros',\n      cuentaOriginal: 'ahorros',\n      fondos: 0\n    }\n  })",
             "err": {},
             "isRoot": false,
-            "uuid": "78892632-dce7-427e-8b30-fba9f2bc95b1",
+            "uuid": "85817361-412c-487d-8456-21d6e0976f64",
             "isHook": true,
             "skipped": false
           }
@@ -1209,7 +1407,7 @@
             "title": "Nombre vacio",
             "fullTitle": "Nombres de cuenta invalidos Nombre vacio",
             "timedOut": false,
-            "duration": 3,
+            "duration": 5,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -1218,7 +1416,7 @@
             "code": "wrapper.vm.cuentaActual = ''\nwrapper.vm.editarNombre()\nassert.notExists(store.state.cuentas.find(cuenta => cuenta.nombre === ''),\n  'Se encontro cuenta vacia')",
             "err": {},
             "isRoot": false,
-            "uuid": "e7478d75-b950-48a2-b669-8027f0269700",
+            "uuid": "7a26d724-206b-44a8-89fe-1c8918a909df",
             "isHook": false,
             "skipped": false
           },
@@ -1226,7 +1424,7 @@
             "title": "Nombre Global",
             "fullTitle": "Nombres de cuenta invalidos Nombre Global",
             "timedOut": false,
-            "duration": 4,
+            "duration": 5,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -1235,7 +1433,7 @@
             "code": "const nombreGlobal = 'Global'\nwrapper.vm.cuentaActual = nombreGlobal\nwrapper.vm.editarNombre()\nassert.equal(store.state.cuentas.filter(cuenta => cuenta.nombre === nombreGlobal).length, 1,\n  'Dos cuentas globales existententes')",
             "err": {},
             "isRoot": false,
-            "uuid": "53d8bbb9-cc84-4181-94ba-8093d320ebac",
+            "uuid": "e8df987a-2f13-4663-9f73-6137477201b6",
             "isHook": false,
             "skipped": false
           },
@@ -1243,7 +1441,7 @@
             "title": "Nombre repetido",
             "fullTitle": "Nombres de cuenta invalidos Nombre repetido",
             "timedOut": false,
-            "duration": 6,
+            "duration": 5,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -1252,27 +1450,27 @@
             "code": "const otraCuenta = 'Estudios'\nstore.state.cuentas.push({ icon: 'account_balance', nombre: otraCuenta, fondos: 0, route: '/' })\nwrapper.vm.cuentaActual = otraCuenta\nwrapper.vm.editarNombre()\nassert.equal(store.state.cuentas.filter(cuenta => cuenta.nombre === otraCuenta).length, 1,\n  'Dos cuentas de mismo nombre')",
             "err": {},
             "isRoot": false,
-            "uuid": "959797f5-7b57-4c2f-87de-923da341ef4c",
+            "uuid": "af943c0e-265d-41a3-b08d-7480f875c088",
             "isHook": false,
             "skipped": false
           }
         ],
         "suites": [],
         "passes": [
-          "e7478d75-b950-48a2-b669-8027f0269700",
-          "53d8bbb9-cc84-4181-94ba-8093d320ebac",
-          "959797f5-7b57-4c2f-87de-923da341ef4c"
+          "7a26d724-206b-44a8-89fe-1c8918a909df",
+          "e8df987a-2f13-4663-9f73-6137477201b6",
+          "af943c0e-265d-41a3-b08d-7480f875c088"
         ],
         "failures": [],
         "pending": [],
         "skipped": [],
-        "duration": 13,
+        "duration": 15,
         "root": false,
         "rootEmpty": false,
         "_timeout": 2000
       },
       {
-        "uuid": "97f27af8-f80f-4495-b1ee-3665d337be9a",
+        "uuid": "6c09ecd9-e709-4d95-89ad-e57f5523f131",
         "title": "Borrar Cuentas invalidas",
         "fullFile": "/Users/abrahan/Desktop/JS/Walle-et/dist/main.js",
         "file": "/dist/main.js",
@@ -1281,14 +1479,14 @@
             "title": "\"before each\" hook",
             "fullTitle": "Borrar Cuentas invalidas \"before each\" hook",
             "timedOut": false,
-            "duration": 5,
+            "duration": 9,
             "pass": false,
             "fail": false,
             "pending": false,
             "code": "store = _src_Utils_TestUtil_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"].getDefaultStore()\nstore.state.cuentas.push(store.state.cuentas.push({\n  icon: 'account_balance', nombre: 'ahorros', fondos: 0, route: '/'\n}))\nwrapper = Object(_vue_test_utils__WEBPACK_IMPORTED_MODULE_0__[\"shallowMount\"])(_components_InformacionCuenta_vue__WEBPACK_IMPORTED_MODULE_2__[\"default\"],\n  {\n    store,\n    propsData: {\n      cuentaActual: 'ahorros',\n      cuentaOriginal: 'ahorros',\n      fondos: 0\n    }\n  })",
             "err": {},
             "isRoot": false,
-            "uuid": "57ca1ef8-3a92-416b-9ef6-cd149068da34",
+            "uuid": "bbf501aa-f516-4d18-ad1a-85dc1e4c15d2",
             "isHook": true,
             "skipped": false
           }
@@ -1308,7 +1506,7 @@
             "code": "const nombreGlobal = 'Global'\nwrapper.vm.cuentaOriginal = nombreGlobal\nwrapper.vm.cuentaActual = nombreGlobal\nwrapper.vm.borrarCuenta()\nassert.exists(store.state.cuentas.find(cuenta => cuenta.nombre === nombreGlobal),\n  'Se borro la cuenta global')",
             "err": {},
             "isRoot": false,
-            "uuid": "ea25bea4-f488-44d1-a467-7625840e1544",
+            "uuid": "3f972eef-e1e0-487d-88a3-ded68e7dfc10",
             "isHook": false,
             "skipped": false
           },
@@ -1316,7 +1514,7 @@
             "title": "Borrar cuenta con saldo",
             "fullTitle": "Borrar Cuentas invalidas Borrar cuenta con saldo",
             "timedOut": false,
-            "duration": 8,
+            "duration": 4,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -1325,7 +1523,7 @@
             "code": "const cuentaOriginal = wrapper.vm.cuentaOriginal\nwrapper.vm.fondos = 100\nwrapper.vm.borrarCuenta()\nassert.exists(store.state.cuentas.find(cuenta => cuenta.nombre === cuentaOriginal),\n  'Se borro cuenta con fondos')",
             "err": {},
             "isRoot": false,
-            "uuid": "86805e67-bf3d-4307-922e-6eb7c41c5612",
+            "uuid": "c62400e9-a00f-4c43-afd3-a64b36d5a5e9",
             "isHook": false,
             "skipped": false
           },
@@ -1333,7 +1531,7 @@
             "title": "Borrar cuenta con ingresos",
             "fullTitle": "Borrar Cuentas invalidas Borrar cuenta con ingresos",
             "timedOut": false,
-            "duration": 2,
+            "duration": 1,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -1342,7 +1540,7 @@
             "code": "const cuentaOriginal = wrapper.vm.cuentaOriginal\nstore.state.ingresos.push({\n  cuenta: cuentaOriginal,\n  fecha: '2019-05-23',\n  monto: 50,\n  categoria: 'Salario'\n})\nwrapper.vm.borrarCuenta()\nassert.exists(store.state.cuentas.find(cuenta => cuenta.nombre === cuentaOriginal),\n  'Se borro cuenta con Ingresos')",
             "err": {},
             "isRoot": false,
-            "uuid": "8c99cd1b-91ad-4b35-8334-c67c89967fd7",
+            "uuid": "136e394d-9068-476e-8243-7db23b784956",
             "isHook": false,
             "skipped": false
           },
@@ -1350,7 +1548,7 @@
             "title": "Borrar cuenta con egresos",
             "fullTitle": "Borrar Cuentas invalidas Borrar cuenta con egresos",
             "timedOut": false,
-            "duration": 1,
+            "duration": 2,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -1359,28 +1557,28 @@
             "code": "const cuentaOriginal = wrapper.vm.cuentaOriginal\nstore.state.egresos.push({\n  cuenta: cuentaOriginal,\n  fecha: '2019-05-23',\n  monto: 50,\n  categoria: 'Otros'\n})\nwrapper.vm.borrarCuenta()\nassert.exists(store.state.cuentas.find(cuenta => cuenta.nombre === cuentaOriginal),\n  'Se borro cuenta con Egresos')",
             "err": {},
             "isRoot": false,
-            "uuid": "594fc480-524e-4b2c-b15f-8690e4a935ae",
+            "uuid": "ed91e5a0-8228-42d5-b5de-66c46c1d464e",
             "isHook": false,
             "skipped": false
           }
         ],
         "suites": [],
         "passes": [
-          "ea25bea4-f488-44d1-a467-7625840e1544",
-          "86805e67-bf3d-4307-922e-6eb7c41c5612",
-          "8c99cd1b-91ad-4b35-8334-c67c89967fd7",
-          "594fc480-524e-4b2c-b15f-8690e4a935ae"
+          "3f972eef-e1e0-487d-88a3-ded68e7dfc10",
+          "c62400e9-a00f-4c43-afd3-a64b36d5a5e9",
+          "136e394d-9068-476e-8243-7db23b784956",
+          "ed91e5a0-8228-42d5-b5de-66c46c1d464e"
         ],
         "failures": [],
         "pending": [],
         "skipped": [],
-        "duration": 14,
+        "duration": 10,
         "root": false,
         "rootEmpty": false,
         "_timeout": 2000
       },
       {
-        "uuid": "fedb57bd-774b-4ccd-ad4b-97b8c8a29399",
+        "uuid": "ba3d9c0f-5e2b-47f1-b3d7-6c4033045afe",
         "title": "Render informacion cuenta",
         "fullFile": "/Users/abrahan/Desktop/JS/Walle-et/dist/main.js",
         "file": "/dist/main.js",
@@ -1389,14 +1587,14 @@
             "title": "\"before each\" hook",
             "fullTitle": "Render informacion cuenta \"before each\" hook",
             "timedOut": false,
-            "duration": 5,
+            "duration": 6,
             "pass": false,
             "fail": false,
             "pending": false,
             "code": "store = _src_Utils_TestUtil_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"].getDefaultStore()\nstore.state.cuentas.push(store.state.cuentas.push({\n  icon: 'account_balance',\n  nombre: 'ahorros',\n  fondos: 0,\n  route: '/'\n}))\nwrapper = Object(_vue_test_utils__WEBPACK_IMPORTED_MODULE_0__[\"shallowMount\"])(_components_InformacionCuenta_vue__WEBPACK_IMPORTED_MODULE_2__[\"default\"],\n  {\n    store,\n    propsData: {\n      cuentaActual: 'ahorros',\n      cuentaOriginal: 'ahorros',\n      fondos: 0\n    }\n  })",
             "err": {},
             "isRoot": false,
-            "uuid": "d7053754-dc62-4495-b20b-8349dc895c99",
+            "uuid": "d1d21f3a-39a2-401e-8a09-b53fcc847557",
             "isHook": true,
             "skipped": false
           }
@@ -1407,7 +1605,7 @@
             "title": "Componentes iniciales renderizan",
             "fullTitle": "Render informacion cuenta Componentes iniciales renderizan",
             "timedOut": false,
-            "duration": 4,
+            "duration": 3,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -1416,7 +1614,7 @@
             "code": "assert.exists(wrapper.find('.titulo'))\nassert.exists(wrapper.find('#nombreCuenta'))\nassert.exists(wrapper.find('#editarCuenta'))\nassert.exists(wrapper.find('#saldoCuenta'))\nassert.exists(wrapper.find('#borrarCuenta'))\nassert.exists(wrapper.find('#guardarrCuenta'))\nassert.exists(wrapper.find('#alertaSuperior'))",
             "err": {},
             "isRoot": false,
-            "uuid": "92fa7ce4-a731-41eb-87e1-98d8ba78b688",
+            "uuid": "a19000e7-1b98-42a8-9af8-d29ab24449b7",
             "isHook": false,
             "skipped": false
           },
@@ -1433,42 +1631,42 @@
             "code": "// assert.isTrue(wrapper.find('#editarCuenta').element.value)\n// assert.exists(wrapper.find('#guardarCuenta'))\n// wrapper.find('#editarCuenta').trigger('click')\n// assert.notExists(wrapper.find('#editarCuenta'))\n// assert.exists(wrapper.find('#guardarCuenta'))\n// wrapper.find('#guardarCuenta').trigger('click')\n// assert.exists(wrapper.find('#editarCuenta'))\n// assert.notExists(wrapper.find('#guardarCuenta'))",
             "err": {},
             "isRoot": false,
-            "uuid": "8404cc56-214a-4138-afb0-a0fdab0b40d8",
+            "uuid": "d5465b2a-353e-41b7-ac7b-33e39763d9fd",
             "isHook": false,
             "skipped": false
           }
         ],
         "suites": [],
         "passes": [
-          "92fa7ce4-a731-41eb-87e1-98d8ba78b688",
-          "8404cc56-214a-4138-afb0-a0fdab0b40d8"
+          "a19000e7-1b98-42a8-9af8-d29ab24449b7",
+          "d5465b2a-353e-41b7-ac7b-33e39763d9fd"
         ],
         "failures": [],
         "pending": [],
         "skipped": [],
-        "duration": 4,
+        "duration": 3,
         "root": false,
         "rootEmpty": false,
         "_timeout": 2000
       },
       {
-        "uuid": "0f397467-8872-4602-bda2-687d481df2f9",
-        "title": "Render",
+        "uuid": "0117a310-4fe3-47e1-8e29-57fbef6e327a",
+        "title": "Render nav",
         "fullFile": "/Users/abrahan/Desktop/JS/Walle-et/dist/main.js",
         "file": "/dist/main.js",
         "beforeHooks": [
           {
             "title": "\"before each\" hook",
-            "fullTitle": "Render \"before each\" hook",
+            "fullTitle": "Render nav \"before each\" hook",
             "timedOut": false,
-            "duration": 8,
+            "duration": 9,
             "pass": false,
             "fail": false,
             "pending": false,
             "code": "store = _src_Utils_TestUtil_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"].getDefaultStore()\nstore.state.cuentas.push(store.state.cuentas.push({\n  icon: 'account_balance', nombre: 'ahorros', fondos: 0, route: '/'\n}))\nwrapper = Object(_vue_test_utils__WEBPACK_IMPORTED_MODULE_0__[\"shallowMount\"])(_components_NavDrawer_vue__WEBPACK_IMPORTED_MODULE_2__[\"default\"],\n  {\n    store\n  })",
             "err": {},
             "isRoot": false,
-            "uuid": "d20d0dcd-c6c4-4626-8ad7-400233f3ad26",
+            "uuid": "4edb2486-2f8a-4cfc-b5ce-62ef6e4fdb34",
             "isHook": true,
             "skipped": false
           }
@@ -1477,7 +1675,7 @@
         "tests": [
           {
             "title": "renderiza parte inicial",
-            "fullTitle": "Render renderiza parte inicial",
+            "fullTitle": "Render nav renderiza parte inicial",
             "timedOut": false,
             "duration": 2,
             "state": "passed",
@@ -1488,43 +1686,43 @@
             "code": "assert.exists(wrapper.find('#nav'))\nassert.exists(wrapper.find('#Global'))\nassert.exists(wrapper.find('#ahorros'))\nassert.exists(wrapper.find('#crearCuentaNav'))",
             "err": {},
             "isRoot": false,
-            "uuid": "2e1c4ca7-8113-4db8-898e-ec16fa41ffc7",
+            "uuid": "1f9642af-c0de-4429-90de-2d2dc6d59395",
             "isHook": false,
             "skipped": false
           },
           {
             "title": "renderiza todas las cuentas",
-            "fullTitle": "Render renderiza todas las cuentas",
+            "fullTitle": "Render nav renderiza todas las cuentas",
             "timedOut": false,
-            "duration": 12,
+            "duration": 10,
             "state": "passed",
             "speed": "fast",
             "pass": true,
             "fail": false,
             "pending": false,
-            "code": "store.state.cuentas.push(store.state.cuentas.push({\n    icon: 'account_balance', nombre: 'ahorros', fondos: 0, route: '/'\n}))\n\nstore.state.cuentas.forEach(cuenta => {\n    assert.exists(wrapper.find('#' + cuenta.nombre))\n})",
+            "code": "store.state.cuentas.push(store.state.cuentas.push({\n  icon: 'account_balance', nombre: 'ahorros', fondos: 0, route: '/'\n}))\nstore.state.cuentas.forEach(cuenta => {\n  assert.exists(wrapper.find('#' + cuenta.nombre))\n})",
             "err": {},
             "isRoot": false,
-            "uuid": "f0286885-a0e1-48cc-bf08-b1efb210820d",
+            "uuid": "a275ff0e-1582-4d1e-9857-70c022b913c6",
             "isHook": false,
             "skipped": false
           }
         ],
         "suites": [],
         "passes": [
-          "2e1c4ca7-8113-4db8-898e-ec16fa41ffc7",
-          "f0286885-a0e1-48cc-bf08-b1efb210820d"
+          "1f9642af-c0de-4429-90de-2d2dc6d59395",
+          "a275ff0e-1582-4d1e-9857-70c022b913c6"
         ],
         "failures": [],
         "pending": [],
         "skipped": [],
-        "duration": 14,
+        "duration": 12,
         "root": false,
         "rootEmpty": false,
         "_timeout": 2000
       },
       {
-        "uuid": "e61fea02-4e93-4693-9f99-455c39a6fd55",
+        "uuid": "def99ef2-ae53-4b12-8bcb-f4139d2adfde",
         "title": "Unit tests del reporte",
         "fullFile": "/Users/abrahan/Desktop/JS/Walle-et/dist/main.js",
         "file": "/dist/main.js",
@@ -1533,14 +1731,14 @@
             "title": "\"before each\" hook",
             "fullTitle": "Unit tests del reporte \"before each\" hook",
             "timedOut": false,
-            "duration": 9,
+            "duration": 10,
             "pass": false,
             "fail": false,
             "pending": false,
             "code": "store = _Utils_ReportUtil_js__WEBPACK_IMPORTED_MODULE_3__[\"default\"].getDefaultStore()\nwrapper = Object(_vue_test_utils__WEBPACK_IMPORTED_MODULE_1__[\"shallowMount\"])(_components_Report_vue__WEBPACK_IMPORTED_MODULE_2__[\"default\"],\n  {\n    store\n  })",
             "err": {},
             "isRoot": false,
-            "uuid": "5690d04a-6d12-41d9-bbc8-25fc0b6fbb65",
+            "uuid": "50b99484-c84c-46b1-9a6b-fe3c72e179f0",
             "isHook": true,
             "skipped": false
           }
@@ -1560,7 +1758,7 @@
             "code": "var fechas = store.getters.obtenerFechas\nchai__WEBPACK_IMPORTED_MODULE_0__[\"assert\"].equal(fechas.length, 6)",
             "err": {},
             "isRoot": false,
-            "uuid": "c2ed4d24-da34-48e0-b269-0a64b16dfba2",
+            "uuid": "b418da3b-9231-4893-8e6e-f5acf8a13a55",
             "isHook": false,
             "skipped": false
           },
@@ -1577,7 +1775,7 @@
             "code": "chai__WEBPACK_IMPORTED_MODULE_0__[\"assert\"].exists(wrapper.vm.nuevoReporte)\nchai__WEBPACK_IMPORTED_MODULE_0__[\"assert\"].lengthOf(wrapper.vm.nuevoReporte, 6)",
             "err": {},
             "isRoot": false,
-            "uuid": "91485e18-a006-4493-ae3b-2ef568204412",
+            "uuid": "ac41f5fa-fd18-41f0-aa2c-19f2d1914b44",
             "isHook": false,
             "skipped": false
           },
@@ -1594,16 +1792,16 @@
             "code": "var catIngreso = store.state.categoriaIngresos\nvar catEgreso = store.state.categoriaEgresos\nvar concatenacion = store.getters.obtenerCategorias\nvar total = catIngreso.length + catEgreso.length\nchai__WEBPACK_IMPORTED_MODULE_0__[\"assert\"].isAtMost(concatenacion.length, total)",
             "err": {},
             "isRoot": false,
-            "uuid": "df7b99ee-ced8-45d7-9add-db55c14cdc4b",
+            "uuid": "101e317b-d55a-4f2b-8984-ec1f757c383c",
             "isHook": false,
             "skipped": false
           }
         ],
         "suites": [],
         "passes": [
-          "c2ed4d24-da34-48e0-b269-0a64b16dfba2",
-          "91485e18-a006-4493-ae3b-2ef568204412",
-          "df7b99ee-ced8-45d7-9add-db55c14cdc4b"
+          "b418da3b-9231-4893-8e6e-f5acf8a13a55",
+          "ac41f5fa-fd18-41f0-aa2c-19f2d1914b44",
+          "101e317b-d55a-4f2b-8984-ec1f757c383c"
         ],
         "failures": [],
         "pending": [],

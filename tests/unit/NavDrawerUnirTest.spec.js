@@ -30,11 +30,11 @@ describe('Render nav', () => {
   })
   it('renderiza todas las cuentas', () => {
     store.state.cuentas.push(store.state.cuentas.push({
-        icon: 'account_balance', nombre: 'ahorros', fondos: 0, route: '/'
+      icon: 'account_balance', nombre: 'ahorros', fondos: 0, route: '/'
     }))
-    
+
     store.state.cuentas.forEach(cuenta => {
-        assert.exists(wrapper.find('#' + cuenta.nombre))
+      assert.exists(wrapper.find('#' + cuenta.nombre))
     })
   })
 })

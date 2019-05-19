@@ -75,7 +75,7 @@ export default {
           break
         }
       }
-      if (this.nombreExiste === false) {
+      if (this.nombreExiste === false && this.nombre !== '') {
         this.$store.dispatch('addCuenta', {
           icon: 'account_balance', nombre: this.nombre, route: '/', fondos: 0 }
         )
