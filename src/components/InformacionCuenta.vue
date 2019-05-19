@@ -88,7 +88,7 @@ export default {
         } else if (this.cuentaActual === this.cuentaOriginal) {
           throw new Error('No se realizo ningun cambio, pues es el mismo nombre')
         } else if (this.otrasCuentas.find((cuentaAuxiliar) =>
-          cuentaAuxiliar.nombre === this.cuentaActual) !== undefined) {
+          cuentaAuxiliar === this.cuentaActual) !== undefined) {
           throw new Error('Nombre ya existente')
         }
         this.$store.dispatch('editarCuentaNombre', {
@@ -108,7 +108,11 @@ export default {
         if (this.cuentaOriginal === 'Global') {
           throw new Error('No se puede borrar la cuenta global')
         } else if (this.$store.state.ingresos.find((ingreso) => ingreso.cuenta === this.cuentaOriginal) !== undefined) {
-          throw new Error('No se puede borrar una cuenta que tiene ingresos/egresos')
+          throw new Error('No se puede borrar una cuenta que tiene ingresos')
+        } else if (this.$store.state.egresos.find((egreso) => egreso.cuenta === this.cuentaOriginal) !== undefined) {
+          throw new Error('No se puede borrar una cuenta que tiene egresos')
+        } else if (Number(this.fondos) !== 0) {
+          throw new Error('No se puede borrar una cuenta que tiene saldo')
         }
         this.$store.dispatch('borrarCuenta', { nombre: this.cuentaOriginal })
         this.$emit('actualizarCuenta', { nombre: this.cuentaOriginal })
