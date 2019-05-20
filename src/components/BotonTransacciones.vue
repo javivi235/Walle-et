@@ -6,6 +6,7 @@
         dark
         round
         :id="'boton'+tipo"
+        :disabled="cuenta.nombre === 'Global'"
       >
         +{{tipo}}
       </v-btn>
@@ -84,7 +85,13 @@ export default {
       sheet: false,
       fecha: new Date().toISOString().substr(0, 10),
       categoria: '',
+      fondoGlobal: 0,
       monto: 0
+    }
+  },
+  computed: {
+    cuentas() {
+      return this.$store.state.cuentas
     }
   },
   methods: {
@@ -104,6 +111,8 @@ export default {
             this.cuenta.fondos = Number(this.monto) + Number(this.cuenta.fondos)
             this.$store.dispatch('agregarIngreso',
                 { cuenta: this.cuenta.nombre, fecha: this.fecha, monto: this.monto, categoria: this.categoria })
+            this.$store.dispatch('agregarIngreso',
+                { cuenta: 'Global', fecha: this.fecha, monto: this.monto, categoria: this.categoria })
             break
           case 'Egreso':
             if (Number(this.monto) > Number(this.cuenta.fondos)) {
@@ -112,6 +121,8 @@ export default {
             this.cuenta.fondos = Number(this.cuenta.fondos) - Number(this.monto)
             this.$store.dispatch('agregarEgreso',
                 { cuenta: this.cuenta.nombre, fecha: this.fecha, monto: this.monto, categoria: this.categoria })
+            this.$store.dispatch('agregarEgreso',
+                { cuenta: 'Global', fecha: this.fecha, monto: this.monto, categoria: this.categoria })
             break
         }
         this.$store.dispatch('actualizarSaldo', this.cuenta)
@@ -123,6 +134,12 @@ export default {
         this.fecha = new Date().toISOString().substr(0, 10)
         this.categoria = ''
         this.monto = 0
+        this.fondoGlobal = 0
+        for (let i = 1; i < this.cuentas.length; i++) {
+          this.fondoGlobal = Number(this.fondoGlobal) + Number(this.cuentas[i].fondos)
+          console.log(this.fondoGlobal)
+         } 
+          this.$store.dispatch('actualizarSaldoGlobal', this.fondoGlobal)
       }
     },
     generarAlerta(alerta) {

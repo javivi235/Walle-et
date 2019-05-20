@@ -6,6 +6,7 @@
         dark
         round
         id="botonTransferencia"
+        :disabled="cuenta.nombre === 'Global'"
       >
         Transferencia
       </v-btn>
@@ -110,6 +111,8 @@ export default {
         this.cuenta.fondos = Number(this.cuenta.fondos) - Number(this.monto)
         this.$store.dispatch('agregarEgreso', {
           cuenta: this.cuenta.nombre, fecha: this.fecha, monto: this.monto, categoria: 'Transferencia' })
+        this.$store.dispatch('agregarEgreso', {
+          cuenta: 'Global', fecha: this.fecha, monto: this.monto, categoria: 'Transferencia' })
         this.$store.dispatch('actualizarSaldo', this.cuenta)
         this.$store.dispatch('agregarIngreso', {
           cuenta: this.cuentaDestino, fecha: this.fecha, monto: this.monto, categoria: 'Transferencia' })
