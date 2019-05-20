@@ -10,12 +10,12 @@
             id="nombreCrearCuenta"
             v-model="nombre"
             size="large"
-            color="green"
+            color="#64C195"
             label="Nombre de Cuenta"
             prepend-icon="account_balance"
           ></v-text-field>
           <v-btn
-            color="success"
+            color="#64C195"
             :disabled="!NombreEsValido"
             dark
             large
