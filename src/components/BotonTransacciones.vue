@@ -110,9 +110,9 @@ export default {
           case 'Ingreso':
             this.cuenta.fondos = Number(this.monto) + Number(this.cuenta.fondos)
             this.$store.dispatch('agregarIngreso',
-                { cuenta: this.cuenta.nombre, fecha: this.fecha, monto: this.monto, categoria: this.categoria })
+                { cuenta: this.cuenta.nombre, fecha: this.fecha, monto: this.monto, categoria: this.categoria, tipo: 'ingreso' })
             this.$store.dispatch('agregarIngreso',
-                { cuenta: 'Global', fecha: this.fecha, monto: this.monto, categoria: this.categoria })
+                { cuenta: 'Global', fecha: this.fecha, monto: this.monto, categoria: this.categoria, tipo: 'ingreso' })
             break
           case 'Egreso':
             if (Number(this.monto) > Number(this.cuenta.fondos)) {
@@ -120,9 +120,9 @@ export default {
             }
             this.cuenta.fondos = Number(this.cuenta.fondos) - Number(this.monto)
             this.$store.dispatch('agregarEgreso',
-                { cuenta: this.cuenta.nombre, fecha: this.fecha, monto: this.monto, categoria: this.categoria })
+                { cuenta: this.cuenta.nombre, fecha: this.fecha, monto: this.monto, categoria: this.categoria, tipo: 'egreso' })
             this.$store.dispatch('agregarEgreso',
-                { cuenta: 'Global', fecha: this.fecha, monto: this.monto, categoria: this.categoria })
+                { cuenta: 'Global', fecha: this.fecha, monto: this.monto, categoria: this.categoria, tipo: 'egreso' })
             break
         }
         this.$store.dispatch('actualizarSaldo', this.cuenta)
