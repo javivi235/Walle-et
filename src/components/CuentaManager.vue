@@ -5,7 +5,6 @@
         :cuentaActual="cuenta.nombre"
         :cuentaOriginal="cuenta.nombre"
         :fondos="saldo"
-        @actualizarCuenta="actualizarCuenta"
         id="informacionCuenta"/>
       <Lista :items = "ingresos" :cuenta = "cuenta" titulo="Ingresos" style="heigth: 10%" id="listaIngresos"/>
       <Lista :items = "egresos" :cuenta = "cuenta" titulo="Egresos" height="15%" id="listaEgresos"/>
@@ -55,15 +54,6 @@ export default {
         })
         this.$store.dispatch('actualizarSaldoGlobal', Number(saldo))
         return saldo
-      }
-    }
-  },
-  methods: {
-    actualizarCuenta(cuenta) {
-      if (this.$store.state.cuentas.find((cuentaAuxiliar) => cuentaAuxiliar.nombre === cuenta.nombre) !== undefined) {
-        this.cuenta = this.$store.state.cuentas.find((cuentaAuxiliar) => cuentaAuxiliar.nombre === cuenta.nombre)
-      } else {
-        this.cuenta = this.$store.state.cuentas[0]
       }
     }
   }

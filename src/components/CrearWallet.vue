@@ -1,5 +1,6 @@
 <template>
   <v-container>
+    <NavDrawer/>
     <form>
       <div class="Header">
         <h1>Crea tu Cuenta</h1>
@@ -24,7 +25,7 @@
             id="crearCuenta"
             >Crear Cuenta</v-btn>
         </v-flex>
-        <v-btn round color="#64C195" router to="/" id="volverHome">Volver</v-btn>
+        <v-btn round color="#64C195" router to="/cuentas/Global" id="volverHome">Volver</v-btn>
       </v-layout>
       <v-snackbar
         v-model="snackbar"
@@ -47,8 +48,12 @@
 </template>
 
 <script>
-export default {
+import NavDrawer from '@/components/NavDrawer.vue'
 
+export default {
+  components: {
+    NavDrawer
+  },
   data() {
     return {
       nombre: '',
@@ -80,8 +85,8 @@ export default {
           icon: 'account_balance', nombre: this.nombre, route: '/', fondos: 0 }
         )
         this.snackbarText = 'Cuenta "' + this.nombre + '" Creado'
+        this.$router.push('/cuentas/' + this.nombre)
         this.nombre = ''
-        this.$router.push('/')
       }
       this.nombreExiste = false
     }

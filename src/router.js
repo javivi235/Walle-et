@@ -3,7 +3,6 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import ReportesVista from './views/ReportesVista.vue'
 import CrearVista from './views/CrearVista.vue'
-import store from '@/store.js'
 
 Vue.use(Router)
 
@@ -11,9 +10,12 @@ export default new Router({
   routes: [
     {
       path: '/',
+      redirect: '/cuentas/Global'
+    },
+    {
+      path: '/cuentas/:cuentaNombre',
       name: 'home',
-      component: Home,
-      props: { cuenta: store.state.cuentas[0] }
+      component: Home
     },
     {
       path: '/reporte',

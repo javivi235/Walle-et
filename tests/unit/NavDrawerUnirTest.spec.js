@@ -29,7 +29,6 @@ describe('Render nav', () => {
       icon: 'account_balance', nombre: 'ahorros', fondos: 0, route: '/'
     })
     store.state.cuentas.forEach(cuenta => {
-      console.log(store.state.cuentas.length)
       assert.equal(wrapper.find('#' + cuenta.nombre).exists(), true, cuenta.nombre + ' no renderiza')
     })
   })

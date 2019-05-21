@@ -95,7 +95,7 @@ export default {
           nombreNuevo: this.cuentaActual, nombreAntiguo: this.cuentaOriginal, })
         this.alerta = { mensaje: 'Modificado exitosamente', tipo: 'success', visible: true, color: '#64C195' }
         this.cuentaOriginal = this.cuentaActual
-        this.$emit('actualizarCuenta', { nombre: this.cuentaOriginal })
+        this.$router.push('/cuentas/' + this.cuentaActual)
       } catch (error) {
         this.cuentaActual = this.cuentaOriginal
         this.alerta = { mensaje: error, tipo: 'error', visible: true, color: 'red' }
@@ -115,7 +115,7 @@ export default {
           throw new Error('No se puede borrar una cuenta que tiene saldo')
         }
         this.$store.dispatch('borrarCuenta', { nombre: this.cuentaOriginal })
-        this.$emit('actualizarCuenta', { nombre: this.cuentaOriginal })
+        this.$router.push('/cuentas/Global')
         this.alerta = { mensaje: 'Eliminado exitosamente', tipo: 'success', visible: true, color: '#64C195' }
       } catch (error) {
         this.alerta = { mensaje: error, tipo: 'error', visible: true, color: 'red' }
