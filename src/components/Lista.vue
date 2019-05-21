@@ -14,6 +14,28 @@
             <td class="text-xs-rigth">{{ props.item.fecha | formatDate }}</td>
             <td class="text-xs-rigth">{{ props.item.monto }}</td>
             <td class="text-xs-rigth">{{ props.item.categoria }}</td>
+            <span>
+              <v-btn
+                color="#64C195"
+                dark
+                round
+                id="botonBorrar"
+                @click="MostrarEditar"
+              >
+                BORRAR
+              </v-btn>
+            </span>
+            <span>
+              <v-btn
+                color="#64C195"
+                dark
+                round
+                id="botonEditar"
+                
+              >
+                EDITAR
+              </v-btn>
+            </span>
           </template>
         </v-data-table>
       </v-flex>
@@ -21,6 +43,7 @@
   </v-container>
 </template>
 <script>
+import { METHODS } from 'http';
 export default {
   props: {
     items: Array,
@@ -28,6 +51,7 @@ export default {
   },
   data() {
     return {
+      Editar:false,
       cabecerasTabla: [
         { text: 'Fecha',
           align: 'left',
@@ -43,6 +67,14 @@ export default {
       if (!value) return ''
       return new Date(value).toLocaleDateString('en-US')
     }
+  },
+  methods:{
+    MostrarEditar: function (){
+      Editar=true
+      console.log(Editar)
+    }
+
+
   }
 }
 </script>
