@@ -12,9 +12,37 @@
         >
           <template v-slot:items="props">
             <td class="text-xs-rigth">{{ props.item.fecha | formatDate }}</td>
-            <td class="text-xs-rigth">{{ props.item.monto }}</td>
-            <td class="text-xs-rigth">{{ props.item.categoria }}</td>
-            <span>
+            <td class="text-xs-rigth">
+              <span v-if="Editar==1">
+                <input type="text">
+             
+              </span>
+              <span v-else>
+                {{ props.item.monto }}
+              </span>
+            </td>
+             <td class="text-xs-rigth">
+              <span v-if="Editar==1">
+                <v-combobox>
+                </v-combobox>
+
+             
+              </span>
+              <span v-else>
+                {{ props.item.categoria }}
+              </span>
+            </td>
+            <span v-if="Editar==0">
+                
+              <v-btn
+                color="#64C195"
+                dark
+                round
+                id="botonEditar"
+                @click="MostrarEditar"  
+              >
+                EDITAR
+              </v-btn>
               <v-btn
                 color="#64C195"
                 dark
@@ -24,17 +52,19 @@
               >
                 BORRAR
               </v-btn>
+          
             </span>
-            <span>
-              <v-btn
+            <span v-if="Editar==1">
+                     <v-btn
                 color="#64C195"
                 dark
                 round
-                id="botonEditar"
-                
+                id="Guardar"
+                @click="Guardar"
               >
-                EDITAR
-              </v-btn>
+                GUARDAR
+                    </v-btn>
+
             </span>
           </template>
         </v-data-table>
@@ -51,7 +81,7 @@ export default {
   },
   data() {
     return {
-      Editar:false,
+      Editar:0,
       cabecerasTabla: [
         { text: 'Fecha',
           align: 'left',
@@ -70,8 +100,11 @@ export default {
   },
   methods:{
     MostrarEditar: function (){
-      Editar=true
-      console.log(Editar)
+      this.Editar=1
+      
+    },
+    Guardar(){
+      this.Editar=0
     }
 
 
