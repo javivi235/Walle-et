@@ -34,14 +34,24 @@ describe('render barra de herramientas', () => {
   })
 
   it('render elementos inicales', () => {
-    assert.exists(wrapper.find('#herramientaIngreso'))
-    assert.exists(wrapper.find('#herramientaEgreso'))
-    assert.exists(wrapper.find('BotonTransferencia'))
-    assert.exists(wrapper.find('BotonCategorias'))
-    assert.exists(wrapper.find('#botonReporte'))
-    assert.exists(wrapper.find('#alertaInferior'))
+    assert.equal(wrapper.find('#herramientaCategorias').exists(), true)
+    assert.equal(wrapper.find('#botonReporte').exists(), true)
+    assert.equal(wrapper.find('#alertaInferior').exists(), true)
+    assert.equal(wrapper.find('#herramientaIngreso').exists(), true)
+    assert.equal(wrapper.find('#herramientaEgreso').exists(), true)
+    assert.equal(wrapper.find('#herramientaTransferencia').exists(), true)
   })
   it('render caso cuenta global', () => {
+    wrapper.vm.cuenta = {
+      icon: 'account_balance', nombre: 'Global', fondos: 0, route: '/'
+    }
 
+    assert.equal(wrapper.find('#herramientaCategorias').exists(), true)
+    assert.equal(wrapper.find('#botonReporte').exists(), true)
+    assert.equal(wrapper.find('#alertaInferior').exists(), true)
+
+    assert.equal(wrapper.find('#herramientaIngreso').exists(), false)
+    assert.equal(wrapper.find('#herramientaEgreso').exists(), false)
+    assert.equal(wrapper.find('#herramientaTransferencia').exists(), false)
   })
 })

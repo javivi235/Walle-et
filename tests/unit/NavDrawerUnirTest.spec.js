@@ -13,9 +13,6 @@ describe('Render nav', () => {
 
   beforeEach(function () {
     store = TestUtil.getDefaultStore()
-    store.state.cuentas.push(store.state.cuentas.push({
-      icon: 'account_balance', nombre: 'ahorros', fondos: 0, route: '/'
-    }))
     wrapper = shallowMount(NavDrawer,
       {
         store
@@ -23,18 +20,17 @@ describe('Render nav', () => {
   })
 
   it('renderiza parte inicial', () => {
-    assert.exists(wrapper.find('#nav'))
-    assert.exists(wrapper.find('#Global'))
-    assert.exists(wrapper.find('#ahorros'))
-    assert.exists(wrapper.find('#crearCuentaNav'))
+    assert.equal(wrapper.find('#nav').exists(), true)
+    assert.equal(wrapper.find('#Global').exists(), true)
+    assert.equal(wrapper.find('#crearCuentaNav').exists(), true)
   })
   it('renderiza todas las cuentas', () => {
-    store.state.cuentas.push(store.state.cuentas.push({
+    store.state.cuentas.push({
       icon: 'account_balance', nombre: 'ahorros', fondos: 0, route: '/'
-    }))
-
+    })
     store.state.cuentas.forEach(cuenta => {
-      assert.exists(wrapper.find('#' + cuenta.nombre))
+      console.log(store.state.cuentas.length)
+      assert.equal(wrapper.find('#' + cuenta.nombre).exists(), true, cuenta.nombre + ' no renderiza')
     })
   })
 })

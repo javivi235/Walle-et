@@ -6,12 +6,12 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 Vue.use(Vuex)
 
-describe('Transferencia, funcional', () => {
+suite('Transferencia, funcional', () => {
   let wrapper
   let store
   const assert = require('chai').assert
 
-  beforeEach(function () {
+  setup(function () {
     store = TestUtil.getDefaultStore()
     store.state.cuentas.push({ icon: 'account_balance', nombre: 'ahorros', fondos: 100, route: '/' })
     store.state.cuentas.push({ icon: 'account_balance', nombre: 'comida', fondos: 0, route: '/' })
@@ -21,7 +21,7 @@ describe('Transferencia, funcional', () => {
       })
   })
 
-  it('Agregar Transferencia', () => {
+  test('Agregar Transferencia', () => {
     const datosTransferencia = {
       cuentaDestino: 'comida',
       fecha: '2019-05-06',
@@ -307,11 +307,10 @@ describe('render tranferencia', () => {
   })
 
   it('Elementos del formulario renderizan', () => {
-    assert.exists(wrapper.find('#selectorCuentaTransferencua'))
-    assert.exists(wrapper.find('#montoTransferencia'))
-    assert.exists(wrapper.find('#menuCalendarioTransferencia'))
-    assert.exists(wrapper.find('#fechaCalendarioTransferencia'))
-    assert.exists(wrapper.find('#okCalendarioTransferencia'))
-    assert.exists(wrapper.find('#agregarTransferencia'))
+    assert.equal(wrapper.find('#selectorCuentaTransferencia').exists(), true)
+    assert.equal(wrapper.find('#montoTransferencia').exists(), true)
+    assert.equal(wrapper.find('#menuCalendarioTransferencia').exists(), true)
+    assert.equal(wrapper.find('#okCalendarioTransferencia').exists(), true)
+    assert.equal(wrapper.find('#agregarTransferencia').exists(), true)
   })
 })

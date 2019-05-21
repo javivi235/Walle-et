@@ -23,6 +23,10 @@ export default {
           context.cuentas.find((cuenta) =>
             cuenta.nombre === cuentaModificada.nombre).fondos = cuentaModificada.fondos
         },
+        actualizarSaldoGlobal(context, fondoTotal) {
+          context.cuentas.find((cuenta) =>
+            cuenta.nombre === 'Global').fondos = fondoTotal
+        },
         agregarCategoriaIngreso(context, nuevaCategoria) {
           context.categoriaIngresos.unshift(nuevaCategoria)
         },
@@ -57,6 +61,9 @@ export default {
         },
         actualizarSaldo(context, cuentaModificada) {
           context.commit('actualizarSaldo', cuentaModificada)
+        },
+        actualizarSaldoGlobal(context, fondoTotal) {
+          context.commit('actualizarSaldoGlobal', fondoTotal)
         },
         agregarCategoriaIngreso(context, nuevaCategoria) {
           context.commit('agregarCategoriaIngreso', nuevaCategoria)

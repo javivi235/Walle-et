@@ -140,7 +140,6 @@ export default {
       for (const i in reg) {
         reg[i].fecha = stamps[i] + 14400000
       }
-      console.log(reg)
       return reg
     }
   },

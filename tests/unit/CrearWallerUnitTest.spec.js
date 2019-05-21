@@ -9,13 +9,13 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 Vue.use(VueRouter)
 
-describe('Cuenta', () => {
+suite('Cuenta, funcional', () => {
   let wrapper
   let store
   const assert = require('chai').assert
   let router
 
-  beforeEach(function () {
+  setup(function () {
     store = TestUtil.getDefaultStore()
     router = new VueRouter()
     wrapper = shallowMount(CrearWallet,
@@ -32,7 +32,7 @@ describe('Cuenta', () => {
     })
   })
 
-  it('Crear Cuenta, funcional', () => {
+  test('Crear Cuenta, funcional', () => {
     wrapper.vm.nombre = 'nuevaWallet'
 
     wrapper.vm.addCuenta()
@@ -118,11 +118,11 @@ describe('Render crear cuenta', () => {
   })
 
   it('elementos iniciales', () => {
-    assert.exists(wrapper.find('.Header'))
-    assert.exists(wrapper.find('#nombreCrearCuenta'))
-    assert.exists(wrapper.find('#crearCuenta'))
-    assert.exists(wrapper.find('#volverHome'))
-    assert.exists(wrapper.find('#snackbarCrearCuenta'))
-    assert.exists(wrapper.find('#okSnackbar'))
+    assert.equal(wrapper.find('.Header').exists(), true)
+    assert.equal(wrapper.find('#nombreCrearCuenta').exists(), true)
+    assert.equal(wrapper.find('#crearCuenta').exists(), true)
+    assert.equal(wrapper.find('#volverHome').exists(), true)
+    assert.equal(wrapper.find('#snackbarCrearCuenta').exists(), true)
+    assert.equal(wrapper.find('#okSnackbar').exists(), true)
   })
 })

@@ -4,14 +4,15 @@ import BotonCategorias from '@/components/BotonCategorias.vue'
 
 import Vue from 'vue'
 import Vuex from 'vuex'
+
 Vue.use(Vuex)
 
-describe('categorias, test funcional', function () {
+suite('categorias, test funcional', function () {
   let wrapper
   let store
   const assert = require('chai').assert
 
-  beforeEach(function () {
+  setup(function () {
     store = TestUtil.getDefaultStore()
     wrapper = shallowMount(BotonCategorias,
       {
@@ -23,7 +24,7 @@ describe('categorias, test funcional', function () {
       })
   })
 
-  it('Crear categoria Ingreso, funcional', () => {
+  test('Crear categoria Ingreso, funcional', () => {
     const categoriaNueva = ['Ventas']
 
     wrapper.vm.tipo = 'Ingreso'
@@ -33,7 +34,7 @@ describe('categorias, test funcional', function () {
     assert.exists(store.state.categoriaIngresos.find(categoria => categoria === categoriaNueva),
       'No se encontro la nueva cateogira')
   })
-  it('Crear categoria Egreso, funcional', () => {
+  test('Crear categoria Egreso, funcional', () => {
     const categoriaNueva = ['Compras']
 
     wrapper.vm.tipo = 'Egreso'
@@ -61,52 +62,20 @@ describe('categorias render test', () => {
       })
   })
   it('elementos formulario renderizan', () => {
-    assert.exists(wrapper.find('#selectorCategoria'), 'no existe el selector de categoria')
-    assert.exists(wrapper.find('#nombreCategoria'), 'no existe el input para el nombre categoria')
-    assert.exists(wrapper.find('#agregarCategoria'), 'no existe el boton para agregar categoria')
+    assert.equal(wrapper.find('#selectorCategoria').exists(), true)
+    assert.equal(wrapper.find('#nombreCategoria').exists(), true)
+    assert.equal(wrapper.find('#agregarCategoria').exists(), true)
   })
 })
-describe('categorias, test event', function () {
-  let wrapper
+suite('Datos iniciales categorias', () => {
   let store
   const assert = require('chai').assert
 
-  beforeEach(function () {
-    store = TestUtil.getDefaultStore()
-    wrapper = shallowMount(BotonCategorias,
-      {
-        store,
-        propsData: {
-          categoriaIngresos: store.state.categoriaIngresos,
-          categoriaEgresos: store.state.categoriaEgresos
-        }
-      })
-  })
-
-  it('Crear cateogria de ingreso, events', () => {
-    const categoriaNueva = 'Compras'
-
-    wrapper.find('#selectorCategoria').trigger('click')
-    wrapper.find('#selectorCategoria').trigger('keydown.down')
-    wrapper.find('#selectorCategoria').trigger('keydown.enter')
-    wrapper.find('#selectorCategoria').trigger('change')
-    wrapper.find('#nombreCategoria').value = categoriaNueva
-    wrapper.find('#nombreCategoria').trigger('input')
-    wrapper.find('#agregarCategoria').trigger('click')
-
-    assert.exists(store.state.categoriaIngresos.find(categoria => categoria === categoriaNueva),
-      'No se encontro la nueva cateogira')
-  })
-})
-describe('Datos iniciales categorias', () => {
-  let store
-  const assert = require('chai').assert
-
-  beforeEach(function () {
+  setup(function () {
     store = TestUtil.getDefaultStore()
   })
 
-  it('Deberia tener 3 categorias de ingreso iniciales', () => {
+  test('Deberia tener 3 categorias de ingreso iniciales', () => {
     assert.equal(3, store.state.categoriaIngresos.length,
       'numero de categorias de ingresos: ' + store.state.categoriaIngresos.length)
     assert.exists(store.state.categoriaIngresos.find(categoria => categoria === 'Salario'),
@@ -116,7 +85,7 @@ describe('Datos iniciales categorias', () => {
     assert.exists(store.state.categoriaIngresos.find(categoria => categoria === 'Otros'),
       'No esiste la categoria Otros')
   })
-  it('Deberia tener 3 categorias de egreso iniciales', () => {
+  test('Deberia tener 3 categorias de egreso iniciales', () => {
     assert.equal(3, store.state.categoriaEgresos.length,
       'numero de categorias de egresos: ' + store.state.categoriaEgresos.length)
     assert.exists(store.state.categoriaEgresos.find(categoria => categoria === 'Expensas'),

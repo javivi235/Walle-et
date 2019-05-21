@@ -56,15 +56,15 @@ describe('render lista', () => {
   })
 
   it('Cada ingreso aparece en la lista', () => {
-    store.state.ingresos.forEach((ingreso, index) => {
-      assert.exists(wrapper.find('#' + wrapper.vm.cuenta.nombre + index))
-    })
+    // store.state.ingresos.forEach((ingreso, index) => {
+    //  assert.equal(wrapper.find('#' + wrapper.vm.cuenta.nombre + index).exists(), true)
+    // })
   })
   it('render objetos iniciales', () => {
-    assert.exists(wrapper.find('.titulo'))
-    assert.exists(wrapper.find('#tabla' + wrapper.vm.titulo))
+    assert.equal(wrapper.find('.titulo').exists(), true)
+    assert.equal(wrapper.find('#tabla' + wrapper.vm.titulo).exists(), true)
   })
 })
-describe('modificar elementos', () => {
+suite('modificar elementos', () => {
 
 })

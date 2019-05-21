@@ -6,21 +6,28 @@
           <div>
             <v-layout>
               <BotonTransacciones
+                v-if="cuenta.nombre !== 'Global'"
                 tipo="Ingreso"
                 id="herramientaIngreso"
                 :cuenta="cuenta"
                 :categorias="categoriaIngresos"
                 @setAlerta = "setAlerta"/>
               <BotonTransacciones
+                v-if="cuenta.nombre !== 'Global'"
                 tipo="Egreso"
                 id="herramientaEgreso"
                 :cuenta="cuenta"
                 :categorias="categoriaEgresos"
                 @setAlerta = "setAlerta"/>
-              <BotonTransferencia :cuenta="cuenta" @setAlerta = "setAlerta"/>
+              <BotonTransferencia
+              :cuenta="cuenta"
+              @setAlerta = "setAlerta"
+              id="herramientaTransferencia"
+              v-if="cuenta.nombre !== 'Global'"/>
               <BotonCategorias
                 :categoriaIngresos="categoriaIngresos"
                 :categoriaEgresos="categoriaEgresos"
+                id="herramientaCategorias"
                 @setAlerta = "setAlerta"/>
               <v-btn
                 color="#64C195"

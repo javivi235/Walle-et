@@ -6,12 +6,12 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 Vue.use(Vuex)
 
-describe('Modificar datos cuenta', () => {
+suite('Modificar datos cuenta', () => {
   let wrapper
   let store
   const assert = require('chai').assert
 
-  beforeEach(function () {
+  setup(function () {
     store = TestUtil.getDefaultStore()
     store.state.cuentas.push(store.state.cuentas.push({
       icon: 'account_balance', nombre: 'ahorros', fondos: 0, route: '/'
@@ -27,7 +27,7 @@ describe('Modificar datos cuenta', () => {
       })
   })
 
-  it('editar nombre de cuenta', () => {
+  test('editar nombre de cuenta', () => {
     const nuevoNombre = 'Emergencias'
 
     wrapper.vm.cuentaActual = nuevoNombre
@@ -37,7 +37,7 @@ describe('Modificar datos cuenta', () => {
     assert.exists(store.state.cuentas.find(cuenta => cuenta.nombre === nuevoNombre),
       'El nombre no cambia')
   })
-  it('borrar cuenta', () => {
+  test('borrar cuenta', () => {
     const cuentaOriginal = wrapper.vm.cuentaOriginal
 
     wrapper.vm.borrarCuenta()
@@ -74,6 +74,7 @@ describe('Nombres de cuenta invalidos', () => {
 
     assert.notExists(store.state.cuentas.find(cuenta => cuenta.nombre === ''),
       'Se encontro cuenta vacia')
+    assert.equal(wrapper.vm.alerta.visible, true, 'alerta no aparece')
   })
   it('Nombre Global', () => {
     const nombreGlobal = 'Global'
@@ -82,6 +83,7 @@ describe('Nombres de cuenta invalidos', () => {
 
     wrapper.vm.editarNombre()
 
+    assert.equal(wrapper.vm.alerta.visible, true, 'alerta no aparece')
     assert.equal(store.state.cuentas.filter(cuenta => cuenta.nombre === nombreGlobal).length, 1,
       'Dos cuentas globales existententes')
   })
@@ -93,6 +95,7 @@ describe('Nombres de cuenta invalidos', () => {
 
     wrapper.vm.editarNombre()
 
+    assert.equal(wrapper.vm.alerta.visible, true, 'alerta no aparece')
     assert.equal(store.state.cuentas.filter(cuenta => cuenta.nombre === otraCuenta).length, 1,
       'Dos cuentas de mismo nombre')
   })
@@ -128,6 +131,7 @@ describe('Borrar Cuentas invalidas', () => {
 
     assert.exists(store.state.cuentas.find(cuenta => cuenta.nombre === nombreGlobal),
       'Se borro la cuenta global')
+    assert.equal(wrapper.vm.alerta.visible, true, 'alerta no aparece')
   })
   it('Borrar cuenta con saldo', () => {
     const cuentaOriginal = wrapper.vm.cuentaOriginal
@@ -138,6 +142,7 @@ describe('Borrar Cuentas invalidas', () => {
 
     assert.exists(store.state.cuentas.find(cuenta => cuenta.nombre === cuentaOriginal),
       'Se borro cuenta con fondos')
+    assert.equal(wrapper.vm.alerta.visible, true, 'alerta no aparece')
   })
   it('Borrar cuenta con ingresos', () => {
     const cuentaOriginal = wrapper.vm.cuentaOriginal
@@ -153,6 +158,7 @@ describe('Borrar Cuentas invalidas', () => {
 
     assert.exists(store.state.cuentas.find(cuenta => cuenta.nombre === cuentaOriginal),
       'Se borro cuenta con Ingresos')
+    assert.equal(wrapper.vm.alerta.visible, true, 'alerta no aparece')
   })
   it('Borrar cuenta con egresos', () => {
     const cuentaOriginal = wrapper.vm.cuentaOriginal
@@ -168,6 +174,7 @@ describe('Borrar Cuentas invalidas', () => {
 
     assert.exists(store.state.cuentas.find(cuenta => cuenta.nombre === cuentaOriginal),
       'Se borro cuenta con Egresos')
+    assert.equal(wrapper.vm.alerta.visible, true, 'alerta no aparece')
   })
 })
 describe('Render informacion cuenta', () => {
@@ -195,22 +202,26 @@ describe('Render informacion cuenta', () => {
   })
 
   it('Componentes iniciales renderizan', () => {
-    assert.exists(wrapper.find('.titulo'))
-    assert.exists(wrapper.find('#nombreCuenta'))
-    assert.exists(wrapper.find('#editarCuenta'))
-    assert.exists(wrapper.find('#saldoCuenta'))
-    assert.exists(wrapper.find('#borrarCuenta'))
-    assert.exists(wrapper.find('#guardarrCuenta'))
-    assert.exists(wrapper.find('#alertaSuperior'))
+    assert.equal(wrapper.find('.titulo').exists(), true)
+    assert.equal(wrapper.find('#nombreCuenta').exists(), true)
+    assert.equal(wrapper.find('#editarCuenta').exists(), true)
+    assert.equal(wrapper.find('#saldoCuenta').exists(), true)
+    assert.equal(wrapper.find('#borrarCuenta').exists(), true)
+    assert.equal(wrapper.find('#guardarCuenta').exists(), false)
+    assert.equal(wrapper.find('#alertaSuperior').exists(), true)
   })
-  it('Boton ceditar cambia a guardar al click', () => {
-    // assert.isTrue(wrapper.find('#editarCuenta').element.value)
-    // assert.exists(wrapper.find('#guardarCuenta'))
-    // wrapper.find('#editarCuenta').trigger('click')
-    // assert.notExists(wrapper.find('#editarCuenta'))
-    // assert.exists(wrapper.find('#guardarCuenta'))
-    // wrapper.find('#guardarCuenta').trigger('click')
-    // assert.exists(wrapper.find('#editarCuenta'))
-    // assert.notExists(wrapper.find('#guardarCuenta'))
+  it('Boton editar cambia a guardar al click', () => {
+    assert.equal(wrapper.find('#editarCuenta').exists(), true)
+    assert.equal(wrapper.find('#guardarCuenta').exists(), false)
+
+    wrapper.vm.edicion = true
+
+    assert.equal(wrapper.find('#editarCuenta').exists(), false)
+    assert.equal(wrapper.find('#guardarCuenta').exists(), true)
+
+    wrapper.vm.edicion = false
+
+    assert.equal(wrapper.find('#editarCuenta').exists(), true)
+    assert.equal(wrapper.find('#guardarCuenta').exists(), false)
   })
 })
