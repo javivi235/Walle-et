@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import VuexPersistence from 'vuex-persist'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
+const store = new Vuex.Store({
   state: {
     cuentas: [{ icon: 'account_balance', nombre: 'Global', fondos: 0, route: '/' }],
     categoriaIngresos: ['Salario', 'Transferencia', 'Otros'],
@@ -81,8 +82,12 @@ export default new Vuex.Store({
     }
   },
   getters: {
-    hacerReporte(state) {
-      return state.ingresos.concat(state.egresos)
+    hacerReporte(state, cuenta) {
+      return state.ingresos.filter((ingreso) => {
+        return ingreso.cuenta === cuenta
+      }).concat(state.egresos.filter((egreso) => {
+        return egreso.cuenta === cuenta
+      }))
     },
     obtenerCategorias(state) {
       const cat = state.categoriaIngresos.concat(state.categoriaEgresos)
@@ -101,4 +106,7 @@ export default new Vuex.Store({
       return fechas
     }
   },
+  plugins: [new VuexPersistence().plugin]
 })
+
+export default store

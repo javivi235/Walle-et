@@ -13,12 +13,20 @@ export default new Router({
       redirect: '/cuentas/Global'
     },
     {
+      path: '/cuentas/',
+      redirect: '/cuentas/Global'
+    },
+    {
       path: '/cuentas/:cuentaNombre',
       name: 'home',
       component: Home
     },
     {
       path: '/reporte',
+      redirect: '/reporte/Global'
+    },
+    {
+      path: '/reporte/:cuentaNombre',
       name: 'reporte',
       component: ReportesVista,
     },

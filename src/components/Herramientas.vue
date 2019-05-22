@@ -34,7 +34,7 @@
                 dark
                 round
                 id="botonReporte"
-                @click="$router.push('reporte')"
+                @click="$router.push({ path: '/reporte/' + cuenta.nombre })"
               >
                 Reporte
               </v-btn>

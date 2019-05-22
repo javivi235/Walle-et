@@ -22,7 +22,8 @@ export default {
   computed: {
     cuenta() {
       const nombreCuenta = this.$route.params.cuentaNombre
-      return this.$store.state.cuentas.find((cuenta) => cuenta.nombre === nombreCuenta)
+      const account = this.$store.state.cuentas.find((cuenta) => cuenta.nombre === nombreCuenta)
+      return account
     }
   },
   methods: {

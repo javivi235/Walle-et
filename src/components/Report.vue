@@ -5,6 +5,7 @@
       <v-subheader dark>Reporte</v-subheader>
       <v-flex xs3>
         <v-select
+          :clearable="true"
           :items="categorias"
           label="Categoria"
           @change="filtrarCategoria"
@@ -28,6 +29,7 @@
             slot="activator"
             v-model="fechaInicio"
             label="Desde"
+            :clearable="true"
             prepend-icon="event"
             readonly
             id="fechaInicioReporte"
@@ -52,6 +54,7 @@
             slot="activator"
             v-model="fechaFinal"
             label="Hasta"
+            :clearable="true"
             prepend-icon="event"
             readonly
             id="fechaFinReporte"
@@ -102,6 +105,9 @@
 
 <script>
 export default {
+  props: {
+    cuenta: Object
+  },
   data() {
     return {
       headers: [
@@ -124,16 +130,17 @@ export default {
       }
     }
   },
-  props: {
-    cuenta: Object
-  },
   computed: {
     categorias() {
       const cat = this.$store.getters.obtenerCategorias
       return cat
     },
     nuevoReporte() {
-      const reg = this.$store.getters.hacerReporte
+      const reg = (this.cuenta.nombre !== 'Global') ? (this.$store.state.ingresos.filter((ingreso) => {
+        return ingreso.cuenta === this.cuenta.nombre
+      }).concat(this.$store.state.egresos.filter((egreso) => {
+        return egreso.cuenta === this.cuenta.nombre
+      }))) : (this.$store.state.ingresos.concat(this.$store.state.egresos))
       const dates = this.$store.getters.obtenerFechas
       const stamps = dates.map((stamp) =>
         new Date(stamp).getTime())
@@ -148,7 +155,7 @@ export default {
       const cfilter = new this.$MultiFilters(items, filters, filter, headers)
 
       cfilter.registerFilter('category', function(category, items) {
-        if (category.trim() === '') return items
+        if (category === '' || category === undefined) return items
 
         return items.filter((item) => {
           return item.categoria === category

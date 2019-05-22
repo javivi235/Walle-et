@@ -88,3 +88,6 @@ suite('Cuenta Global', () => {
       'datos de saldo diferentes')
   })
 })
+describe('Integration test cambiar nombre', () => {
+
+})
