@@ -103,7 +103,7 @@ export default {
           case 'Ingreso':
             this.cuenta.fondos = Number(this.monto) + Number(this.cuenta.fondos)
             this.$store.dispatch('agregarIngreso',
-                { cuenta: this.cuenta.nombre, fecha: this.fecha, monto: this.monto, categoria: this.categoria })
+                { id:( (Math.random(0,100)*Math.random(0,100)),uuid.v1()), cuenta: this.cuenta.nombre, fecha: this.fecha, monto: this.monto, categoria: this.categoria })
             break
           case 'Egreso':
             if (Number(this.monto) > Number(this.cuenta.fondos)) {

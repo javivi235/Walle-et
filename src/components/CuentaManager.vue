@@ -6,8 +6,8 @@
         :cuentaOriginal="cuenta.nombre"
         :fondos="cuenta.fondos"
         @actualizarCuenta="actualizarCuenta"/>
-      <Lista :items = "ingresos" titulo="Ingresos" style="heigth: 10%" id="listaIngresos"/>
-      <Lista :items = "egresos" titulo="Egresos" height="15%" id="listaEgresos"/>
+      <Lista :items = "ingresos" titulo="Ingresos" style="heigth: 10%" id="listaIngresos" :categorias="categoriaingresos"/>
+      <Lista :items = "egresos" titulo="Egresos" height="15%" id="listaEgresos" :categorias="categoriaEgresos"/>
       <Herramientas :cuenta="cuenta" height="25%"/>
     </div>
   </v-container>
@@ -32,6 +32,17 @@ export default {
     egresos() {
       return this.$store.state.egresos.filter((egreso) => egreso.cuenta === this.cuenta.nombre)
     },
+      
+    categoriaingresos(){
+
+      return this.$store.state.categoriaIngresos.filter((categoria) => categoria !== 'Transferencia')
+ 
+      
+    },
+      categoriaEgresos() {
+      return this.$store.state.categoriaEgresos.filter((categoria) => categoria !== 'Transferencia')
+    },
+  
   },
   methods: {
     actualizarCuenta(cuenta) {

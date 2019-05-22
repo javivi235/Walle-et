@@ -11,10 +11,53 @@
           :id="'tabla'+titulo"
         >
           <template v-slot:items="props">
-            <td class="text-xs-rigth">{{ props.item.fecha | formatDate }}</td>
+          
             <td class="text-xs-rigth">
               <span v-if="Editar==1">
-                <input type="text">
+                <v-menu
+          ref="menu"
+          :close-on-content-click="false"
+          :nudge-right="40"
+          :return-value.sync="fecha"
+          lazy
+          transition="scale-transition"
+          offset-y
+          full-width
+          min-width="290px"
+          :id="'menuCalendario'+tipo"
+        >
+          <template v-slot:activator="{ on }">
+            <v-text-field
+              v-model="fecha"
+              label="Picker in menu"
+              prepend-icon="event"
+              readonly
+              v-on="on"
+              class="calendario"
+              :id="'fechaCalendario'+tipo"
+            ></v-text-field>
+          </template>
+          <v-date-picker v-model="fecha" no-title scrollable :id="'datePicker'+tipo">
+            <v-spacer></v-spacer>
+            <v-btn flat color="primary" :id="'okCalendario'+tipo" @click="$refs.menu.save(fecha)">OK</v-btn>
+          </v-date-picker>
+        </v-menu>
+              </span>
+              <span v-else>
+                {{ props.item.fecha | formatDate }}
+              </span>
+
+
+            </td>
+            <td class="text-xs-rigth">
+              <span v-if="Editar==1">
+                <v-text-field
+                  class="input"
+                  label="Monto"
+                  type="number"
+                  v-model="monto"
+                  :id="'monto'+tipo"
+                ></v-text-field>
              
               </span>
               <span v-else>
@@ -23,10 +66,16 @@
             </td>
              <td class="text-xs-rigth">
               <span v-if="Editar==1">
-                <v-combobox>
-                </v-combobox>
-
-             
+               <v-combobox
+          :items="categorias"
+          label="Seleccione una categoria"
+          chips
+          autofocus
+          type="button"
+          class="seleccion"
+          v-model="categoria"
+          :id="'selector'+Egresos"
+        ></v-combobox>
               </span>
               <span v-else>
                 {{ props.item.categoria }}
@@ -78,10 +127,17 @@ export default {
   props: {
     items: Array,
     titulo: String,
+    categorias:Array
   },
+
+
+  
   data() {
     return {
       Editar:0,
+      fecha:'',
+      monto:0,
+      categoria:'',
       cabecerasTabla: [
         { text: 'Fecha',
           align: 'left',
@@ -104,7 +160,17 @@ export default {
       
     },
     Guardar(){
+      if (this.titulo=='ingresos'){
+
+        
+      }
+
+
+      
       this.Editar=0
+      this.fecha = new Date().toISOString().substr(0, 10)
+      this.monto=0
+      this.categoria=''
     }
 
 
