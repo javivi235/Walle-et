@@ -9,7 +9,8 @@ export default new Vuex.Store({
     categoriaIngresos: ['Salario', 'Transferencia', 'Otros'],
     categoriaEgresos: ['Expensas', 'Transferencia', 'Otros'],
     ingresos: [],
-    egresos: []
+    egresos: [],
+    ingresosactua:0
   },
   mutations: {
     agregarIngreso(context, nuevoIngreso) {
@@ -45,6 +46,27 @@ export default new Vuex.Store({
       context.cuentas.forEach(function(cuenta, indice) {
         if (cuenta.nombre === cuentaData.nombre) {context.cuentas.splice(indice, 1)}
       })
+    },
+    actualizarIngreso(context, ingresoActualizado){
+    for (let i = 0; i < context.ingresos.length; i++) {
+      if (context.ingresos[i].id==ingresoActualizado[0].id) {
+        context.ingresos[i].monto=ingresoActualizado[0].monto
+        context.ingresos[i].fecha=ingresoActualizado[0].fecha
+        context.ingresos[i].categoria=ingresoActualizado[0].categoria
+        
+      }
+      }
+    },
+    actualizarEgreso(context,egresoActualizado){
+      for (let i = 0; i < context.egresos.length; i++) {
+        if (context.egresos[i].id==egresoActualizado[0].id) {
+          context.egresos[i].monto=egresoActualizado[0].monto
+          context.egresos[i].fecha=egresoActualizado[0].fecha
+          context.egresos[i].categoria=egresoActualizado[0].categoria
+          
+        }
+        }
+        
     }
   },
   actions: {
@@ -71,7 +93,20 @@ export default new Vuex.Store({
     },
     borrarCuenta(context, cuentaData) {
       context.commit('borrarCuenta', cuentaData)
+    },
+    actualizarIngreso(context, ingresoActualizado){
+      context.commit('actualizarIngreso', ingresoActualizado)
+    },
+    actualizarEgreso(context, egresoActualizado){
+      context.commit('actualizarEgreso', egresoActualizado)
+    },
+    eliminarIngreso(context, borrarIngreso){
+      context.commit('eliminarIngreso', borrarIngreso)
+    },
+    eliminarEgreso(context, borrarEgreso){
+      context.commit('eliminarEgreso', borrarEgreso)
     }
+    
   },
   getters: {
     hacerReporte(state) {

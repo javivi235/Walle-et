@@ -11,7 +11,7 @@
           :id="'tabla'+titulo"
         >
           <template v-slot:items="props">
-          
+         
             <td class="text-xs-rigth">
               <span v-if="Editar==1">
                 <v-menu
@@ -109,7 +109,7 @@
                 dark
                 round
                 id="Guardar"
-                @click="Guardar"
+                @click="Guardar(props.item.id,titulo)"
               >
                 GUARDAR
                     </v-btn>
@@ -130,10 +130,10 @@ export default {
     categorias:Array
   },
 
-
   
   data() {
     return {
+      id:0,
       Editar:0,
       fecha:'',
       monto:0,
@@ -159,18 +159,24 @@ export default {
       this.Editar=1
       
     },
-    Guardar(){
-      if (this.titulo=='ingresos'){
+    Guardar(idd,titulo){
+      console.log(titulo)
+      if(titulo=='Ingresos'){
+      this.$store.dispatch('actualizarIngreso',[{id:idd,fecha:this.fecha,monto:this.monto,categoria:this.categoria}])
 
-        
       }
-
-
-      
+      else{
+        this.$store.dispatch('actualizarEgreso',[{id:idd,fecha:this.fecha,monto:this.monto,categoria:this.categoria}])
+      }
       this.Editar=0
-      this.fecha = new Date().toISOString().substr(0, 10)
-      this.monto=0
       this.categoria=''
+      this.fecha=''
+      this.monto=0
+      
+    },
+    Borrar(id){
+      
+
     }
 
 
