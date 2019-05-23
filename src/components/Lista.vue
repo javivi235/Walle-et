@@ -161,13 +161,40 @@ export default {
     },
     Guardar(idd,titulo){
       console.log(titulo)
-      if(titulo=='Ingresos'){
+           try {
+        if (this.categoria === '') {
+          throw new Error('Seleccione una categoria')
+        } else if (this.monto <= 0) {
+          throw new Error('Ingrese un monto mayor a 0')
+        } else if (this.fecha === '') {
+          throw new Error('Seleccione una fecha')
+        } else if (this.categorias.find((categoria) => (categoria === this.categoria)) === undefined) {
+          throw new Error('Seleccione una categoria valida')
+        }
+        switch(titulo){
+       case 'Ingreso':
       this.$store.dispatch('actualizarIngreso',[{id:idd,fecha:this.fecha,monto:this.monto,categoria:this.categoria}])
-
-      }
-      else{
+        break
+        case 'Egreso':
+    
         this.$store.dispatch('actualizarEgreso',[{id:idd,fecha:this.fecha,monto:this.monto,categoria:this.categoria}])
+        break
       }
+    
+      } catch (error) {
+        this.generarAlerta({ mensaje: error, tipo: 'error', visible: true, color: 'red' })
+      } 
+
+
+
+
+
+
+
+
+
+
+    
       this.Editar=0
       this.categoria=''
       this.fecha=''
