@@ -1,5 +1,6 @@
 <template>
   <v-container fluid>
+    
     <v-layout column>
       <v-flex xs12>
         <v-subheader dark class="titulo">{{titulo}}</v-subheader>
@@ -173,12 +174,12 @@ export default {
           throw new Error('Seleccione una categoria valida')
         }
         switch(titulo){
-       case 'Ingreso':
-      this.$store.dispatch('actualizarIngreso',[{id:idd,fecha:this.fecha,monto:this.monto,categoria:this.categoria}])
+       case 'Ingresos':
+      this.$store.dispatch('actualizarIngreso',{id:idd,cuenta:this.cuenta,fecha:this.fecha,monto:this.monto,categoria:this.categoria})
         break
-        case 'Egreso':
+        case 'Egresos':
     
-        this.$store.dispatch('actualizarEgreso',[{id:idd,fecha:this.fecha,monto:this.monto,categoria:this.categoria}])
+        this.$store.dispatch('actualizarEgreso',{id:idd,cuenta:this.cuenta,fecha:this.fecha,monto:this.monto,categoria:this.categoria})
         break
       }
     

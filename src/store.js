@@ -48,24 +48,28 @@ export default new Vuex.Store({
       })
     },
     actualizarIngreso(context, ingresoActualizado){
-    for (let i = 0; i < context.ingresos.length; i++) {
-      if (context.ingresos[i].id==ingresoActualizado[0].id) {
-        context.ingresos[i].monto=ingresoActualizado[0].monto
-        context.ingresos[i].fecha=ingresoActualizado[0].fecha
-        context.ingresos[i].categoria=ingresoActualizado[0].categoria
-        
-      }
-      }
+      context.ingresos.forEach(function(auxiliar,indice){
+        if(auxiliar.id===ingresoActualizado.id){
+          auxiliar.monto=ingresoActualizado.monto
+          auxiliar.fecha=ingresoActualizado.fecha
+          auxiliar.categoria=ingresoActualizado.categoria
+        }
+
+
+
+      })
     },
     actualizarEgreso(context,egresoActualizado){
-      for (let i = 0; i < context.egresos.length; i++) {
-        if (context.egresos[i].id==egresoActualizado[0].id) {
-          context.egresos[i].monto=egresoActualizado[0].monto
-          context.egresos[i].fecha=egresoActualizado[0].fecha
-          context.egresos[i].categoria=egresoActualizado[0].categoria
-          
+      context.egresos.forEach(function(auxiliar,indice){
+        if(auxiliar.id===egresoActualizado.id){
+          auxiliar.monto=egresoActualizado.monto
+          auxiliar.fecha=egresoActualizado.fecha
+          auxiliar.categoria=egresoActualizado.categoria
         }
-        }
+
+
+
+      })
         
     },
     eliminarIngreso(context,borrarIngreso){
