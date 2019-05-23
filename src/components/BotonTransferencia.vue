@@ -6,6 +6,7 @@
         dark
         round
         id="botonTransferencia"
+        :disabled="cuenta.nombre === 'Global'"
       >
         Transferencia
       </v-btn>

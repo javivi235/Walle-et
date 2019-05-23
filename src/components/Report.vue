@@ -93,10 +93,17 @@
         </tr>
       </template>
       <template slot="items" slot-scope="props">
-        <tr :active="props.selected" @click="props.selected = !props.selected">
-          <td class="text-xs-right">{{ props.item.fecha | formatDate }}</td>
-          <td class="text-xs-right">{{ props.item.categoria }}</td>
-          <td class="text-xs-right">{{ props.item.monto }}</td>
+        <tr v-if="props.item.tipo=='Ingreso'" class="DataIngreso" :active="props.selected" @click="props.selected = !props.selected">
+          <td class="text-xs-center">{{ props.item.fecha | formatDate }}</td>
+          <td class="text-xs-center">{{ props.item.categoria }}</td>
+          <td class="text-xs-center">{{ props.item.monto }}</td>
+          <td class="text-xs-center">{{ props.item.tipo }}</td>
+        </tr>
+        <tr v-if="props.item.tipo=='Egreso'" class="DataEgreso" :active="props.selected" @click="props.selected = !props.selected">
+          <td class="text-xs-center">{{ props.item.fecha | formatDate }}</td>
+          <td class="text-xs-center">{{ props.item.categoria }}</td>
+          <td class="text-xs-center">{{ props.item.monto }}</td>
+          <td class="text-xs-center">{{ props.item.tipo }}</td>
         </tr>
       </template>
     </v-data-table>
@@ -113,7 +120,8 @@ export default {
       headers: [
         { text: 'Fecha', align: 'left', sortable: true, value: 'fecha' },
         { text: 'Categoria', align: 'left', sortable: true, value: 'categoria' },
-        { text: 'Monto', align: 'left', sortable: false, value: 'monto' }
+        { text: 'Monto', align: 'left', sortable: false, value: 'monto' },
+        { text: 'Tipo', align: 'left', sortable: false, value: 'tipo' }
       ],
       mostrarFechaInicio: false,
       fechaInicio: null,
@@ -214,5 +222,11 @@ export default {
 .layout  {
   color: #64C195;
   background-color: #64C195
+}
+.DataIngreso {
+  background-color: #47E460;
+}
+.DataEgreso {
+  background-color:#DE4D4F;
 }
 </style>
