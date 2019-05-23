@@ -31,6 +31,7 @@
           type="number"
           v-model="monto"
           id="montoTransferencia"
+          @click="monto = ''"
         ></v-text-field>
         <v-menu
           ref="menu"

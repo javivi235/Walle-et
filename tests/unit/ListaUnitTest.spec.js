@@ -13,9 +13,9 @@ describe('render lista', () => {
 
   beforeEach(function () {
     store = TestUtil.getDefaultStore()
-    store.state.cuentas.push(store.state.cuentas.push({
+    store.state.cuentas.push({
       icon: 'account_balance', nombre: 'ahorros', fondos: 70, route: '/'
-    }))
+    })
     store.state.ingresos.unshift({
       cuenta: 'ahorros',
       fecha: '2019-05-23',

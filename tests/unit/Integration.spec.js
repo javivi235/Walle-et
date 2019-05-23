@@ -1,30 +1,34 @@
-import { createLocalVue } from '@vue/test-utils'
+// import { createLocalVue, mount, shallowMount } from '@vue/test-utils'
 // import TestUtil from '../../src/Utils/TestUtil.js'
 // import CuentaManager from '@/components/CuentaManager.vue'
-// import Home from '@/views/Home.vue'
+// import InformacionCuenta from '@/components/InformacionCuenta.vue'
 
-import Vuex from 'vuex'
-import Vuetify from 'vuetify/lib'
-// import { AssertionError } from 'assert'
-import VueRouter from 'vue-router'
+// import Vuex from 'vuex'
+// import Vuetify from 'vuetify/lib'
+// import VueRouter from 'vue-router'
 
-describe('integration', () => {
-  // const store = TestUtil.getDefaultStore()
-  // const assert = require('chai').assert
-  const localVue = createLocalVue()
-  localVue.use(Vuex)
-  localVue.use(VueRouter)
-  localVue.use(Vuetify)
-  const router = new VueRouter()
-  router.push({ path: '/cuentas/Global' })
+// describe('integration', () => {
+//   const store = TestUtil.getDefaultStore()
+//   store.state.cuentas.push({
+//     icon: 'account_balance', nombre: 'ahorros', fondos: 70, route: '/'
+//   })
+//   const assert = require('chai').assert
+//   const localVue = createLocalVue()
+//   localVue.use(Vuex)
+//   localVue.use(VueRouter)
+//   localVue.use(Vuetify)
+//   const router = new VueRouter()
 
 //   it('integration', () => {
-//     const wrapper = mount(Home, {
+//     const wrapper = mount(CuentaManager, {
 //       store,
 //       localVue,
-//       router
+//       router,
+//       propsData: {
+//         cuenta: { icon: 'account_balance', nombre: 'ahorros', fondos: 70, route: '/' }
+//       },
+//       children: [InformacionCuenta]
 //     })
-//     console.log('AAAA: ' + wrapper.vm.cuenta)
-//     //assert.equal(wrapper.vm.$parent, 3)
+//     console.log('Parent: ' + wrapper.find('#informacionCuenta').props())
 //   })
-})
+// })
