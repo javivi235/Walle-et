@@ -7,13 +7,14 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:e2e": "vue-cli-service test:e2e",
-    "test:unit": "vue-cli-service test:unit --reporter mochawesome"
+    "test:unit": "vue-cli-service test:unit --reporter mochawesome -u tdd"
   },
   "dependencies": {
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
     "vuetify": "^1.5.5",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "vuex-persist": "^2.0.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-e2e-nightwatch": "^3.7.0",

@@ -11,8 +11,8 @@
       <v-list dense>
         <v-list-tile active-class="green--text" v-for="cuenta in cuentas" :key="cuenta.nombre"
         :id="cuenta.nombre"
-         @click="actualizarHomeData(cuenta)"
-         router :to="cuenta.route">
+         @click="drawer = false"
+         router :to="'/cuentas/' + cuenta.nombre">
           <v-list-tile-action active-class="green--text">
             <v-icon >{{ cuenta.icon }}</v-icon>
           </v-list-tile-action>
@@ -26,7 +26,7 @@
       dark
       round
       id="crearCuentaNav"
-      @click="$router.push('crear')"
+      router to="/crear"
       >+cuenta
       </v-btn>
     </v-navigation-drawer>
@@ -45,8 +45,8 @@ export default {
     }
   },
   watch: {
-    // call again the method if the route changes
-    '$route': 'fetchData'
+    '$route'(to, from) {
+    }
   },
   methods: {
     openDrawer() {
@@ -55,10 +55,6 @@ export default {
       } else {
         this.drawer = false
       }
-    },
-    actualizarHomeData(cuenta) {
-      this.drawer = false
-      this.$emit('actualizarCuenta', cuenta)
     }
   },
   computed: {

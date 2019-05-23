@@ -8,8 +8,11 @@ export default {
   components: {
     Report
   },
-  props: {
-    cuenta: Object
+  computed: {
+    cuenta() {
+      const cuentaNombre = this.$route.params.cuentaNombre
+      return this.$store.state.cuentas.find((cuenta) => cuenta.nombre === cuentaNombre)
+    }
   }
 }
 </script>
