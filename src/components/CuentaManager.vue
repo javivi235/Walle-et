@@ -6,8 +6,8 @@
         :cuentaOriginal="cuenta.nombre"
         :fondos="saldo"
         id="informacionCuenta"/>
-      <Lista :items = "ingresos" :cuenta = "cuenta" titulo="Ingresos" style="heigth: 10%" id="listaIngresos"/>
-      <Lista :items = "egresos" :cuenta = "cuenta" titulo="Egresos" height="15%" id="listaEgresos"/>
+      <Lista :items = "ingresos" :cuenta = "cuenta" titulo="Ingresos" style="heigth: 10%" id="listaIngresos" :categorias="categoriaingresos"/>
+      <Lista :items = "egresos" :cuenta = "cuenta" titulo="Egresos" height="15%" id="listaEgresos" :categorias="categoriaEgresos"/>
       <Herramientas :cuenta="cuenta" height="25%" id="herramientas"/>
     </div>
   </v-container>
@@ -55,7 +55,18 @@ export default {
         this.$store.dispatch('actualizarSaldoGlobal', Number(saldo))
         return saldo
       }
-    }
+    },
+    categoriaingresos(){
+
+      return this.$store.state.categoriaIngresos.filter((categoria) => categoria !== 'Transferencia')
+ 
+      
+    },
+      categoriaEgresos() {
+      return this.$store.state.categoriaEgresos.filter((categoria) => categoria !== 'Transferencia')
+    },
+  
+    
   }
 }
 </script>

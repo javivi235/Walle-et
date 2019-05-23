@@ -50,7 +50,43 @@ const store = new Vuex.Store({
       context.cuentas.forEach(function(cuenta, indice) {
         if (cuenta.nombre === cuentaData.nombre) {context.cuentas.splice(indice, 1)}
       })
-    }
+    },
+    actualizarIngreso(context, ingresoActualizado){
+      context.ingresos.forEach(function(auxiliar,indice){
+        if(auxiliar.id===ingresoActualizado.id){
+          auxiliar.monto=ingresoActualizado.monto
+          auxiliar.fecha=ingresoActualizado.fecha
+          auxiliar.categoria=ingresoActualizado.categoria
+        }
+
+
+
+      })
+    },
+    actualizarEgreso(context,egresoActualizado){
+      context.egresos.forEach(function(auxiliar,indice){
+        if(auxiliar.id===egresoActualizado.id){
+          auxiliar.monto=egresoActualizado.monto
+          auxiliar.fecha=egresoActualizado.fecha
+          auxiliar.categoria=egresoActualizado.categoria
+        }
+
+
+
+      })
+        
+    },
+    eliminarIngreso(context,borrarIngreso){
+    context.ingresos.forEach(function(auxiliar,posicion){
+      console.log(auxiliar.id)
+      if(auxiliar.id===borrarIngreso.id) {context.ingresos.splice(posicion,1)}
+    })      
+  },
+  eliminarEgreso(context,borrarEgreso){
+    context.egresos.forEach(function(auxiliar,posicion){
+      if(auxiliar.id===borrarEgreso.id) {context.egresos.splice(posicion,1)}
+    })
+  }
   },
   actions: {
     agregarIngreso(context, nuevoIngreso) {
@@ -79,6 +115,18 @@ const store = new Vuex.Store({
     },
     borrarCuenta(context, cuentaData) {
       context.commit('borrarCuenta', cuentaData)
+    },
+    actualizarIngreso(context, ingresoActualizado){
+      context.commit('actualizarIngreso', ingresoActualizado)
+    },
+    actualizarEgreso(context, egresoActualizado){
+      context.commit('actualizarEgreso', egresoActualizado)
+    },
+    eliminarIngreso(context, borrarIngreso){
+      context.commit('eliminarIngreso', borrarIngreso)
+    },
+    eliminarEgreso(context, borrarEgreso){
+      context.commit('eliminarEgreso', borrarEgreso)
     }
   },
   getters: {
