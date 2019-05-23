@@ -4,11 +4,11 @@
       <InformacionCuenta
         :cuentaActual="cuenta.nombre"
         :cuentaOriginal="cuenta.nombre"
-        :fondos="cuenta.fondos"
-        @actualizarCuenta="actualizarCuenta"/>
-      <Lista :items = "ingresos" titulo="Ingresos" style="heigth: 10%" id="listaIngresos"/>
-      <Lista :items = "egresos" titulo="Egresos" height="15%" id="listaEgresos"/>
-      <Herramientas :cuenta="cuenta" height="25%"/>
+        :fondos="saldo"
+        id="informacionCuenta"/>
+      <Lista :items = "ingresos" :cuenta = "cuenta" titulo="Ingresos" style="heigth: 10%" id="listaIngresos"/>
+      <Lista :items = "egresos" :cuenta = "cuenta" titulo="Egresos" height="15%" id="listaEgresos"/>
+      <Herramientas :cuenta="cuenta" height="25%" id="herramientas"/>
     </div>
   </v-container>
 </template>
@@ -27,18 +27,33 @@ export default {
   },
   computed: {
     ingresos() {
-      return this.$store.state.ingresos.filter((ingreso) => ingreso.cuenta === this.cuenta.nombre)
+      if (this.cuenta.nombre !== 'Global') {
+        return this.$store.state.ingresos.filter((ingreso) => ingreso.cuenta === this.cuenta.nombre)
+      } else {
+        return this.$store.state.ingresos
+      }
     },
     egresos() {
-      return this.$store.state.egresos.filter((egreso) => egreso.cuenta === this.cuenta.nombre)
-    },
-  },
-  methods: {
-    actualizarCuenta(cuenta) {
-      if (this.$store.state.cuentas.find((cuentaAuxiliar) => cuentaAuxiliar.nombre === cuenta.nombre) !== undefined) {
-        this.cuenta = this.$store.state.cuentas.find((cuentaAuxiliar) => cuentaAuxiliar.nombre === cuenta.nombre)
+      if (this.cuenta.nombre !== 'Global') {
+        return this.$store.state.egresos.filter((egreso) => egreso.cuenta === this.cuenta.nombre)
       } else {
-        this.cuenta = this.$store.state.cuentas[0]
+        return this.$store.state.egresos
+      }
+    },
+    saldo() {
+      if (this.cuenta.nombre !== 'Global') {
+        return this.cuenta.fondos
+      } else {
+        let saldo = 0
+
+        this.$store.state.ingresos.forEach((ingreso) => {
+          saldo += Number(ingreso.monto)
+        })
+        this.$store.state.egresos.forEach((egreso) => {
+          saldo -= Number(egreso.monto)
+        })
+        this.$store.dispatch('actualizarSaldoGlobal', Number(saldo))
+        return saldo
       }
     }
   }

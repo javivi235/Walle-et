@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import VuexPersistence from 'vuex-persist'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
+const store = new Vuex.Store({
   state: {
     cuentas: [{ icon: 'account_balance', nombre: 'Global', fondos: 0, route: '/' }],
     categoriaIngresos: ['Salario', 'Transferencia', 'Otros'],
@@ -21,6 +22,10 @@ export default new Vuex.Store({
     actualizarSaldo(context, cuentaModificada) {
       context.cuentas.find((cuenta) =>
         cuenta.nombre === cuentaModificada.nombre).fondos = cuentaModificada.fondos
+    },
+    actualizarSaldoGlobal(context, fondoTotal) {
+      context.cuentas.find((cuenta) =>
+        cuenta.nombre === 'Global').fondos = fondoTotal
     },
     agregarCategoriaIngreso(context, nuevaCategoria) {
       context.categoriaIngresos.unshift(nuevaCategoria)
@@ -57,6 +62,9 @@ export default new Vuex.Store({
     actualizarSaldo(context, cuentaModificada) {
       context.commit('actualizarSaldo', cuentaModificada)
     },
+    actualizarSaldoGlobal(context, fondoTotal) {
+      context.commit('actualizarSaldoGlobal', fondoTotal)
+    },
     agregarCategoriaIngreso(context, nuevaCategoria) {
       context.commit('agregarCategoriaIngreso', nuevaCategoria)
     },
@@ -74,8 +82,12 @@ export default new Vuex.Store({
     }
   },
   getters: {
-    hacerReporte(state) {
-      return state.ingresos.concat(state.egresos)
+    hacerReporte(state, cuenta) {
+      return state.ingresos.filter((ingreso) => {
+        return ingreso.cuenta === cuenta
+      }).concat(state.egresos.filter((egreso) => {
+        return egreso.cuenta === cuenta
+      }))
     },
     obtenerCategorias(state) {
       const cat = state.categoriaIngresos.concat(state.categoriaEgresos)
@@ -94,4 +106,7 @@ export default new Vuex.Store({
       return fechas
     }
   },
+  plugins: [new VuexPersistence().plugin]
 })
+
+export default store

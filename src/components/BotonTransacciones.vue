@@ -29,6 +29,7 @@
           type="number"
           v-model="monto"
           :id="'monto'+tipo"
+          @click="monto = ''"
         ></v-text-field>
         <v-menu
           ref="menu"

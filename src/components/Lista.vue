@@ -10,7 +10,7 @@
           hide-actions
           :id="'tabla'+titulo"
         >
-          <template v-slot:items="props">
+          <template v-slot:items="props" :id="cuenta.nombre + props.index">
             <td class="text-xs-rigth">{{ props.item.fecha | formatDate }}</td>
             <td class="text-xs-rigth">{{ props.item.monto }}</td>
             <td class="text-xs-rigth">{{ props.item.categoria }}</td>
@@ -25,6 +25,7 @@ export default {
   props: {
     items: Array,
     titulo: String,
+    cuenta: Object
   },
   data() {
     return {

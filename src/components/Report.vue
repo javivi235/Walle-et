@@ -5,6 +5,7 @@
       <v-subheader dark>Reporte</v-subheader>
       <v-flex xs3>
         <v-select
+          :clearable="true"
           :items="categorias"
           label="Categoria"
           @change="filtrarCategoria"
@@ -28,6 +29,7 @@
             slot="activator"
             v-model="fechaInicio"
             label="Desde"
+            :clearable="true"
             prepend-icon="event"
             readonly
             id="fechaInicioReporte"
@@ -52,6 +54,7 @@
             slot="activator"
             v-model="fechaFinal"
             label="Hasta"
+            :clearable="true"
             prepend-icon="event"
             readonly
             id="fechaFinReporte"
@@ -90,8 +93,21 @@
         </tr>
       </template>
       <template slot="items" slot-scope="props">
-        <tr :active="props.selected" @click="props.selected = !props.selected">
+        <tr v-if="props.item.tipo === 'Ingresos'"
+        class="DataIngreso"
+        :active="props.selected"
+        @click="props.selected = !props.selected">
           <td class="text-xs-right">{{ props.item.fecha | formatDate }}</td>
+          <td class="text-xs-right">{{ props.item.cuenta }}</td>
+          <td class="text-xs-right">{{ props.item.categoria }}</td>
+          <td class="text-xs-right">{{ props.item.monto }}</td>
+        </tr>
+        <tr v-if="props.item.tipo === 'Egreso'"
+        class="DataEgreso"
+        :active="props.selected"
+        @click="props.selected = !props.selected">
+          <td class="text-xs-right">{{ props.item.fecha | formatDate }}</td>
+          <td class="text-xs-right">{{ props.item.cuenta }}</td>
           <td class="text-xs-right">{{ props.item.categoria }}</td>
           <td class="text-xs-right">{{ props.item.monto }}</td>
         </tr>
@@ -102,10 +118,14 @@
 
 <script>
 export default {
+  props: {
+    cuenta: Object
+  },
   data() {
     return {
       headers: [
         { text: 'Fecha', align: 'left', sortable: true, value: 'fecha' },
+        { text: 'Cuenta', align: 'left', sortable: true, value: 'cuenta' },
         { text: 'Categoria', align: 'left', sortable: true, value: 'categoria' },
         { text: 'Monto', align: 'left', sortable: false, value: 'monto' }
       ],
@@ -124,23 +144,31 @@ export default {
       }
     }
   },
-  props: {
-    cuenta: Object
-  },
   computed: {
     categorias() {
       const cat = this.$store.getters.obtenerCategorias
       return cat
     },
     nuevoReporte() {
-      const reg = this.$store.getters.hacerReporte
+      const ingresos = this.$store.state.ingresos
+      ingresos.map((ingreso) => {
+        ingreso['tipo'] = 'Ingresos'
+      })
+      const egresos = this.$store.state.egresos
+      egresos.map((egreso) => {
+        egreso['tipo'] = 'Egreso'
+      })
+      const reg = (this.cuenta.nombre !== 'Global') ? (ingresos.filter((ingreso) => {
+        return ingreso.cuenta === this.cuenta.nombre
+      }).concat(egresos.filter((egreso) => {
+        return egreso.cuenta === this.cuenta.nombre
+      }))) : (ingresos.concat(egresos))
       const dates = this.$store.getters.obtenerFechas
       const stamps = dates.map((stamp) =>
         new Date(stamp).getTime())
       for (const i in reg) {
         reg[i].fecha = stamps[i] + 14400000
       }
-      console.log(reg)
       return reg
     }
   },
@@ -149,7 +177,7 @@ export default {
       const cfilter = new this.$MultiFilters(items, filters, filter, headers)
 
       cfilter.registerFilter('category', function(category, items) {
-        if (category.trim() === '') return items
+        if (category === '' || category === undefined) return items
 
         return items.filter((item) => {
           return item.categoria === category
@@ -209,4 +237,12 @@ export default {
   color: #64C195;
   background-color: #64C195
 }
+.DataIngreso {
+  background-color: #47E460;
+}
+.DataEgreso {
+  background-color:#DE4D4F;
+}
 </style>
+
+

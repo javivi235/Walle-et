@@ -6,6 +6,7 @@
         dark
         round
         id="botonTransferencia"
+        :disabled="cuenta.nombre === 'Global'"
       >
         Transferencia
       </v-btn>
@@ -30,6 +31,7 @@
           type="number"
           v-model="monto"
           id="montoTransferencia"
+          @click="monto = ''"
         ></v-text-field>
         <v-menu
           ref="menu"
@@ -88,7 +90,9 @@ export default {
   },
   computed: {
     otrasCuentas() {
-      return this.$store.state.cuentas.filter((cuenta) => cuenta.nombre !== this.cuenta.nombre).map(function(i) {
+      return this.$store.state.cuentas.filter((cuenta) => {
+        return (cuenta.nombre !== this.cuenta.nombre) && (cuenta.nombre !== 'Global')
+      }).map(function(i) {
         return i.nombre
       })
     }

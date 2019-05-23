@@ -6,12 +6,12 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 Vue.use(Vuex)
 
-describe('Ingresos, funcional', () => {
+suite('Ingresos, funcional', () => {
   let wrapper
   let store
   const assert = require('chai').assert
 
-  beforeEach(function () {
+  setup(function () {
     store = TestUtil.getDefaultStore()
     store.state.cuentas.push({ icon: 'account_balance', nombre: 'ahorros', fondos: 0, route: '/' })
     wrapper = shallowMount(BotonTransacciones,
@@ -24,7 +24,7 @@ describe('Ingresos, funcional', () => {
       })
   })
 
-  it('Agregar Ingreso', () => {
+  test('Agregar Ingreso', () => {
     const datosTransaccion = { cuenta: 'ahorros', fecha: '06/05/2019', monto: 120, categoria: 'Salario' }
     const saldoInicial = 0
 
@@ -44,12 +44,12 @@ describe('Ingresos, funcional', () => {
       (saldoInicial + datosTransaccion.monto), 'No se actualiza el saldo de la cuenta')
   })
 })
-describe('Egresos, funcional', () => {
+suite('Egresos, funcional', () => {
   let wrapper
   let store
   const assert = require('chai').assert
 
-  beforeEach(function () {
+  setup(function () {
     store = TestUtil.getDefaultStore()
     store.state.cuentas.push({ icon: 'account_balance', nombre: 'ahorros', fondos: 0, route: '/' })
     wrapper = shallowMount(BotonTransacciones,
@@ -62,7 +62,7 @@ describe('Egresos, funcional', () => {
       })
   })
 
-  it('Agregar Egreso', () => {
+  test('Agregar Egreso', () => {
     const datosTransaccion = { cuenta: 'ahorros', fecha: '06/05/2019', monto: 100, categoria: 'Expensas' }
     const saldoInicial = 200
 
@@ -349,12 +349,11 @@ describe('Render test, transacciones', () => {
           categorias: store.state.categoriaIngresos }
       })
 
-    assert.exists(wrapper.find('#selectorIngreso'))
-    assert.exists(wrapper.find('#montoIngreso'))
-    assert.exists(wrapper.find('#menuCalendarioIngreso'))
-    assert.exists(wrapper.find('#fechaCalendarioIngreso'))
-    assert.exists(wrapper.find('#okCalendarioIngreso'))
-    assert.exists(wrapper.find('#agregarIngreso'))
+    assert.equal(wrapper.find('#selectorIngreso').exists(), true)
+    assert.equal(wrapper.find('#montoIngreso').exists(), true)
+    assert.equal(wrapper.find('#menuCalendarioIngreso').exists(), true)
+    assert.equal(wrapper.find('#okCalendarioIngreso').exists(), true)
+    assert.equal(wrapper.find('#agregarIngreso').exists(), true)
   })
   it('test egreso', () => {
     wrapper = shallowMount(BotonTransacciones,
@@ -366,11 +365,10 @@ describe('Render test, transacciones', () => {
           categorias: store.state.categoriaIngresos }
       })
 
-    assert.exists(wrapper.find('#selectorEgreso'))
-    assert.exists(wrapper.find('#montoEgreso'))
-    assert.exists(wrapper.find('#menuCalendarioEgreso'))
-    assert.exists(wrapper.find('#fechaCalendarioEgreso'))
-    assert.exists(wrapper.find('#okCalendarioEgreso'))
-    assert.exists(wrapper.find('#agregarEgreso'))
+    assert.equal(wrapper.find('#selectorEgreso').exists(), true)
+    assert.equal(wrapper.find('#montoEgreso').exists(), true)
+    assert.equal(wrapper.find('#menuCalendarioEgreso').exists(), true)
+    assert.equal(wrapper.find('#okCalendarioEgreso').exists(), true)
+    assert.equal(wrapper.find('#agregarEgreso').exists(), true)
   })
 })
