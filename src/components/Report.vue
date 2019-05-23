@@ -93,17 +93,23 @@
         </tr>
       </template>
       <template slot="items" slot-scope="props">
-        <tr v-if="props.item.tipo=='Ingreso'" class="DataIngreso" :active="props.selected" @click="props.selected = !props.selected">
-          <td class="text-xs-center">{{ props.item.fecha | formatDate }}</td>
-          <td class="text-xs-center">{{ props.item.categoria }}</td>
-          <td class="text-xs-center">{{ props.item.monto }}</td>
-          <td class="text-xs-center">{{ props.item.tipo }}</td>
+        <tr v-if="props.item.tipo === 'Ingresos'"
+        class="DataIngreso"
+        :active="props.selected"
+        @click="props.selected = !props.selected">
+          <td class="text-xs-right">{{ props.item.fecha | formatDate }}</td>
+          <td class="text-xs-right">{{ props.item.cuenta }}</td>
+          <td class="text-xs-right">{{ props.item.categoria }}</td>
+          <td class="text-xs-right">{{ props.item.monto }}</td>
         </tr>
-        <tr v-if="props.item.tipo=='Egreso'" class="DataEgreso" :active="props.selected" @click="props.selected = !props.selected">
-          <td class="text-xs-center">{{ props.item.fecha | formatDate }}</td>
-          <td class="text-xs-center">{{ props.item.categoria }}</td>
-          <td class="text-xs-center">{{ props.item.monto }}</td>
-          <td class="text-xs-center">{{ props.item.tipo }}</td>
+        <tr v-if="props.item.tipo === 'Egreso'"
+        class="DataEgreso"
+        :active="props.selected"
+        @click="props.selected = !props.selected">
+          <td class="text-xs-right">{{ props.item.fecha | formatDate }}</td>
+          <td class="text-xs-right">{{ props.item.cuenta }}</td>
+          <td class="text-xs-right">{{ props.item.categoria }}</td>
+          <td class="text-xs-right">{{ props.item.monto }}</td>
         </tr>
       </template>
     </v-data-table>
@@ -119,9 +125,9 @@ export default {
     return {
       headers: [
         { text: 'Fecha', align: 'left', sortable: true, value: 'fecha' },
+        { text: 'Cuenta', align: 'left', sortable: true, value: 'cuenta' },
         { text: 'Categoria', align: 'left', sortable: true, value: 'categoria' },
-        { text: 'Monto', align: 'left', sortable: false, value: 'monto' },
-        { text: 'Tipo', align: 'left', sortable: false, value: 'tipo' }
+        { text: 'Monto', align: 'left', sortable: false, value: 'monto' }
       ],
       mostrarFechaInicio: false,
       fechaInicio: null,
@@ -144,11 +150,19 @@ export default {
       return cat
     },
     nuevoReporte() {
-      const reg = (this.cuenta.nombre !== 'Global') ? (this.$store.state.ingresos.filter((ingreso) => {
+      const ingresos = this.$store.state.ingresos
+      ingresos.map((ingreso) => {
+        ingreso['tipo'] = 'Ingresos'
+      })
+      const egresos = this.$store.state.egresos
+      egresos.map((egreso) => {
+        egreso['tipo'] = 'Egreso'
+      })
+      const reg = (this.cuenta.nombre !== 'Global') ? (ingresos.filter((ingreso) => {
         return ingreso.cuenta === this.cuenta.nombre
-      }).concat(this.$store.state.egresos.filter((egreso) => {
+      }).concat(egresos.filter((egreso) => {
         return egreso.cuenta === this.cuenta.nombre
-      }))) : (this.$store.state.ingresos.concat(this.$store.state.egresos))
+      }))) : (ingresos.concat(egresos))
       const dates = this.$store.getters.obtenerFechas
       const stamps = dates.map((stamp) =>
         new Date(stamp).getTime())
@@ -230,3 +244,5 @@ export default {
   background-color:#DE4D4F;
 }
 </style>
+
+

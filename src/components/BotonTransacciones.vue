@@ -6,7 +6,6 @@
         dark
         round
         :id="'boton'+tipo"
-        :disabled="cuenta.nombre === 'Global'"
       >
         +{{tipo}}
       </v-btn>
@@ -105,7 +104,7 @@ export default {
           case 'Ingreso':
             this.cuenta.fondos = Number(this.monto) + Number(this.cuenta.fondos)
             this.$store.dispatch('agregarIngreso',
-                { cuenta: this.cuenta.nombre, fecha: this.fecha, monto: this.monto, categoria: this.categoria, tipo: 'Ingreso' })
+                { cuenta: this.cuenta.nombre, fecha: this.fecha, monto: this.monto, categoria: this.categoria })
             break
           case 'Egreso':
             if (Number(this.monto) > Number(this.cuenta.fondos)) {
@@ -113,7 +112,7 @@ export default {
             }
             this.cuenta.fondos = Number(this.cuenta.fondos) - Number(this.monto)
             this.$store.dispatch('agregarEgreso',
-                { cuenta: this.cuenta.nombre, fecha: this.fecha, monto: this.monto, categoria: this.categoria, tipo: 'Egreso' })
+                { cuenta: this.cuenta.nombre, fecha: this.fecha, monto: this.monto, categoria: this.categoria })
             break
         }
         this.$store.dispatch('actualizarSaldo', this.cuenta)
