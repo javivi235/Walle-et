@@ -67,6 +67,12 @@ export default new Vuex.Store({
         }
         }
         
+    },
+    eliminarEgreso(context,egresoActualizado){
+      
+
+
+
     }
   },
   actions: {

@@ -127,7 +127,8 @@ export default {
   props: {
     items: Array,
     titulo: String,
-    categorias:Array
+    categorias:Array,
+    cuenta:Object
   },
 
   
@@ -184,17 +185,6 @@ export default {
       } catch (error) {
         this.generarAlerta({ mensaje: error, tipo: 'error', visible: true, color: 'red' })
       } 
-
-
-
-
-
-
-
-
-
-
-    
       this.Editar=0
       this.categoria=''
       this.fecha=''
