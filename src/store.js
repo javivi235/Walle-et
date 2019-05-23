@@ -68,12 +68,17 @@ export default new Vuex.Store({
         }
         
     },
-    eliminarEgreso(context,egresoActualizado){
-      
-
-
-
-    }
+    eliminarIngreso(context,borrarIngreso){
+    context.ingresos.forEach(function(auxiliar,posicion){
+      console.log(auxiliar.id)
+      if(auxiliar.id===borrarIngreso.id) {context.ingresos.splice(posicion,1)}
+    })      
+  },
+  eliminarEgreso(context,borrarEgreso){
+    context.egresos.forEach(function(auxiliar,posicion){
+      if(auxiliar.id===borrarEgreso.id) {context.egresos.splice(posicion,1)}
+    })
+  }
   },
   actions: {
     agregarIngreso(context, nuevoIngreso) {

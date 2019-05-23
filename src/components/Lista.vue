@@ -97,7 +97,7 @@
                 dark
                 round
                 id="botonBorrar"
-                @click="MostrarEditar"
+                @click="Borrar(props.item.id,titulo)"
               >
                 BORRAR
               </v-btn>
@@ -191,9 +191,14 @@ export default {
       this.monto=0
       
     },
-    Borrar(id){
-      
-
+    Borrar(idd,titulo){
+      console.log(titulo)
+      if(titulo==='Ingresos'){
+      this.$store.dispatch('eliminarIngreso',{id:idd})
+      }
+      else{
+      this.$store.dispatch('eliminarEgreso',{id:idd})
+      }
     }
 
 
