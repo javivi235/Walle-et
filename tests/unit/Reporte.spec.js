@@ -15,7 +15,10 @@ describe('Unit tests del reporte', () => {
     store = ReportUtil.getDefaultStore()
     wrapper = shallowMount(Report,
       {
-        store
+        store,
+        propsData: {
+          cuenta: { nombre: 'ahorros', fondos: 100 }
+        }
       })
   })
   it('Recibe las fechas con exito', () => {

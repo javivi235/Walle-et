@@ -1,26 +1,27 @@
-import { shallowMount } from '@vue/test-utils'
+import { shallowMount, createLocalVue } from '@vue/test-utils'
 import TestUtil from '../../src/Utils/TestUtil.js'
 import CrearWallet from '@/components/CrearWallet.vue'
-import VueRouter from 'vue-router'
 
-import Vue from 'vue'
 import Vuex from 'vuex'
-
-Vue.use(Vuex)
-Vue.use(VueRouter)
+import VueRouter from 'vue-router'
 
 suite('Cuenta, funcional', () => {
   let wrapper
   let store
   const assert = require('chai').assert
+  let localVue
   let router
 
   setup(function () {
-    store = TestUtil.getDefaultStore()
+    localVue = createLocalVue()
+    localVue.use(Vuex)
+    localVue.use(VueRouter)
     router = new VueRouter()
+    store = TestUtil.getDefaultStore()
     wrapper = shallowMount(CrearWallet,
       {
         store,
+        localVue,
         router
       })
     wrapper.setData({
@@ -45,14 +46,19 @@ describe('Cuentas invalidas', () => {
   let wrapper
   let store
   const assert = require('chai').assert
+  let localVue
   let router
 
   beforeEach(function () {
     store = TestUtil.getDefaultStore()
+    localVue = createLocalVue()
+    localVue.use(Vuex)
+    localVue.use(VueRouter)
     router = new VueRouter()
     wrapper = shallowMount(CrearWallet,
       {
         store,
+        localVue,
         router
       })
     wrapper.setData({
@@ -98,14 +104,19 @@ describe('Render crear cuenta', () => {
   let wrapper
   let store
   const assert = require('chai').assert
+  let localVue
   let router
 
   beforeEach(function () {
     store = TestUtil.getDefaultStore()
+    localVue = createLocalVue()
+    localVue.use(Vuex)
+    localVue.use(VueRouter)
     router = new VueRouter()
     wrapper = shallowMount(CrearWallet,
       {
         store,
+        localVue,
         router
       })
     wrapper.setData({
